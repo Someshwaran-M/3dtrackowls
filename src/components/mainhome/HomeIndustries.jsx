@@ -67,7 +67,7 @@ link: "/industries/publishers",
 function IndustryCell({ industry }) {
 return ( <article className="industry-card group min-w-0 bg-[rgba(10,26,46,0.5)] px-[31px] py-[37px] backdrop-blur-md">
 
-```
+
   <div className="industry-image-wrapper">
     <img
       src={industry.image}
