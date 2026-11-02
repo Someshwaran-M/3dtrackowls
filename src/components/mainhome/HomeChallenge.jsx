@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "motion/react";
 import { TextRoll } from "../ui/TextRoll";
@@ -65,11 +64,7 @@ export default function HomeChallenge() {
                 text-[#d1ed14]
               "
             >
-              <TextRoll
-                duration={0.5}
-                stagger={0.035}
-                delay={0.05}
-              >
+              <TextRoll duration={0.06} stagger={0.001}>
                 The challenge
               </TextRoll>
             </p>
@@ -89,20 +84,13 @@ export default function HomeChallenge() {
               "
             >
               <span className="block">
-                <TextRoll
-                  duration={0.6}
-                  stagger={0.025}
-                >
+                <TextRoll duration={0.06} stagger={0.001}>
                   Piracy moves fast.
                 </TextRoll>
               </span>
 
               <span className="block">
-                <TextRoll
-                  duration={0.6}
-                  stagger={0.025}
-                  delay={0.15}
-                >
+                <TextRoll duration={0.06} stagger={0.001}>
                   Your response should too.
                 </TextRoll>
               </span>
@@ -123,11 +111,7 @@ export default function HomeChallenge() {
                 lg:text-[20px]
               "
             >
-              <TextRoll
-                duration={0.4}
-                stagger={0.012}
-                delay={0.1}
-              >
+              <TextRoll duration={0.06} stagger={0.001}>
                 Unauthorized copies and brand misuse spread across channels. A
                 useful response connects discovery, verification and action.
               </TextRoll>
@@ -147,11 +131,11 @@ export default function HomeChallenge() {
           }}
           viewport={{
             once: false,
-            amount: 0.5,
+            amount: 0.1,
           }}
           transition={{
-            duration: 0.9,
-            ease: [0.22, 1, 0.36, 1],
+            duration: 0.15,
+            ease: "easeOut",
           }}
           style={{
             transformOrigin: "left",
@@ -182,9 +166,9 @@ export default function HomeChallenge() {
               key={challenge.number}
               initial={{
                 opacity: 0,
-                y: 55,
-                rotateX: 12,
-                scale: 0.95,
+                y: 12,
+                rotateX: 0,
+                scale: 0.99,
               }}
               whileInView={{
                 opacity: 1,
@@ -194,19 +178,20 @@ export default function HomeChallenge() {
               }}
               viewport={{
                 once: false,
-                amount: 0.2,
+                amount: 0.05,
               }}
               transition={{
-                duration: 0.8,
-                delay: index * 0.12,
-                ease: [0.22, 1, 0.36, 1],
+                duration: 0.15,
+                delay: index * 0.02,
+                ease: "easeOut",
               }}
               whileHover={{
-                y: -9,
-                rotateX: 3,
-                scale: 1.02,
+                y: -5,
+                rotateX: 2,
+                scale: 1.01,
                 transition: {
-                  duration: 0.3,
+                  duration: 0.12,
+                  ease: "easeOut",
                 },
               }}
               style={{
@@ -221,7 +206,7 @@ export default function HomeChallenge() {
                 bg-[rgba(10,26,46,0.5)]
                 p-6
                 backdrop-blur-md
-                transition-all duration-300
+                transition-all duration-150
                 hover:border-[#d1ed14]/50
                 hover:bg-[rgba(14,34,60,0.7)]
                 hover:shadow-[0_20px_45px_rgba(0,0,0,0.3),0_0_20px_rgba(209,237,20,0.07)]
@@ -237,7 +222,7 @@ export default function HomeChallenge() {
                   rounded-full
                   bg-[#d1ed14]/[0.035]
                   blur-[55px]
-                  transition-all duration-500
+                  transition-all duration-200
                   group-hover:bg-[#d1ed14]/[0.12]
                 "
               />
@@ -254,10 +239,7 @@ export default function HomeChallenge() {
                   transform: "translateZ(25px)",
                 }}
               >
-                <TextRoll
-                  duration={0.5}
-                  stagger={0.04}
-                >
+                <TextRoll duration={0.06} stagger={0.001}>
                   {challenge.number}
                 </TextRoll>
               </p>
@@ -278,11 +260,7 @@ export default function HomeChallenge() {
                   transform: "translateZ(35px)",
                 }}
               >
-                <TextRoll
-                  duration={0.55}
-                  stagger={0.025}
-                  delay={0.08}
-                >
+                <TextRoll duration={0.06} stagger={0.001}>
                   {challenge.title}
                 </TextRoll>
               </h3>
@@ -301,11 +279,7 @@ export default function HomeChallenge() {
                   transform: "translateZ(20px)",
                 }}
               >
-                <TextRoll
-                  duration={0.4}
-                  stagger={0.012}
-                  delay={0.12}
-                >
+                <TextRoll duration={0.06} stagger={0.001}>
                   {challenge.description}
                 </TextRoll>
               </p>
