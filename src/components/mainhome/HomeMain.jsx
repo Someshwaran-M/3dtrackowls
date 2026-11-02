@@ -33,7 +33,7 @@ export default function HomeMain() {
           <div className="galaxy-shade" aria-hidden="true" />
 
           <div className="galaxy-content mx-auto w-full max-w-[1500px] px-6 lg:px-12">
-            <div className="protection-copy pt-16 sm:pt-0">
+            <div className="protection-copy pt-8 sm:pt-0 lg:pt-24">
               <div className="protection-eyebrow flex items-center gap-3">
                 <span className="h-[1px] w-7 bg-[#d1ed14]" />
                 <span className="text-xs font-bold tracking-[2px] uppercase text-[#d1ed14]">
@@ -119,27 +119,34 @@ export default function HomeMain() {
           </div>
 
           {/* Sticky footer with universe stage and scroll cue */}
-          <div className="galaxy-footer mx-auto flex w-full max-w-[1500px] items-end justify-between px-6 pb-6 lg:px-12">
-            <div className="flex flex-col gap-1">
-              <span className="galaxy-kicker text-[11px] font-bold uppercase tracking-[2px] text-[#d1ed14]">
-                THE TRACKOWLS UNIVERSE
-              </span>
-              <span
-                data-voyage-label="true"
-                className="text-xs font-bold tracking-[2px] text-white sm:text-sm"
-              >
-                01 / A POINT OF LIGHT
-              </span>
-            </div>
+          <div className="galaxy-footer relative z-20 mx-auto mt-auto flex w-full max-w-[1500px] shrink-0 items-end justify-between gap-4  px-6 pb-2 pt-2 sm:px-8 sm:pb-8 lg:px-12 lg:pb-10">
 
-            <a
-              href="#beyond-voyage"
-              className="flex items-center gap-2 text-xs font-medium tracking-wide text-[#b7cbd9] transition duration-200 hover:text-[#d1ed14]"
-            >
-              <span>Scroll to explore</span>
-              <span aria-hidden="true" className="animate-bounce">↓</span>
-            </a>
-          </div>
+  {/* Left Content */}
+  <div className="flex min-w-0 flex-col gap-2">
+    <span className="galaxy-kicker text-[10px] font-bold uppercase tracking-[1.5px] text-[#d1ed14] sm:text-[11px] sm:tracking-[2px]">
+      THE TRACKOWLS UNIVERSE
+    </span>
+
+    <span
+      data-voyage-label="true"
+      className="text-[11px] font-bold tracking-[1.2px] text-white sm:text-sm sm:tracking-[2px]"
+    >
+      03 / A SPIRAL GALAXY
+    </span>
+  </div>
+
+  {/* Right Content */}
+  <a
+    href="#beyond-voyage"
+    className="flex shrink-0 items-center gap-2 pb-0.5 text-[11px] font-medium tracking-wide text-[#b7cbd9] transition duration-200 hover:text-[#d1ed14] sm:text-xs"
+  >
+    <span>Scroll to explore</span>
+    <span aria-hidden="true" className="animate-bounce">
+      ↓
+    </span>
+  </a>
+
+</div>
         </div>
       </section>
 

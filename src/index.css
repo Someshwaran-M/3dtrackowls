@@ -421,3 +421,37 @@ body.galaxy-site {
 .galaxy-site .workflow-section .workflow-number {
     color: #d1ed14 !important;
 }
+
+/* Galaxy hero layout */
+.galaxy-sticky {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  height: auto;
+}
+
+.galaxy-content {
+  flex: 1 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.galaxy-footer {
+  position: relative;
+  z-index: 5;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+/* Mobile spacing */
+@media (max-width: 640px) {
+  .galaxy-footer {
+    padding-top: 22px;
+    padding-bottom: 24px;
+    gap: 12px;
+  }
+
+  .galaxy-content {
+    padding-bottom: 28px;
+  }
+}
