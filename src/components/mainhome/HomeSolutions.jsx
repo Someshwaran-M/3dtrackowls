@@ -1,685 +1,826 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  Radio,
-  Play,
-  Globe,
-  FileCheck2,
-  ShieldCheck,
-  ScanSearch,
-  Search,
-  Eye,
-  ArrowUpRight,
+Radio,
+Play,
+Globe,
+FileCheck2,
+ShieldCheck,
+ScanSearch,
+Search,
+Eye,
+ArrowUpRight,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const solutions = [
-  {
-    number: "01",
-    title: "Live Streaming Protection",
-    description: "Act while the event still matters.",
-    image:
-      "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=85",
-    icon: Radio,
-    link: "/solutions/live-streaming-protection",
-  },
-  {
-    number: "02",
-    title: "OTT & VOD Protection",
-    description: "Protect every release window.",
-    image: "/solutions/videoott.jpeg",
-    icon: Play,
-    link: "/solutions/ott-vod-protection",
-  },
-  {
-    number: "03",
-    title: "Website & App Monitoring",
-    description: "See where your content travels.",
-    image: "/solutions/websitemonitoring.jpeg",
-    icon: Globe,
-    link: "/solutions/web-app-monitoring",
-  },
-  {
-    number: "04",
-    title: "Copyright Enforcement",
-    description: "Turn evidence into action.",
-    image:
-      "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=900&q=85",
-    icon: FileCheck2,
-    link: "/solutions/copyright-enforcement",
-  },
-  {
-    number: "05",
-    title: "Brand Protection",
-    description: "Defend the identity you built.",
-    image: "/brand.png",
-    icon: ShieldCheck,
-    link: "/solutions/brand-protection",
-  },
-  {
-    number: "06",
-    title: "Piracy Intelligence",
-    description: "Understand the patterns behind piracy.",
-    image: "/solutions/piracyintelligence.jpeg",
-    icon: ScanSearch,
-    link: "/solutions/piracy-intelligence",
-  },
-  {
-    number: "07",
-    title: "Marketplace & Counterfeit Monitoring",
-    description: "Investigate listings that misuse your brand.",
-    image: "/marketplacecounterfeitmonitoring.png",
-    icon: Search,
-    link: "/solutions/marketplace-counterfeit-monitoring",
-  },
-  {
-    number: "08",
-    title: "Domain & Impersonation Monitoring",
-    description: "Protect the identity behind your digital presence.",
-    image: "/impersonationmonitoring.png",
-    icon: Globe,
-    link: "/solutions/domain-impersonation-monitoring",
-  },
-  {
-    number: "09",
-    title: "Social Media & Video Protection",
-    description: "Follow infringement across public social channels.",
-    image: "/social.png",
-    icon: Eye,
-    link: "/solutions/social-media-video-protection",
-  },
+{
+number: "01",
+title: "Live Streaming Protection",
+description: "Act while the event still matters.",
+image:
+"https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=85",
+icon: Radio,
+link: "/solutions/live-streaming-protection",
+},
+{
+number: "02",
+title: "OTT & VOD Protection",
+description: "Protect every release window.",
+image: "/solutions/videoott.jpeg",
+icon: Play,
+link: "/solutions/ott-vod-protection",
+},
+{
+number: "03",
+title: "Website & App Monitoring",
+description: "See where your content travels.",
+image: "/solutions/websitemonitoring.jpeg",
+icon: Globe,
+link: "/solutions/web-app-monitoring",
+},
+{
+number: "04",
+title: "Copyright Enforcement",
+description: "Turn evidence into action.",
+image:
+"https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=900&q=85",
+icon: FileCheck2,
+link: "/solutions/copyright-enforcement",
+},
+{
+number: "05",
+title: "Brand Protection",
+description: "Defend the identity you built.",
+image: "/brand.png",
+icon: ShieldCheck,
+link: "/solutions/brand-protection",
+},
+{
+number: "06",
+title: "Piracy Intelligence",
+description: "Understand the patterns behind piracy.",
+image: "/solutions/piracyintelligence.jpeg",
+icon: ScanSearch,
+link: "/solutions/piracy-intelligence",
+},
+{
+number: "07",
+title: "Marketplace & Counterfeit Monitoring",
+description: "Investigate listings that misuse your brand.",
+image: "/marketplacecounterfeitmonitoring.png",
+icon: Search,
+link: "/solutions/marketplace-counterfeit-monitoring",
+},
+{
+number: "08",
+title: "Domain & Impersonation Monitoring",
+description: "Protect the identity behind your digital presence.",
+image: "/impersonationmonitoring.png",
+icon: Globe,
+link: "/solutions/domain-impersonation-monitoring",
+},
+{
+number: "09",
+title: "Social Media & Video Protection",
+description: "Follow infringement across public social channels.",
+image: "/social.png",
+icon: Eye,
+link: "/solutions/social-media-video-protection",
+},
 ];
 
-function SolutionCard({ solution, index }) {
-  const Icon = solution.icon;
+function SolutionCard({ solution }) {
+const Icon = solution.icon;
 
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 8 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.08 }}
-      transition={{ duration: 0.3, delay: (index % 3) * 0.04 }}
-      className={`solution-card ${
+return (
+<article
+className={`solution-card ${
         solution.image ? "has-image" : "no-image"
       }`}
-    >
-      {solution.image && (
-        <div className="solution-image">
-          <img
-            src={solution.image}
-            alt={solution.title}
-            loading="lazy"
-          />
-        </div>
-      )}
+>
+{solution.image && ( <div className="solution-image"> <img
+         src={solution.image}
+         alt={solution.title}
+         loading="lazy"
+       /> </div>
+)}
 
-      <span className="solution-corner" aria-hidden="true" />
 
-      <div className="solution-content">
-        <div className="solution-meta">
-          <Icon
-            size={17}
-            strokeWidth={1.6}
-            className="solution-icon"
-            aria-hidden="true"
-          />
+  <span className="solution-corner" aria-hidden="true" />
 
-          <span className="solution-number">
-            {solution.number}
-          </span>
-        </div>
+  <div className="solution-content">
+    <div className="solution-meta">
+      <Icon
+        size={17}
+        strokeWidth={1.6}
+        className="solution-icon"
+        aria-hidden="true"
+      />
 
-        <h3 className="solution-title">{solution.title}</h3>
+      <span className="solution-number">
+        {solution.number}
+      </span>
+    </div>
 
-        <p className="solution-description">
-          {solution.description}
-        </p>
+    <h3 className="solution-title">
+      {solution.title}
+    </h3>
 
-        <div className="solution-footer">
-          <Link to={solution.link} className="solution-link">
-            Explore solution
-            <ArrowUpRight size={11} strokeWidth={1.6} />
-          </Link>
-        </div>
-      </div>
-    </motion.article>
-  );
+    <p className="solution-description">
+      {solution.description}
+    </p>
+
+    <div className="solution-footer">
+      <Link
+        to={solution.link}
+        className="solution-link"
+      >
+        Explore solution
+        <ArrowUpRight size={11} strokeWidth={1.6} />
+      </Link>
+    </div>
+  </div>
+</article>
+
+
+);
 }
 
 export default function HomeSolutions() {
-  return (
-    <section id="home-solutions" className="solutions-section">
-      <style>{`
-        .solutions-section,
-        .solutions-section * {
-          box-sizing: border-box;
-        }
-
-        .solutions-section {
-          width: 100%;
-          overflow: hidden;
-          background: transparent;
-          color: #ffffff;
-          border-top: 1px solid rgba(171, 198, 215, 0.15);
-          border-bottom: 1px solid rgba(171, 198, 215, 0.15);
-          font-family: Roboto, Arial, sans-serif;
-        }
-
-        .solutions-container {
-          width: calc(100% - 64px);
-          max-width: 1380px;
-          margin: 0 auto;
-          padding: 58px 0 48px;
-        }
-
-        .solutions-header {
-          display: flex;
-          align-items: flex-end;
-          justify-content: space-between;
-          gap: 24px;
-          margin-bottom: 26px;
-        }
-
-        .solutions-eyebrow {
-          margin: 0 0 17px;
-          color: #d1ed14;
-          font-size: 12px;
-          font-weight: 700;
-          line-height: 1.3;
-          letter-spacing: 1.8px;
-          text-transform: uppercase;
-        }
-
-        .solutions-heading {
-          margin: 0;
-          color: #f8fafc;
-          font-size: 38px;
-          font-weight: 700;
-          line-height: 1.19;
-          letter-spacing: -1.25px;
-        }
-
-        .solutions-heading span {
-          display: block;
-        }
-
-        .solutions-view-all {
-          display: inline-flex;
-          align-items: center;
-          gap: 3px;
-          flex-shrink: 0;
-          margin-bottom: 4px;
-          padding-bottom: 5px;
-          border-bottom: 1px solid rgba(209, 237, 20, 0.4);
-          color: #d1ed14;
-          font-size: 12px;
-          text-decoration: none;
-        }
-
-        .solutions-view-all:hover {
-          border-color: #d1ed14;
-          color: #ffffff;
-        }
-
-        .solutions-grid {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          grid-auto-rows: 350px;
-          gap: 22px;
-          align-items: stretch;
-        }
-
-        .solution-card {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          min-width: 0;
-          height: 350px;
-          overflow: hidden;
-          border: 1px solid rgba(171, 198, 215, 0.2);
-          border-radius: 8px;
-          background: rgba(10, 26, 46, 0.65);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          transition: all 250ms ease;
-        }
-
-        .solution-card:hover {
-          border-color: rgba(209, 237, 20, 0.5);
-          background: rgba(14, 34, 60, 0.85);
-          transform: translateY(-2px);
-        }
-
-        .solution-image {
-          flex: 0 0 206px;
-          width: calc(100% - 35px);
-          height: 506px;
-          margin: 0;
-          overflow: hidden;
-          background: rgba(6, 18, 32, 0.7);
-          border-radius: 0 0 3px 0;
-        }
-
-        .solution-image img {
-          display: block;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center 45%;
-          transition: transform 350ms ease;
-        }
-
-        .solution-card:hover .solution-image img {
-          transform: scale(1.025);
-        }
-
-        .solution-content {
-          display: flex;
-          flex: 1;
-          flex-direction: column;
-          min-height: 0;
-          padding: 15px 17px 13px;
-        }
-
-        .solution-meta {
-          display: flex;
-          flex-shrink: 0;
-          align-items: center;
-          justify-content: space-between;
-          min-height: 17px;
-          margin-bottom: 16px;
-        }
-
-        .solution-icon {
-          flex-shrink: 0;
-          color: #d1ed14;
-        }
-
-        .solution-number {
-          color: #d1ed14;
-          font-size: 12px;
-          font-weight: 600;
-          line-height: 1;
-        }
-
-        .solution-title {
-          margin: 0;
-          color: #f8fafc;
-          font-size: 22px;
-          font-weight: 600;
-          line-height: 1.3;
-          letter-spacing: -0.3px;
-          overflow-wrap: anywhere;
-        }
-
-        .solution-description {
-          margin: 7px 0 0;
-          color: #b7cbd9;
-          font-size: 15px;
-          font-weight: 400;
-          line-height: 1.65;
-        }
-
-        .solution-footer {
-          margin-top: auto;
-          padding-top: 10px;
-        }
-
-        .solution-link {
-          display: inline-flex;
-          align-items: center;
-          gap: 3px;
-          width: fit-content;
-          max-width: 100%;
-          padding-bottom: 4px;
-          border-bottom: 1px solid #D5E3C6;
-          color: #5D8615;
-          font-size: 12px;
-          line-height: 1.4;
-          text-decoration: none;
-          transition: color 180ms ease, border-color 180ms ease;
-        }
-
-        .solution-link:hover {
-          color: #405F0B;
-          border-color: #638B15;
-        }
-
-        .solution-link svg {
-          flex-shrink: 0;
-          transition: transform 180ms ease;
-        }
-
-        .solution-link:hover svg {
-          transform: translate(2px, -2px);
-        }
-
-        .solution-corner {
-          position: absolute;
-          z-index: 2;
-          top: 9px;
-          right: 9px;
-          width: 12px;
-          height: 12px;
-          border-top: 1px solid #B6E1EE;
-          border-right: 1px solid #B6E1EE;
-          pointer-events: none;
-        }
-
-        .no-image .solution-content {
-          padding-top: 15px;
-        }
-
-        .mobile-view-all {
-          display: none;
-        }
-
-        /* Tablet */
-        @media (max-width: 900px) {
-          .solutions-container {
-            width: calc(100% - 48px);
-            padding-top: 48px;
-            padding-bottom: 42px;
-          }
-
-          .solutions-heading {
-            font-size: 36px;
-          }
-
-          .solutions-grid {
-            grid-auto-rows: 245px;
-            gap: 12px;
-          }
-
-          .solution-image {
-            flex-basis: 100px;
-            height: 100px;
-            width: calc(100% - 28px);
-          }
-
-          .solution-content {
-            padding: 14px 13px 12px;
-          }
-
-          .solution-meta {
-            margin-bottom: 13px;
-          }
-
-          .solution-title {
-            font-size: 20px;
-          }
-
-          .solution-description {
-            font-size: 14px;
-          }
-
-          .solution-link {
-            font-size: 12px;
-          }
-        }
-
-        /* Mobile */
-        @media (max-width: 620px) {
-          .solutions-container {
-            width: calc(100% - 32px);
-            padding-top: 36px;
-            padding-bottom: 32px;
-          }
-
-          .solutions-header {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 22px;
-          }
-
-          .solutions-eyebrow {
-            margin-bottom: 12px;
-            font-size: 11px;
-            letter-spacing: 1.4px;
-          }
-
-          .solutions-heading {
-            font-size: 30px;
-            line-height: 1.18;
-            letter-spacing: -0.8px;
-          }
-
-          .solutions-header > .solutions-view-all {
-            display: none;
-          }
-
-          .solutions-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            grid-auto-rows: auto;
-            gap: 14px;
-            align-items: stretch;
-          }
-
-          .solution-card {
-            height: auto;
-            min-height: 0;
-            align-self: stretch;
-          }
-
-          .solution-image {
-            flex: 0 0 auto;
-            width: calc(100% - 16px);
-            height: auto;
-            aspect-ratio: 1.5 / 1;
-            margin: 0;
-          }
-
-          .solution-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-          }
-
-          .solution-content {
-            flex: 1;
-            min-height: 0;
-            padding: 11px 10px 12px;
-          }
-
-          .solution-meta {
-            min-height: 17px;
-            margin-bottom: 10px;
-          }
-
-          .solution-icon {
-            width: 15px;
-            height: 15px;
-          }
-
-          .solution-number {
-            font-size: 11px;
-          }
-
-          .solution-title {
-            font-size: 18px;
-            line-height: 1.35;
-            letter-spacing: 0;
-            overflow-wrap: anywhere;
-            hyphens: auto;
-          }
-
-          .solution-description {
-            margin-top: 6px;
-            font-size: 13px;
-            line-height: 1.55;
-            overflow-wrap: anywhere;
-          }
-
-          .solution-footer {
-            margin-top: auto;
-            padding-top: 12px;
-          }
-
-          .solution-link {
-            gap: 3px;
-            font-size: 11px;
-            line-height: 1.45;
-          }
-
-          .solution-link svg {
-            width: 11px;
-            height: 11px;
-          }
-
-          .mobile-view-all {
-            display: flex;
-            justify-content: center;
-            margin-top: 22px;
-          }
-
-          .mobile-view-all .solutions-view-all {
-            font-size: 12px;
-          }
-        }
-
-        /* Narrow phones */
-        @media (max-width: 420px) {
-          .solutions-container {
-            width: calc(100% - 28px);
-            padding-top: 32px;
-            padding-bottom: 30px;
-          }
-
-          .solutions-heading {
-            font-size: 28px;
-            letter-spacing: -0.7px;
-          }
-
-          .solutions-grid {
-            grid-template-columns: minmax(0, 1fr);
-            grid-auto-rows: auto;
-            gap: 16px;
-          }
-
-          .solution-card {
-            width: 100%;
-            height: auto;
-            min-height: 0;
-          }
-
-          .solution-image {
-            flex: 0 0 auto;
-            width: calc(100% - 22px);
-            aspect-ratio: 1.9 / 1;
-            height: auto;
-          }
-
-          .solution-content {
-            padding: 13px 14px 14px;
-          }
-
-          .solution-meta {
-            margin-bottom: 11px;
-          }
-
-          .solution-title {
-            font-size: 18px;
-            line-height: 1.4;
-          }
-
-          .solution-description {
-            font-size: 13px;
-            line-height: 1.65;
-          }
-
-          .solution-link {
-            font-size: 12px;
-          }
-        }
-
-        /* Very small phones */
-        @media (max-width: 350px) {
-          .solutions-container {
-            width: calc(100% - 24px);
-          }
-
-          .solutions-grid {
-            gap: 13px;
-          }
-
-          .solution-content {
-            padding: 11px 10px 12px;
-          }
-
-          .solution-title {
-            font-size: 16px;
-          }
-
-          .solution-description {
-            font-size: 12px;
-          }
-
-          .solution-link {
-            font-size: 11px;
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .solution-card,
-          .solution-image img,
-          .solution-link {
-            transition: none;
-          }
-        }
-      `}</style>
-
-      <div className="solutions-container">
-        <motion.header
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.4 }}
-          className="solutions-header"
-        >
-          <div>
-            <p className="solutions-eyebrow">
-              Our solutions
-            </p>
-
-            <h2 className="solutions-heading">
-              Protection with a
-              <span>clear path to action.</span>
-            </h2>
-          </div>
-
-          <Link
-            to="/solutions"
-            className="solutions-view-all"
-          >
-            View all solutions
-            <ArrowUpRight size={13} />
-          </Link>
-        </motion.header>
-
-        <div className="solutions-grid">
-          {solutions.map((solution, index) => (
-            <SolutionCard
-              key={solution.number}
-              solution={solution}
-              index={index}
-            />
-          ))}
-        </div>
-
-        <div className="mobile-view-all">
-          <Link
-            to="/solutions"
-            className="solutions-view-all"
-          >
-            View all solutions
-            <ArrowUpRight size={13} />
-          </Link>
-        </div>
+return ( <section
+   id="home-solutions"
+   className="solutions-section"
+ > <style>{`
+
+
+    /* =================================
+       BASE SECTION
+    ================================= */
+
+    .solutions-section,
+    .solutions-section * {
+      box-sizing: border-box;
+    }
+
+    .solutions-section {
+      width: 100%;
+      overflow: clip;
+      background: transparent;
+      color: #ffffff;
+      border-top: 1px solid rgba(171, 198, 215, 0.15);
+      border-bottom: 1px solid rgba(171, 198, 215, 0.15);
+      font-family: Roboto, Arial, sans-serif;
+    }
+
+    .solutions-container {
+      width: calc(100% - 64px);
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 58px 0 48px;
+    }
+
+    /* =================================
+       HEADER
+    ================================= */
+
+    .solutions-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+
+    .solutions-eyebrow {
+      margin: 0 0 17px;
+      color: #d1ed14;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .solutions-heading {
+      margin: 0;
+      color: #f8fafc;
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.19;
+      letter-spacing: -1.25px;
+    }
+
+    .solutions-heading span {
+      display: block;
+    }
+
+    .solutions-view-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      flex-shrink: 0;
+      margin-bottom: 4px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid rgba(209, 237, 20, 0.4);
+      color: #d1ed14;
+      font-size: 12px;
+      text-decoration: none;
+    }
+
+    .solutions-view-all:hover {
+      border-color: #d1ed14;
+      color: #ffffff;
+    }
+
+    /* =================================
+       STICKY STACKING SYSTEM
+    ================================= */
+
+    .solutions-grid {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      gap: 0;
+      align-items: stretch;
+    }
+
+    .solution-reveal {
+      position: sticky;
+      top: 100px;
+      width: 100%;
+      height: 350px;
+      margin-bottom: 45px;
+      flex-shrink: 0;
+    }
+
+    /* Stacking order */
+
+    .solution-reveal:nth-child(1) {
+      z-index: 1;
+    }
+
+    .solution-reveal:nth-child(2) {
+      z-index: 2;
+    }
+
+    .solution-reveal:nth-child(3) {
+      z-index: 3;
+    }
+
+    .solution-reveal:nth-child(4) {
+      z-index: 4;
+    }
+
+    .solution-reveal:nth-child(5) {
+      z-index: 5;
+    }
+
+    .solution-reveal:nth-child(6) {
+      z-index: 6;
+    }
+
+    .solution-reveal:nth-child(7) {
+      z-index: 7;
+    }
+
+    .solution-reveal:nth-child(8) {
+      z-index: 8;
+    }
+
+    .solution-reveal:nth-child(9) {
+      z-index: 9;
+    }
+
+    /* =================================
+       ORIGINAL CARD DESIGN
+    ================================= */
+
+    .solution-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+      border: 1px solid rgba(171, 198, 215, 0.2);
+      border-radius: 8px;
+      background: rgba(10, 26, 46, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 250ms ease;
+    }
+
+    .solution-card:hover {
+      border-color: rgba(209, 237, 20, 0.5);
+      background: rgba(14, 34, 60, 0.85);
+      transform: translateY(-2px);
+    }
+
+    /* =================================
+       IMAGE
+    ================================= */
+
+    .solution-image {
+      flex: 0 0 206px;
+      width: calc(100% - 35px);
+      height: 506px;
+      margin: 0;
+      overflow: hidden;
+      background: rgba(6, 18, 32, 0.7);
+      border-radius: 0 0 3px 0;
+    }
+
+    .solution-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
+      transition: transform 350ms ease;
+    }
+
+    .solution-card:hover .solution-image img {
+      transform: scale(1.025);
+    }
+
+    /* =================================
+       CARD CONTENT
+    ================================= */
+
+    .solution-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      min-height: 0;
+      padding: 15px 17px 13px;
+    }
+
+    .solution-meta {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 17px;
+      margin-bottom: 16px;
+    }
+
+    .solution-icon {
+      flex-shrink: 0;
+      color: #d1ed14;
+    }
+
+    .solution-number {
+      color: #d1ed14;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .solution-title {
+      margin: 0;
+      color: #f8fafc;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.3px;
+      overflow-wrap: anywhere;
+    }
+
+    .solution-description {
+      margin: 7px 0 0;
+      color: #b7cbd9;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.65;
+    }
+
+    .solution-footer {
+      margin-top: auto;
+      padding-top: 10px;
+    }
+
+    .solution-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      width: fit-content;
+      max-width: 100%;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #D5E3C6;
+      color: #5D8615;
+      font-size: 12px;
+      line-height: 1.4;
+      text-decoration: none;
+      transition: color 180ms ease, border-color 180ms ease;
+    }
+
+    .solution-link:hover {
+      color: #405F0B;
+      border-color: #638B15;
+    }
+
+    .solution-link svg {
+      flex-shrink: 0;
+      transition: transform 180ms ease;
+    }
+
+    .solution-link:hover svg {
+      transform: translate(2px, -2px);
+    }
+
+    .solution-corner {
+      position: absolute;
+      z-index: 2;
+      top: 9px;
+      right: 9px;
+      width: 12px;
+      height: 12px;
+      border-top: 1px solid #B6E1EE;
+      border-right: 1px solid #B6E1EE;
+      pointer-events: none;
+    }
+
+    .no-image .solution-content {
+      padding-top: 15px;
+    }
+
+    .mobile-view-all {
+      display: none;
+    }
+
+    /* =================================
+       TABLET RESPONSIVE
+    ================================= */
+
+    @media (max-width: 900px) {
+
+      .solutions-container {
+        width: calc(100% - 48px);
+        padding-top: 48px;
+        padding-bottom: 42px;
+      }
+
+      .solutions-heading {
+        font-size: 36px;
+      }
+
+      .solution-reveal {
+        top: 85px;
+        height: 245px;
+        margin-bottom: 35px;
+      }
+
+      .solution-card {
+        height: 245px;
+      }
+
+      .solution-image {
+        flex-basis: 100px;
+        height: 100px;
+        width: calc(100% - 28px);
+      }
+
+      .solution-content {
+        padding: 14px 13px 12px;
+      }
+
+      .solution-meta {
+        margin-bottom: 13px;
+      }
+
+      .solution-title {
+        font-size: 20px;
+      }
+
+      .solution-description {
+        font-size: 14px;
+      }
+
+      .solution-link {
+        font-size: 12px;
+      }
+    }
+
+    /* =================================
+       MOBILE RESPONSIVE
+    ================================= */
+
+    @media (max-width: 620px) {
+
+      .solutions-container {
+        width: calc(100% - 32px);
+        padding-top: 36px;
+        padding-bottom: 32px;
+      }
+
+      .solutions-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 22px;
+      }
+
+      .solutions-eyebrow {
+        margin-bottom: 12px;
+        font-size: 11px;
+        letter-spacing: 1.4px;
+      }
+
+      .solutions-heading {
+        font-size: 30px;
+        line-height: 1.18;
+        letter-spacing: -0.8px;
+      }
+
+      .solutions-header > .solutions-view-all {
+        display: none;
+      }
+
+      /* Mobile sticky stacking */
+
+      .solutions-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        align-items: stretch;
+      }
+
+      .solution-reveal {
+        position: sticky;
+        top: 75px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 25px;
+        flex-shrink: 0;
+      }
+
+      .solution-card {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+      }
+
+      .solution-image {
+        flex: 0 0 auto;
+        width: calc(100% - 16px);
+        height: auto;
+        aspect-ratio: 1.5 / 1;
+        margin: 0;
+      }
+
+      .solution-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .solution-content {
+        flex: 1;
+        min-height: 0;
+        padding: 11px 10px 12px;
+      }
+
+      .solution-meta {
+        min-height: 17px;
+        margin-bottom: 10px;
+      }
+
+      .solution-icon {
+        width: 15px;
+        height: 15px;
+      }
+
+      .solution-number {
+        font-size: 11px;
+      }
+
+      .solution-title {
+        font-size: 18px;
+        line-height: 1.35;
+        letter-spacing: 0;
+        overflow-wrap: anywhere;
+        hyphens: auto;
+      }
+
+      .solution-description {
+        margin-top: 6px;
+        font-size: 13px;
+        line-height: 1.55;
+        overflow-wrap: anywhere;
+      }
+
+      .solution-footer {
+        margin-top: auto;
+        padding-top: 12px;
+      }
+
+      .solution-link {
+        gap: 3px;
+        font-size: 11px;
+        line-height: 1.45;
+      }
+
+      .solution-link svg {
+        width: 11px;
+        height: 11px;
+      }
+
+      .mobile-view-all {
+        display: flex;
+        justify-content: center;
+        margin-top: 22px;
+      }
+
+      .mobile-view-all .solutions-view-all {
+        font-size: 12px;
+      }
+    }
+
+    /* =================================
+       NARROW PHONES
+    ================================= */
+
+    @media (max-width: 420px) {
+
+      .solutions-container {
+        width: calc(100% - 28px);
+        padding-top: 32px;
+        padding-bottom: 30px;
+      }
+
+      .solutions-heading {
+        font-size: 28px;
+        letter-spacing: -0.7px;
+      }
+
+      .solution-reveal {
+        top: 65px;
+        margin-bottom: 22px;
+      }
+
+      .solution-card {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+      }
+
+      .solution-image {
+        flex: 0 0 auto;
+        width: calc(100% - 22px);
+        aspect-ratio: 1.9 / 1;
+        height: auto;
+      }
+
+      .solution-content {
+        padding: 13px 14px 14px;
+      }
+
+      .solution-meta {
+        margin-bottom: 11px;
+      }
+
+      .solution-title {
+        font-size: 18px;
+        line-height: 1.4;
+      }
+
+      .solution-description {
+        font-size: 13px;
+        line-height: 1.65;
+      }
+
+      .solution-link {
+        font-size: 12px;
+      }
+    }
+
+    /* =================================
+       VERY SMALL PHONES
+    ================================= */
+
+    @media (max-width: 350px) {
+
+      .solutions-container {
+        width: calc(100% - 24px);
+      }
+
+      .solution-content {
+        padding: 11px 10px 12px;
+      }
+
+      .solution-title {
+        font-size: 16px;
+      }
+
+      .solution-description {
+        font-size: 12px;
+      }
+
+      .solution-link {
+        font-size: 11px;
+      }
+    }
+
+    /* =================================
+       ACCESSIBILITY
+    ================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .solution-card,
+      .solution-image img,
+      .solution-link {
+        transition: none;
+      }
+    }
+
+  `}</style>
+
+  <div className="solutions-container">
+
+    {/* HEADER */}
+
+    <motion.header
+      initial={{ opacity: 0, y: 8 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.4 }}
+      className="solutions-header"
+    >
+      <div>
+        <p className="solutions-eyebrow">
+          Our solutions
+        </p>
+
+        <h2 className="solutions-heading">
+          Protection with a
+          <span>clear path to action.</span>
+        </h2>
       </div>
-    </section>
-  );
+
+      <Link
+        to="/solutions"
+        className="solutions-view-all"
+      >
+        View all solutions
+        <ArrowUpRight size={13} />
+      </Link>
+    </motion.header>
+
+    {/* STICKY STACKING CARDS */}
+
+    <div className="solutions-grid">
+
+      {solutions.map((solution, index) => (
+        <motion.div
+          key={solution.number}
+          className="solution-reveal"
+          style={{
+            zIndex: index + 1,
+          }}
+          initial={{
+            opacity: 0,
+            y: 70,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.1,
+          }}
+          transition={{
+            duration: 0.7,
+            delay: 0.05,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        >
+          <SolutionCard solution={solution} />
+        </motion.div>
+      ))}
+
+    </div>
+
+    {/* MOBILE VIEW ALL */}
+
+    <div className="mobile-view-all">
+      <Link
+        to="/solutions"
+        className="solutions-view-all"
+      >
+        View all solutions
+        <ArrowUpRight size={13} />
+      </Link>
+    </div>
+
+  </div>
+</section>
+
+
+);
 }
