@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const assets = [
   {
@@ -30,9 +30,17 @@ const assets = [
   },
 ];
 
-function AssetCard({ asset }) {
+function AssetCard({ asset, index, isVisible, cardRef }) {
+  const direction = index === 1 ? "left" : "right";
+
   return (
-    <article className="group flex min-w-0 flex-col overflow-hidden rounded-[11px] border border-[rgba(171,198,215,0.22)] bg-[rgba(10,26,46,0.65)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[#d1ed14]/60 hover:bg-[rgba(14,34,60,0.85)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.4)]">
+    <article
+      ref={cardRef}
+      data-direction={direction}
+      className={`asset-card-reveal ${
+        isVisible ? "asset-card-visible" : ""
+      } group flex min-w-0 flex-col overflow-hidden rounded-[11px] border border-[rgba(171,198,215,0.22)] bg-[rgba(10,26,46,0.65)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[#d1ed14]/60 hover:bg-[rgba(14,34,60,0.85)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.4)]`}
+    >
       {/* Image */}
       <div className="relative h-[224px] shrink-0 overflow-hidden">
         <img
@@ -74,11 +82,111 @@ function AssetCard({ asset }) {
 }
 
 export default function HomeAssets() {
+  const [visibleCards, setVisibleCards] = useState([]);
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    const cards = cardRefs.current.filter(Boolean);
+
+    if (!("IntersectionObserver" in window)) {
+      setVisibleCards([0, 1, 2]);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number(entry.target.dataset.cardIndex);
+
+          if (entry.isIntersecting) {
+            setVisibleCards((previous) =>
+              previous.includes(index)
+                ? previous
+                : [...previous, index]
+            );
+          } else {
+            setVisibleCards((previous) =>
+              previous.filter((item) => item !== index)
+            );
+          }
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
+
+    cards.forEach((card) => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       id="protected-assets"
       className="relative w-full overflow-hidden border-y border-[rgba(171,198,215,0.15)] bg-transparent font-['Roboto',Arial,sans-serif] text-white"
     >
+      <style>{`
+        /* Scroll-triggered card animations */
+
+        .asset-card-reveal {
+          opacity: 0;
+          transition:
+            opacity 850ms ease,
+            transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+          will-change: transform, opacity;
+        }
+
+        /* First and third cards: Right to left */
+
+        .asset-card-reveal[data-direction="right"] {
+          transform: translate3d(100px, 0, 0);
+        }
+
+        /* Second card: Left to right */
+
+        .asset-card-reveal[data-direction="left"] {
+          transform: translate3d(-100px, 0, 0);
+        }
+
+        /* Visible state */
+
+        .asset-card-reveal.asset-card-visible {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+
+        /* Respect reduced motion preferences */
+
+        @media (prefers-reduced-motion: reduce) {
+          .asset-card-reveal,
+          .asset-card-reveal[data-direction="right"],
+          .asset-card-reveal[data-direction="left"] {
+            opacity: 1;
+            transform: none;
+            transition: none;
+            will-change: auto;
+          }
+        }
+
+        /* Mobile animation adjustment */
+
+        @media (max-width: 640px) {
+          .asset-card-reveal[data-direction="right"] {
+            transform: translate3d(55px, 0, 0);
+          }
+
+          .asset-card-reveal[data-direction="left"] {
+            transform: translate3d(-55px, 0, 0);
+          }
+
+          .asset-card-reveal.asset-card-visible {
+            transform: translate3d(0, 0, 0);
+          }
+        }
+      `}</style>
+
       <div className="mx-auto w-full max-w-[1600px] px-6 py-[72px] sm:px-10 sm:py-[78px] lg:px-[4.5%] lg:py-[96px]">
         {/* Section heading */}
         <div className="mb-[44px] grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-end lg:gap-[70px]">
@@ -101,10 +209,22 @@ export default function HomeAssets() {
           </p>
         </div>
 
-        {/* Three equal translucent cards */}
+        {/* Three animated cards */}
         <div className="grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-          {assets.map((asset) => (
-            <AssetCard key={asset.title} asset={asset} />
+          {assets.map((asset, index) => (
+            <AssetCard
+              key={asset.title}
+              asset={asset}
+              index={index}
+              isVisible={visibleCards.includes(index)}
+              cardRef={(element) => {
+                cardRefs.current[index] = element;
+
+                if (element) {
+                  element.dataset.cardIndex = index;
+                }
+              }}
+            />
           ))}
         </div>
       </div>
