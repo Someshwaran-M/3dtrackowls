@@ -5,8 +5,8 @@ import { motion, useReducedMotion } from "motion/react";
 export function TextRoll({
   children,
   className = "",
-  duration = 0.55,
-  stagger = 0.025,
+  duration = 0.12,
+  stagger = 0.003,
   delay = 0,
   once = false,
   onAnimationComplete,
@@ -47,7 +47,7 @@ export function TextRoll({
             transition={{
               duration: reduceMotion ? 0 : duration,
               delay: delay + index * stagger,
-              ease: [0.22, 1, 0.36, 1],
+              ease: "easeOut",
             }}
             className="
               absolute inset-0
@@ -76,7 +76,7 @@ export function TextRoll({
             transition={{
               duration: reduceMotion ? 0 : duration,
               delay: delay + index * stagger,
-              ease: [0.22, 1, 0.36, 1],
+              ease: "easeOut",
             }}
             onAnimationComplete={
               index === letters.length - 1
@@ -102,3 +102,4 @@ export function TextRoll({
 }
 
 export default TextRoll;
+
