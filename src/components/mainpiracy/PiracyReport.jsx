@@ -71,19 +71,9 @@ const sources = [
   },
 ];
 
-const goToSection = (id) => {
-  document.getElementById(id)?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-
-  setActiveSection(id);
-  setMenuOpen(false);
-};
-
 function Eyebrow({ children }) {
   return (
-    <p className="mb-3 text-[11px] sm:text-xs font-bold uppercase tracking-[2px] text-[#617D17]">
+    <p className="mb-3 text-[11px] sm:text-xs font-bold uppercase tracking-[2px] text-[#A7C96A]">
       {children}
     </p>
   );
@@ -91,11 +81,11 @@ function Eyebrow({ children }) {
 
 function Perspective({ children }) {
   return (
-    <aside className="mt-7 border-l-2 border-[#8BB630] bg-[#EDF3E8] px-5 py-4 sm:px-6">
-      <p className="mb-2 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[1.7px] text-[#15334E]">
+    <aside className="mt-7 border-l-2 border-[#8BB630] bg-[rgba(139,182,48,0.10)] px-5 py-4 sm:px-6">
+      <p className="mb-2 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[1.7px] text-[#F2F6EF]">
         TrackOwls perspective
       </p>
-      <p className="text-sm sm:text-[15px] leading-[1.85] text-[#15334E]">
+      <p className="text-sm sm:text-[15px] leading-[1.85] text-[#F2F6EF]">
         {children}
       </p>
     </aside>
@@ -106,15 +96,15 @@ function ReportSection({ id, eyebrow, title, children, perspective }) {
   return (
     <section
       id={id}
-      className="scroll-mt-28 border-t border-[#D5E1ED] py-8 sm:py-10"
+      className="scroll-mt-28 border-t border-[rgba(190,210,190,0.16)] py-8 sm:py-10"
     >
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
 
-      <h2 className="mb-4 text-[27px] sm:text-[32px] lg:text-[34px] font-bold leading-[1.2] tracking-[-0.7px] text-[#15334E]">
+      <h2 className="mb-4 text-[27px] sm:text-[32px] lg:text-[34px] font-bold leading-[1.2] tracking-[-0.7px] text-[#F2F6EF]">
         {title}
       </h2>
 
-      <div className="space-y-5 text-sm sm:text-[15px] leading-[1.9] text-[#15334E]">
+      <div className="space-y-5 text-sm sm:text-[15px] leading-[1.9] text-[#F2F6EF]">
         {children}
       </div>
 
@@ -126,10 +116,10 @@ function ReportSection({ id, eyebrow, title, children, perspective }) {
 function ReportTopic({ title, children }) {
   return (
     <div>
-      <h3 className="mb-2 text-[15px] sm:text-base font-semibold leading-snug text-[#15334E]">
+      <h3 className="mb-2 text-[15px] sm:text-base font-semibold leading-snug text-[#F2F6EF]">
         {title}
       </h3>
-      <p className="text-[13px] sm:text-sm leading-[1.9] text-[#45637F]">
+      <p className="text-[13px] sm:text-sm leading-[1.9] text-[#B9C7BB]">
         {children}
       </p>
     </div>
@@ -190,23 +180,23 @@ function PiracyReport() {
   return (
     <main
       id="piracy-report-content"
-      className="min-h-screen bg-[#EAF3F9] font-['Roboto',sans-serif] text-[#15334E]"
+      className="relative min-h-screen bg-transparent font-['Roboto',sans-serif] text-[#F2F6EF]"
     >
-      <div className="mx-auto max-w-[1400px]  px-4 py-16 sm:px-6 sm:py-12 lg:px-8">
+      <div className="mx-auto max-w-[1400px] px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
         {/* Mobile table of contents */}
         <div className="mb-6 lg:hidden">
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
-            className="flex w-full items-center justify-between border border-[#D5E1ED] border-t-2 border-t-[#8BB630] bg-[#EEF3E9] px-4 py-4 text-left text-sm font-bold"
+            className="flex w-full items-center justify-between border border-[rgba(190,210,190,0.16)] border-t-2 border-t-[#8BB630] bg-[rgba(21,32,25,0.88)] px-4 py-4 text-left text-sm font-bold"
           >
             <span>IN THIS REPORT</span>
             
           </button>
 
           {menuOpen && (
-            <nav className="border border-t-0 border-[#D5E1ED] bg-[#E2E9E5] p-3">
+            <nav className="border border-t-0 border-[rgba(190,210,190,0.16)] bg-[rgba(21,32,25,0.96)] p-3">
               {reportSections.map((section) => (
                 <button
                   key={section.id}
@@ -214,8 +204,8 @@ function PiracyReport() {
                   onClick={() => goToSection(section.id)}
                   className={`block w-full px-3 py-3 text-left text-[13px] transition-colors ${
                     activeSection === section.id
-                      ? "bg-[#EDF3E8] font-bold text-[#648A13]"
-                      : "text-[#45637F] hover:text-[#648A13]"
+                      ? "bg-[rgba(139,182,48,0.14)] font-bold text-[#A8D45A]"
+                      : "text-[#B9C7BB] hover:text-[#8BB630]"
                   }`}
                 >
                   {section.label}
@@ -225,7 +215,7 @@ function PiracyReport() {
               <button
                 type="button"
                 onClick={downloadReport}
-                className="mt-2 border-t border-[#D5E1ED] px-3 pt-4 text-[13px] font-semibold text-[#648A13] underline decoration-[#8BB630] underline-offset-4"
+                className="mt-2 border-t border-[rgba(190,210,190,0.16)] px-3 pt-4 text-[13px] font-semibold text-[#8BB630] underline decoration-[#8BB630] underline-offset-4"
               >
                 Download PDF →
               </button>
@@ -235,8 +225,8 @@ function PiracyReport() {
 
         <div className="grid grid-cols-1 items-start gap-7 lg:grid-cols-[185px_minmax(0,1fr)] lg:gap-10 xl:grid-cols-[205px_minmax(0,1fr)] xl:gap-14">
           {/* Desktop sticky sidebar */}
-          <aside className="sticky top-28 hidden max-h-[calc(100vh-8rem)] self-start overflow-y-auto border-t-2 border-[#8BB630] bg-[#EEF3E9] px-4 py-5 lg:block">
-            <p className="mb-4 text-[11px] font-extrabold uppercase tracking-[1.5px] text-[#617D17]">
+          <aside className="sticky top-28 hidden max-h-[calc(100vh-8rem)] self-start overflow-y-auto border-t-2 border-[#8BB630] bg-[rgba(21,32,25,0.88)] px-4 py-5 lg:block">
+            <p className="mb-4 text-[11px] font-extrabold uppercase tracking-[1.5px] text-[#A7C96A]">
               In this report
             </p>
 
@@ -248,8 +238,8 @@ function PiracyReport() {
                   onClick={() => goToSection(section.id)}
                   className={`block w-full py-2 text-left text-[12px] leading-[1.6] transition-colors ${
                     activeSection === section.id
-                      ? "font-bold text-[#648A13]"
-                      : "text-[#45637F] hover:text-[#648A13]"
+                      ? "font-bold text-[#8BB630]"
+                      : "text-[#B9C7BB] hover:text-[#8BB630]"
                   }`}
                 >
                   {section.label}
@@ -260,7 +250,7 @@ function PiracyReport() {
             <button
               type="button"
               onClick={downloadReport}
-              className="mt-4 border-b border-[#8BB630] pb-1 text-left text-[12px] font-medium text-[#648A13] transition-colors hover:text-[#15334E]"
+              className="mt-4 border-b border-[#8BB630] pb-1 text-left text-[12px] font-medium text-[#8BB630] transition-colors hover:text-[#F2F6EF]"
             >
               Download PDF →
             </button>
@@ -272,20 +262,20 @@ function PiracyReport() {
             <header className="pb-8">
               <Eyebrow>Editorial purpose</Eyebrow>
 
-              <h1 className="max-w-[800px] text-[36px] sm:text-[46px] lg:text-[54px] font-bold leading-[1.16] tracking-[-1.1px] sm:tracking-[-1.5px] text-[#15334E]">
+              <h1 className="max-w-[800px] text-[36px] sm:text-[46px] lg:text-[54px] font-bold leading-[1.16] tracking-[-1.1px] sm:tracking-[-1.5px] text-[#F2F6EF]">
                 Clear evidence.
                 <br />
                 Better protection decisions.
               </h1>
 
-              <p className="mt-4 max-w-[900px] text-sm sm:text-base leading-[1.95] text-[#45637F]">
+              <p className="mt-4 max-w-[900px] text-sm sm:text-base leading-[1.95] text-[#B9C7BB]">
                 This TrackOwls report brings together attributed secondary
                 research and original operational guidance for rights holders.
                 It is designed to help you ask better questions about piracy
                 exposure, commercial risk and enforcement outcomes.
               </p>
 
-              <p className="mt-4 text-xs sm:text-sm leading-[1.9] text-[#617D17]">
+              <p className="mt-4 text-xs sm:text-sm leading-[1.9] text-[#A7C96A]">
                 This is an editorial synthesis, not a TrackOwls survey or a
                 client-results study. Research figures retain their original
                 dates and scope.
@@ -346,7 +336,7 @@ function PiracyReport() {
                 unrelated estimates be combined into one market-loss figure.
               </p>
 
-              <div className="grid grid-cols-1 border-b-2 border-[#8BB630] bg-[#102D45] text-white sm:grid-cols-3">
+              <div className="grid grid-cols-1 border-b-2 border-[#8BB630] bg-[#152019] text-white sm:grid-cols-3">
                 {[
                   {
                     value: "216.3bn",
@@ -368,7 +358,7 @@ function PiracyReport() {
                     key={metric.source}
                     className="border-b border-white/15 px-4 py-5 sm:border-b-0 sm:border-r sm:px-3 lg:px-4"
                   >
-                    <p className="text-[25px] sm:text-[24px] lg:text-[27px] font-extrabold tracking-[-0.5px] text-[#D5F51F]">
+                    <p className="text-[25px] sm:text-[24px] lg:text-[27px] font-extrabold tracking-[-0.5px] text-[#8BB630]">
                       {metric.value}
                     </p>
                     <p className="mt-3 text-xs sm:text-sm font-semibold leading-relaxed">
@@ -376,7 +366,7 @@ function PiracyReport() {
                     </p>
                     <a
                       href="#methodology-sources"
-                      className="mt-3 inline-block text-[11px] sm:text-xs text-[#D1DEEA] underline underline-offset-2 hover:text-[#D5F51F]"
+                      className="mt-3 inline-block text-[11px] sm:text-xs text-[#D5DED3] underline underline-offset-2 hover:text-[#8BB630]"
                     >
                       Source {metric.source}
                     </a>
@@ -630,7 +620,7 @@ function PiracyReport() {
                 channels as fully monitored.
               </ReportTopic>
 
-              <div className="mt-6 divide-y divide-[#D5E1ED] border-y border-[#D5E1ED]">
+              <div className="mt-6 divide-y divide-[rgba(190,210,190,0.16)] border-y border-[rgba(190,210,190,0.16)]">
                 {[
                   [
                     "Verified sources",
@@ -661,10 +651,10 @@ function PiracyReport() {
                     key={label}
                     className="grid grid-cols-1 gap-1.5 py-4 sm:grid-cols-[170px_minmax(0,1fr)] sm:gap-5"
                   >
-                    <h3 className="text-sm font-bold text-[#15334E]">
+                    <h3 className="text-sm font-bold text-[#F2F6EF]">
                       {label}
                     </h3>
-                    <p className="text-[13px] sm:text-sm leading-[1.9] text-[#45637F]">
+                    <p className="text-[13px] sm:text-sm leading-[1.9] text-[#B9C7BB]">
                       {description}
                     </p>
                   </div>
@@ -735,14 +725,14 @@ function PiracyReport() {
               <div className="space-y-4 py-2">
                 {sources.map((source) => (
                   <div key={source.number} className="flex gap-2">
-                    <span className="shrink-0 text-[13px] font-semibold text-[#617D17]">
+                    <span className="shrink-0 text-[13px] font-semibold text-[#A7C96A]">
                       {source.number}
                     </span>
                     <a
                       href={source.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-[13px] sm:text-sm leading-[1.8] text-[#15334E] underline decoration-[#8BB630] underline-offset-4 transition-colors hover:text-[#648A13]"
+                      className="text-[13px] sm:text-sm leading-[1.8] text-[#F2F6EF] underline decoration-[#8BB630] underline-offset-4 transition-colors hover:text-[#8BB630]"
                     >
                       {source.title}
                     </a>
@@ -750,7 +740,7 @@ function PiracyReport() {
                 ))}
               </div>
 
-              <p className="text-xs sm:text-sm leading-[1.9] text-[#617D17]">
+              <p className="text-xs sm:text-sm leading-[1.9] text-[#A7C96A]">
                 Original TrackOwls editorial report · October 2026. External
                 research is attributed for context; no research partnership
                 or affiliation is implied.
@@ -759,14 +749,14 @@ function PiracyReport() {
               <button
                 type="button"
                 onClick={downloadReport}
-                className="mt-3 inline-flex min-h-[46px] items-center justify-center bg-[#648A13] px-5 py-3 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#7C9D18] focus:outline-none focus:ring-2 focus:ring-[#8BB630] focus:ring-offset-2"
+                className="mt-3 inline-flex min-h-[46px] items-center justify-center bg-[#8BB630] px-5 py-3 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#739A25] focus:outline-none focus:ring-2 focus:ring-[#8BB630] focus:ring-offset-2"
               >
                 Download the complete report
               </button>
             </ReportSection>
 
-            <footer className="border-t border-[#D5E1ED] py-6">
-              <div className="flex flex-col justify-between gap-3 text-xs text-[#617D17] sm:flex-row sm:items-center">
+            <footer className="border-t border-[rgba(190,210,190,0.16)] py-6">
+              <div className="flex flex-col justify-between gap-3 text-xs text-[#A7C96A] sm:flex-row sm:items-center">
                 <span>
                   © {new Date().getFullYear()} TrackOwls Anti-Piracy Private
                   Limited
@@ -774,7 +764,7 @@ function PiracyReport() {
                 <button
                   type="button"
                   onClick={() => goToSection("executive-summary")}
-                  className="self-start font-semibold text-[#648A13] underline decoration-[#8BB630] underline-offset-4 hover:text-[#15334E] sm:self-auto"
+                  className="self-start font-semibold text-[#8BB630] underline decoration-[#8BB630] underline-offset-4 hover:text-[#F2F6EF] sm:self-auto"
                 >
                   Back to report start ↑
                 </button>
