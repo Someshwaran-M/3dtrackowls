@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import {
   Radio,
@@ -11,15 +10,11 @@ import {
   Eye,
   Pause,
   ArrowRight,
-  CheckCircle2,
   Activity,
   Radar,
-  Monitor,
-  RotateCcw,
-  CircleDot,
 } from "lucide-react";
 
-const LIME = "#D5F51F";
+const LIME = "#8BB630";
 
 const solutions = [
   {
@@ -217,16 +212,17 @@ function SolutionIllustration({ solution, activeStep, paused }) {
               height="9"
               patternUnits="userSpaceOnUse"
             >
-              <circle cx="2" cy="2" r="1.5" fill="#638BA2" />
+              <circle cx="2" cy="2" r="1.5" fill="#8BB630" />
             </pattern>
+
             <linearGradient id="smMapFade" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#A8C8D9" stopOpacity=".08" />
-              <stop offset="50%" stopColor="#A8C8D9" stopOpacity=".5" />
-              <stop offset="100%" stopColor="#A8C8D9" stopOpacity=".08" />
+              <stop offset="0%" stopColor="#8BB630" stopOpacity=".08" />
+              <stop offset="50%" stopColor="#8BB630" stopOpacity=".5" />
+              <stop offset="100%" stopColor="#8BB630" stopOpacity=".08" />
             </linearGradient>
           </defs>
 
-          <g fill="url(#smDots)" opacity=".88">
+          <g fill="url(#smDots)" opacity=".75">
             <path d="M60 83 L93 60 135 66 160 92 145 117 116 120 106 146 80 139 66 113Z" />
             <path d="M130 153 L163 168 177 203 161 250 144 278 127 236 137 204Z" />
             <path d="M251 70 L293 55 337 66 361 88 345 106 310 103 285 125 260 104Z" />
@@ -244,19 +240,20 @@ function SolutionIllustration({ solution, activeStep, paused }) {
             stroke="#8BB630"
             strokeWidth="1.4"
             strokeDasharray="5 10"
-            opacity=".6"
+            opacity=".7"
             className="sm-orbit sm-orbit-one"
           />
+
           <ellipse
             cx="350"
             cy="164"
             rx="172"
             ry="68"
             fill="none"
-            stroke="#77A5B9"
+            stroke="#8BB630"
             strokeWidth="1"
             strokeDasharray="3 9"
-            opacity=".65"
+            opacity=".45"
             className="sm-orbit sm-orbit-two"
           />
 
@@ -275,22 +272,34 @@ function SolutionIllustration({ solution, activeStep, paused }) {
       </div>
 
       {/* Floating source cards */}
-      <div className={`sm-source sm-source-left ${activeStep === 0 ? "sm-source-active" : ""}`}>
+      <div
+        className={`sm-source sm-source-left ${
+          activeStep === 0 ? "sm-source-active" : ""
+        }`}
+      >
         <span className="sm-source-icon">
           <ShieldCheck size={15} />
         </span>
+
         <span className="sm-source-label">{solution.left}</span>
+
         <div className="sm-source-lines">
           <i />
           <i />
         </div>
       </div>
 
-      <div className={`sm-source sm-source-right ${activeStep === 1 ? "sm-source-active" : ""}`}>
+      <div
+        className={`sm-source sm-source-right ${
+          activeStep === 1 ? "sm-source-active" : ""
+        }`}
+      >
         <span className="sm-source-icon">
           <Globe size={15} />
         </span>
+
         <span className="sm-source-label">{solution.right}</span>
+
         <div className="sm-source-lines">
           <i />
           <i />
@@ -300,29 +309,42 @@ function SolutionIllustration({ solution, activeStep, paused }) {
       {/* Central scan */}
       <div className="sm-center-orbit">
         <div className="sm-center-ring" />
+
         <div className="sm-center">
           <CenterIcon size={38} strokeWidth={1.7} />
           <span>{solution.center}</span>
         </div>
       </div>
 
-      <div className={`sm-source sm-source-bottom ${activeStep === 2 ? "sm-source-active" : ""}`}>
+      <div
+        className={`sm-source sm-source-bottom ${
+          activeStep === 2 ? "sm-source-active" : ""
+        }`}
+      >
         <span className="sm-source-icon">
           <Activity size={15} />
         </span>
+
         <span className="sm-source-label">{solution.bottom}</span>
+
         <div className="sm-signal-bars" aria-hidden="true">
           {Array.from({ length: 7 }, (_, index) => (
-            <i key={index} style={{ animationDelay: `${index * 0.09}s` }} />
+            <i
+              key={index}
+              style={{ animationDelay: `${index * 0.09}s` }}
+            />
           ))}
         </div>
       </div>
 
+      {/* Visual status */}
       <div className="sm-visual-status">
         <span className="sm-status-icon">
           <Search size={15} />
         </span>
+
         <span>{solution.status}</span>
+
         <div className="sm-progress-track">
           <div
             className="sm-progress-fill"
@@ -357,23 +379,52 @@ export default function SolutionsMotion() {
     setActiveStep(0);
   };
 
+  const solutionLinks = [
+    "/solutions/live-streaming-protection",
+    "/solutions/ott-vod-protection",
+    "/solutions/website-app-monitoring",
+    "/solutions/copyright-enforcement",
+    "/solutions/brand-protection",
+    "/solutions/piracy-intelligence",
+    "/solutions/marketplace-counterfeit-monitoring",
+    "/solutions/domain-impersonation-monitoring",
+    "/solutions/social-media-video-protection",
+  ];
+
   return (
     <section className="solutions-motion relative w-full overflow-hidden font-['Roboto',sans-serif]">
       <style>{`
+
+        /* =========================================
+           MAIN SECTION
+        ========================================= */
+
         .solutions-motion {
-          --sm-ink: #15334E;
-          --sm-muted: #536D82;
-          --sm-lime: #D5F51F;
-          --sm-green: #648A13;
-          --sm-line: #B9CFDC;
+          --sm-ink: #FFFFFF;
+          --sm-muted: #C0CCC1;
+          --sm-lime: #8BB630;
+          --sm-green: #8BB630;
+          --sm-line: rgba(255,255,255,.15);
+
           color: var(--sm-ink);
-          background: #EAF3F9;
-            
+          background: transparent;
           padding: 22px 0 26px;
+          position: relative;
+          isolation: isolate;
         }
 
         .solutions-motion::before {
-          display: none;
+          content: "";
+          position: absolute;
+          inset: 0;
+          z-index: -1;
+          pointer-events: none;
+          background:
+            radial-gradient(
+              circle at 75% 30%,
+              rgba(139,182,48,.07),
+              transparent 35%
+            );
         }
 
         .sm-container {
@@ -383,9 +434,13 @@ export default function SolutionsMotion() {
           z-index: 1;
         }
 
+        /* =========================================
+           HEADING
+        ========================================= */
+
         .sm-kicker {
           display: block;
-          color: #648A13;
+          color: #8BB630;
           font-size: 11px;
           font-weight: 900;
           letter-spacing: 2px;
@@ -402,7 +457,7 @@ export default function SolutionsMotion() {
 
         .sm-heading {
           margin: 0;
-          color: var(--sm-ink);
+          color: #FFFFFF;
           font-size: clamp(34px, 4vw, 52px);
           line-height: 1.08;
           font-weight: 800;
@@ -411,11 +466,15 @@ export default function SolutionsMotion() {
 
         .sm-intro {
           margin: 0;
-          color: var(--sm-muted);
+          color: #C0CCC1;
           font-size: 14px;
           font-weight: 500;
           line-height: 1.8;
         }
+
+        /* =========================================
+           SOLUTION TABS
+        ========================================= */
 
         .sm-tabs {
           display: flex;
@@ -432,40 +491,56 @@ export default function SolutionsMotion() {
           justify-content: center;
           gap: 8px;
           padding: 9px 13px;
-          border: 1px solid #9DB8C8;
+          border: 1px solid rgba(139,182,48,.35);
           border-radius: 5px;
-          background: rgba(239, 247, 251, .76);
-          color: #36566D;
+          background: rgba(21,32,25,.75);
+          color: #C0CCC1;
           font-size: 11px;
           line-height: 1.3;
           font-weight: 750;
           text-align: left;
-          transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+          cursor: pointer;
+          transition: background .25s ease, border-color .25s ease,
+            color .25s ease, transform .25s ease;
+        }
+
+        .sm-tab svg {
+          color: #8BB630;
+          flex-shrink: 0;
         }
 
         .sm-tab:hover {
-          border-color: #648A13;
-          background: #F7FBEA;
-          transform: translateY(-1px);
+          border-color: #8BB630;
+          background: rgba(139,182,48,.12);
+          color: #FFFFFF;
+          transform: translateY(-2px);
         }
 
         .sm-tab:focus-visible,
         .sm-play:focus-visible,
         .sm-step:focus-visible {
-          outline: 3px solid #648A13;
+          outline: 3px solid #8BB630;
           outline-offset: 3px;
         }
 
         .sm-tab-active {
-          color: #20320B;
-          background: var(--sm-lime);
-          border-color: var(--sm-lime);
+          color: #152019;
+          background: #8BB630;
+          border-color: #8BB630;
+        }
+
+        .sm-tab-active svg {
+          color: #152019;
         }
 
         .sm-tab-active:hover {
-          color: #20320B;
-          background: #E3FA57;
+          color: #152019;
+          background: #A3CC4C;
         }
+
+        /* =========================================
+           CONTENT GRID
+        ========================================= */
 
         .sm-content-grid {
           display: grid;
@@ -475,13 +550,18 @@ export default function SolutionsMotion() {
           margin-top: 26px;
         }
 
+        /* =========================================
+           DEMO CARD
+        ========================================= */
+
         .sm-demo-card {
           min-width: 0;
           overflow: hidden;
-          border: 1px solid #A8C4D3;
+          border: 1px solid rgba(139,182,48,.25);
           border-radius: 14px;
-          background: rgba(233, 244, 249, .92);
-          box-shadow: 0 14px 36px rgba(35, 74, 98, .08);
+          background: rgba(21,32,25,.88);
+          box-shadow: 0 14px 36px rgba(0,0,0,.18);
+          backdrop-filter: blur(12px);
         }
 
         .sm-demo-header {
@@ -491,8 +571,8 @@ export default function SolutionsMotion() {
           justify-content: space-between;
           gap: 12px;
           padding: 13px 18px;
-          border-bottom: 1px solid #B9CFDC;
-          background: rgba(222, 237, 245, .92);
+          border-bottom: 1px solid rgba(255,255,255,.12);
+          background: rgba(14,23,17,.75);
         }
 
         .sm-demo-title {
@@ -503,21 +583,25 @@ export default function SolutionsMotion() {
           font-size: 11px;
           line-height: 1.4;
           font-weight: 800;
-          color: var(--sm-ink);
+          color: #FFFFFF;
         }
 
         .sm-demo-title svg {
           flex-shrink: 0;
-          color: #648A13;
+          color: #8BB630;
         }
 
         .sm-illustrative {
           flex-shrink: 0;
-          color: #648A13;
+          color: #8BB630;
           font-size: 9px;
           font-weight: 900;
           letter-spacing: 1px;
         }
+
+        /* =========================================
+           ANIMATED VISUAL
+        ========================================= */
 
         .sm-visual {
           height: 330px;
@@ -526,8 +610,17 @@ export default function SolutionsMotion() {
           overflow: hidden;
           isolation: isolate;
           background:
-            radial-gradient(ellipse at 50% 47%, rgba(184, 220, 231, .78), transparent 48%),
-            linear-gradient(140deg, #E3F0F6, #CFE4EF 50%, #E3F0F6);
+            radial-gradient(
+              ellipse at 50% 47%,
+              rgba(139,182,48,.12),
+              transparent 48%
+            ),
+            linear-gradient(
+              140deg,
+              #18271D,
+              #101B14 50%,
+              #18271D
+            );
         }
 
         .sm-visual::before {
@@ -535,10 +628,19 @@ export default function SolutionsMotion() {
           position: absolute;
           inset: 0;
           z-index: -1;
-          opacity: .52;
-          background-image: radial-gradient(#80A9BC 1.2px, transparent 1.2px);
+          opacity: .5;
+          background-image:
+            radial-gradient(
+              rgba(139,182,48,.5) 1px,
+              transparent 1.2px
+            );
           background-size: 9px 9px;
-          mask-image: radial-gradient(ellipse at center, black 10%, transparent 74%);
+          mask-image:
+            radial-gradient(
+              ellipse at center,
+              black 10%,
+              transparent 74%
+            );
         }
 
         .sm-map {
@@ -574,23 +676,31 @@ export default function SolutionsMotion() {
           animation-play-state: paused !important;
         }
 
+        /* =========================================
+           SOURCE CARDS
+        ========================================= */
+
         .sm-source {
           position: absolute;
           z-index: 2;
           width: 124px;
           min-height: 66px;
           padding: 10px 11px;
-          border: 1px solid #A4C0CF;
+          border: 1px solid rgba(139,182,48,.28);
           border-radius: 9px;
-          background: rgba(240, 248, 251, .94);
-          box-shadow: 0 5px 16px rgba(39, 80, 103, .08);
-          transition: border-color .25s ease, background .25s ease, box-shadow .25s ease;
+          background: rgba(21,32,25,.94);
+          box-shadow: 0 5px 16px rgba(0,0,0,.2);
+          backdrop-filter: blur(8px);
+          transition: border-color .25s ease,
+            background .25s ease,
+            box-shadow .25s ease;
         }
 
         .sm-source-active {
-          border-color: #648A13;
-          background: rgba(248, 252, 232, .98);
-          box-shadow: 0 0 0 2px rgba(139, 182, 48, .14);
+          border-color: #8BB630;
+          background: rgba(139,182,48,.15);
+          box-shadow: 0 0 0 2px rgba(139,182,48,.15),
+            0 0 22px rgba(139,182,48,.1);
         }
 
         .sm-source-left {
@@ -613,7 +723,7 @@ export default function SolutionsMotion() {
         .sm-source-icon {
           display: inline-flex;
           vertical-align: middle;
-          color: #648A13;
+          color: #8BB630;
           margin-right: 6px;
         }
 
@@ -622,7 +732,7 @@ export default function SolutionsMotion() {
           font-size: 9px;
           line-height: 1.4;
           font-weight: 750;
-          color: #36566D;
+          color: #FFFFFF;
           overflow-wrap: anywhere;
         }
 
@@ -637,12 +747,16 @@ export default function SolutionsMotion() {
           height: 3px;
           width: 75%;
           border-radius: 4px;
-          background: #A8C1CF;
+          background: rgba(192,204,193,.35);
         }
 
         .sm-source-lines i + i {
           width: 48%;
         }
+
+        /* =========================================
+           SIGNAL BARS
+        ========================================= */
 
         .sm-signal-bars {
           display: flex;
@@ -655,7 +769,7 @@ export default function SolutionsMotion() {
         .sm-signal-bars i {
           width: 5px;
           height: 6px;
-          background: #648A13;
+          background: #8BB630;
           border-radius: 1px 1px 0 0;
           animation: smSignal .8s ease-in-out infinite alternate;
         }
@@ -667,6 +781,10 @@ export default function SolutionsMotion() {
         .sm-signal-bars i:nth-child(3n) {
           height: 13px;
         }
+
+        /* =========================================
+           CENTER SCAN
+        ========================================= */
 
         .sm-center-orbit {
           position: absolute;
@@ -683,9 +801,11 @@ export default function SolutionsMotion() {
         .sm-center-ring {
           position: absolute;
           inset: 0;
-          border: 1px solid rgba(139, 182, 48, .55);
+          border: 1px solid rgba(139,182,48,.65);
           border-radius: 50%;
-          box-shadow: 0 0 0 12px rgba(139, 182, 48, .08), 0 0 0 24px rgba(139, 182, 48, .045);
+          box-shadow:
+            0 0 0 12px rgba(139,182,48,.08),
+            0 0 0 24px rgba(139,182,48,.045);
           animation: smPulse 2.8s ease-in-out infinite;
         }
 
@@ -699,9 +819,9 @@ export default function SolutionsMotion() {
           gap: 6px;
           border: 1.5px solid #8BB630;
           border-radius: 50%;
-          background: #EAF5FA;
-          color: #648A13;
-          box-shadow: 0 7px 24px rgba(43, 91, 116, .12);
+          background: #152019;
+          color: #8BB630;
+          box-shadow: 0 7px 24px rgba(0,0,0,.3);
         }
 
         .sm-center span {
@@ -709,6 +829,10 @@ export default function SolutionsMotion() {
           font-weight: 900;
           letter-spacing: .8px;
         }
+
+        /* =========================================
+           VISUAL STATUS
+        ========================================= */
 
         .sm-visual-status {
           position: absolute;
@@ -721,16 +845,16 @@ export default function SolutionsMotion() {
           align-items: center;
           gap: 9px;
           padding: 11px 17px;
-          background: rgba(226, 239, 246, .97);
-          border-top: 1px solid #B9CFDC;
-          color: #45657A;
+          background: rgba(14,23,17,.96);
+          border-top: 1px solid rgba(139,182,48,.25);
+          color: #C0CCC1;
           font-size: 9px;
           font-weight: 750;
         }
 
         .sm-status-icon {
           display: flex;
-          color: #648A13;
+          color: #8BB630;
         }
 
         .sm-progress-track {
@@ -740,7 +864,7 @@ export default function SolutionsMotion() {
           margin-left: 7px;
           border-radius: 10px;
           overflow: hidden;
-          background: #C4D8E3;
+          background: rgba(255,255,255,.15);
         }
 
         .sm-progress-fill {
@@ -751,6 +875,10 @@ export default function SolutionsMotion() {
           animation: smProgress 2.6s linear infinite;
         }
 
+        /* =========================================
+           DEMO FOOTER
+        ========================================= */
+
         .sm-demo-footer {
           min-height: 55px;
           display: flex;
@@ -758,12 +886,12 @@ export default function SolutionsMotion() {
           justify-content: space-between;
           gap: 12px;
           padding: 11px 17px;
-          border-top: 1px solid #B9CFDC;
-          background: #E5F0F6;
+          border-top: 1px solid rgba(255,255,255,.12);
+          background: rgba(14,23,17,.85);
         }
 
         .sm-footer-tagline {
-          color: #627F91;
+          color: #AAB8AD;
           font-size: 8px;
           font-weight: 850;
           letter-spacing: 1px;
@@ -776,19 +904,24 @@ export default function SolutionsMotion() {
           gap: 7px;
           min-height: 32px;
           padding: 7px 11px;
-          border: 1px solid #9DB8C8;
+          border: 1px solid rgba(139,182,48,.45);
           border-radius: 5px;
-          background: #F5FAFC;
-          color: #294A60;
+          background: rgba(139,182,48,.1);
+          color: #8BB630;
           font-size: 10px;
           font-weight: 800;
+          cursor: pointer;
           transition: background .2s ease, border-color .2s ease;
         }
 
         .sm-play:hover {
-          border-color: #648A13;
-          background: #F5F9E9;
+          border-color: #8BB630;
+          background: rgba(139,182,48,.2);
         }
+
+        /* =========================================
+           WORKFLOW PANEL
+        ========================================= */
 
         .sm-workflow {
           min-width: 0;
@@ -796,15 +929,16 @@ export default function SolutionsMotion() {
           display: flex;
           flex-direction: column;
           padding: 26px 27px;
-          border: 1px solid #D1DFE5;
+          border: 1px solid rgba(139,182,48,.25);
           border-radius: 15px;
-          background: rgba(246, 250, 249, .94);
-          box-shadow: 0 14px 36px rgba(35, 74, 98, .08);
+          background: rgba(21,32,25,.88);
+          box-shadow: 0 14px 36px rgba(0,0,0,.18);
+          backdrop-filter: blur(12px);
         }
 
         .sm-workflow-label {
           margin: 0 0 18px;
-          color: #648A13;
+          color: #8BB630;
           font-size: 11px;
           font-weight: 850;
           letter-spacing: 1.5px;
@@ -826,36 +960,36 @@ export default function SolutionsMotion() {
           border: 1px solid transparent;
           border-radius: 9px;
           background: transparent;
-          color: var(--sm-ink);
+          color: #FFFFFF;
           text-align: left;
-          transition: background .22s ease, border-color .22s ease, box-shadow .22s ease;
+          cursor: pointer;
+          transition: background .22s ease,
+            border-color .22s ease,
+            box-shadow .22s ease;
         }
 
         .sm-step:hover {
-          background: rgba(255, 255, 255, .65);
+          background: rgba(139,182,48,.07);
+          border-color: rgba(139,182,48,.2);
         }
 
         .sm-step-active {
-          border-color: #C1D3DD;
-          background: #FFFFFF;
-          box-shadow: 0 5px 15px rgba(35, 74, 98, .06);
+          border-color: rgba(139,182,48,.45);
+          background: rgba(139,182,48,.11);
+          box-shadow: 0 5px 15px rgba(0,0,0,.12);
         }
 
         .sm-step-number {
           padding-top: 1px;
-          color: #7896A3;
+          color: #8BB630;
           font-size: 16px;
           line-height: 1.3;
           font-weight: 900;
         }
 
-        .sm-step-active .sm-step-number {
-          color: #648A13;
-        }
-
         .sm-step-title {
           display: block;
-          color: #193A53;
+          color: #FFFFFF;
           font-size: 14px;
           font-weight: 800;
           line-height: 1.45;
@@ -864,11 +998,15 @@ export default function SolutionsMotion() {
         .sm-step-description {
           display: block;
           margin-top: 7px;
-          color: #5B7283;
+          color: #B9C7BB;
           font-size: 12px;
           font-weight: 450;
           line-height: 1.7;
         }
+
+        /* =========================================
+           EXPLORE LINK
+        ========================================= */
 
         .sm-explore-link {
           display: inline-flex;
@@ -877,7 +1015,7 @@ export default function SolutionsMotion() {
           gap: 7px;
           margin-top: auto;
           padding-top: 22px;
-          color: #648A13;
+          color: #8BB630;
           font-size: 12px;
           font-weight: 800;
           line-height: 1.5;
@@ -896,35 +1034,73 @@ export default function SolutionsMotion() {
 
         .sm-disclaimer {
           margin: 18px 0 0;
-          color: #567184;
+          color: #AAB8AD;
           font-size: 10px;
           font-weight: 500;
           line-height: 1.7;
         }
 
+        /* =========================================
+           ANIMATIONS
+        ========================================= */
+
         @keyframes smOrbit {
-          to { transform: rotate(360deg); }
+          to {
+            transform: rotate(360deg);
+          }
         }
 
         @keyframes smPulse {
-          0%, 100% { transform: scale(.96); opacity: .7; }
-          50% { transform: scale(1.05); opacity: 1; }
+          0%, 100% {
+            transform: scale(.96);
+            opacity: .7;
+          }
+
+          50% {
+            transform: scale(1.05);
+            opacity: 1;
+          }
         }
 
         @keyframes smSignal {
-          from { transform: scaleY(.55); opacity: .65; }
-          to { transform: scaleY(1); opacity: 1; }
+          from {
+            transform: scaleY(.55);
+            opacity: .65;
+          }
+
+          to {
+            transform: scaleY(1);
+            opacity: 1;
+          }
         }
 
         @keyframes smProgress {
-          from { transform: scaleX(0); }
-          to { transform: scaleX(1); }
+          from {
+            transform: scaleX(0);
+          }
+
+          to {
+            transform: scaleX(1);
+          }
         }
 
+        /* =========================================
+           LARGE SCREENS
+        ========================================= */
+
         @media (min-width: 1100px) {
-          .sm-visual { height: 330px; }
-          .sm-workflow { padding: 27px; }
+          .sm-visual {
+            height: 330px;
+          }
+
+          .sm-workflow {
+            padding: 27px;
+          }
         }
+
+        /* =========================================
+           TABLET
+        ========================================= */
 
         @media (max-width: 900px) {
           .sm-heading-row {
@@ -941,10 +1117,22 @@ export default function SolutionsMotion() {
             gap: 20px;
           }
 
-          .sm-visual { height: 340px; }
-          .sm-workflow { min-height: 0; }
-          .sm-explore-link { margin-top: 20px; }
+          .sm-visual {
+            height: 340px;
+          }
+
+          .sm-workflow {
+            min-height: 0;
+          }
+
+          .sm-explore-link {
+            margin-top: 20px;
+          }
         }
+
+        /* =========================================
+           MOBILE
+        ========================================= */
 
         @media (max-width: 600px) {
           .solutions-motion {
@@ -1027,8 +1215,13 @@ export default function SolutionsMotion() {
             padding: 9px;
           }
 
-          .sm-source-left { left: 4%; }
-          .sm-source-right { right: 4%; }
+          .sm-source-left {
+            left: 4%;
+          }
+
+          .sm-source-right {
+            right: 4%;
+          }
 
           .sm-source-label {
             font-size: 8px;
@@ -1131,17 +1324,56 @@ export default function SolutionsMotion() {
           }
         }
 
+        /* =========================================
+           SMALL MOBILE
+        ========================================= */
+
         @media (max-width: 370px) {
-          .sm-container { width: calc(100% - 22px); }
-          .sm-heading { font-size: 29px; }
-          .sm-tab { font-size: 9px; padding: 8px; }
-          .sm-visual { height: 275px; }
-          .sm-source { width: 99px; padding: 7px; }
-          .sm-source-bottom { width: 112px; }
-          .sm-center-orbit { width: 91px; height: 91px; }
-          .sm-center { width: 79px; height: 79px; }
-          .sm-center svg { width: 29px; height: 29px; }
+          .sm-container {
+            width: calc(100% - 22px);
+          }
+
+          .sm-heading {
+            font-size: 29px;
+          }
+
+          .sm-tab {
+            font-size: 9px;
+            padding: 8px;
+          }
+
+          .sm-visual {
+            height: 275px;
+          }
+
+          .sm-source {
+            width: 99px;
+            padding: 7px;
+          }
+
+          .sm-source-bottom {
+            width: 112px;
+          }
+
+          .sm-center-orbit {
+            width: 91px;
+            height: 91px;
+          }
+
+          .sm-center {
+            width: 79px;
+            height: 79px;
+          }
+
+          .sm-center svg {
+            width: 29px;
+            height: 29px;
+          }
         }
+
+        /* =========================================
+           REDUCED MOTION
+        ========================================= */
 
         @media (prefers-reduced-motion: reduce) {
           .solutions-motion *,
@@ -1152,10 +1384,15 @@ export default function SolutionsMotion() {
             transition-duration: .01ms !important;
           }
         }
+
       `}</style>
 
       <div className="sm-container">
-        <span className="sm-kicker">Solutions in motion</span>
+
+        {/* Section heading */}
+        <span className="sm-kicker">
+          Solutions in motion
+        </span>
 
         <div className="sm-heading-row">
           <h2 className="sm-heading">
@@ -1169,7 +1406,11 @@ export default function SolutionsMotion() {
         </div>
 
         {/* Responsive solution tabs */}
-        <div className="sm-tabs" role="group" aria-label="Choose a protection solution">
+        <div
+          className="sm-tabs"
+          role="group"
+          aria-label="Choose a protection solution"
+        >
           {solutions.map((item, index) => {
             const Icon = item.icon;
             const isActive = selectedIndex === index;
@@ -1189,16 +1430,21 @@ export default function SolutionsMotion() {
           })}
         </div>
 
-        {/* Animated illustration + workflow */}
+        {/* Animated illustration and workflow */}
         <div className="sm-content-grid">
+
+          {/* Illustration card */}
           <div className="sm-demo-card">
+
             <div className="sm-demo-header">
               <div className="sm-demo-title">
                 <SolutionIcon size={15} />
                 <span>{solution.title}</span>
               </div>
 
-              <span className="sm-illustrative">ILLUSTRATIVE</span>
+              <span className="sm-illustrative">
+                ILLUSTRATIVE
+              </span>
             </div>
 
             <SolutionIllustration
@@ -1217,16 +1463,27 @@ export default function SolutionsMotion() {
                 className="sm-play"
                 onClick={() => setPaused((current) => !current)}
                 aria-pressed={paused}
-                aria-label={paused ? "Resume animation" : "Pause animation"}
+                aria-label={
+                  paused ? "Resume animation" : "Pause animation"
+                }
               >
-                {paused ? <Play size={13} /> : <Pause size={13} />}
+                {paused ? (
+                  <Play size={13} />
+                ) : (
+                  <Pause size={13} />
+                )}
+
                 {paused ? "Play" : "Pause"}
               </button>
             </div>
           </div>
 
+          {/* Workflow panel */}
           <div className="sm-workflow">
-            <p className="sm-workflow-label">{solution.label}</p>
+
+            <p className="sm-workflow-label">
+              {solution.label}
+            </p>
 
             <div className="sm-steps">
               {solution.steps.map(([title, description], index) => {
@@ -1236,7 +1493,9 @@ export default function SolutionsMotion() {
                   <button
                     type="button"
                     key={`${solution.title}-${title}`}
-                    className={`sm-step ${isActive ? "sm-step-active" : ""}`}
+                    className={`sm-step ${
+                      isActive ? "sm-step-active" : ""
+                    }`}
                     onClick={() => setActiveStep(index)}
                     aria-pressed={isActive}
                   >
@@ -1245,7 +1504,10 @@ export default function SolutionsMotion() {
                     </span>
 
                     <span>
-                      <span className="sm-step-title">{title}</span>
+                      <span className="sm-step-title">
+                        {title}
+                      </span>
+
                       <span className="sm-step-description">
                         {description}
                       </span>
@@ -1255,38 +1517,26 @@ export default function SolutionsMotion() {
               })}
             </div>
 
+            {/* Explore link */}
             <a
               className="sm-explore-link"
-              href={
-                selectedIndex === 0
-                  ? "/solutions/live-streaming-protection"
-                  : selectedIndex === 1
-                  ? "/solutions/ott-vod-protection"
-                  : selectedIndex === 2
-                  ? "/solutions/website-app-monitoring"
-                  : selectedIndex === 3
-                  ? "/solutions/copyright-enforcement"
-                  : selectedIndex === 4
-                  ? "/solutions/brand-protection"
-                  : selectedIndex === 5
-                  ? "/solutions/piracy-intelligence"
-                  : selectedIndex === 6
-                  ? "/solutions/marketplace-counterfeit-monitoring"
-                  : selectedIndex === 7
-                  ? "/solutions/domain-impersonation-monitoring"
-                  : "/solutions/social-media-video-protection"
-              }
+              href={solutionLinks[selectedIndex]}
             >
               {solution.link}
-              <span><ArrowRight size={15} /></span>
+
+              <span>
+                <ArrowRight size={15} />
+              </span>
             </a>
           </div>
         </div>
 
+        {/* Disclaimer */}
         <p className="sm-disclaimer">
           Demonstration only. These animations use sample sources and do not
           display live detections or client results.
         </p>
+
       </div>
     </section>
   );

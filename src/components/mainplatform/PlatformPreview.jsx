@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   ShieldCheck,
@@ -106,38 +105,42 @@ function PlatformPreview() {
   return (
     <section
       id="platform-preview"
-      className="w-full overflow-hidden bg-[#EAF3F9] px-3 py-4 font-['Roboto',sans-serif] sm:px-5 sm:py-6 lg:px-8 lg:py-8"
+      className="w-full overflow-hidden bg-transparent px-3 py-4 font-['Roboto',sans-serif] sm:px-5 sm:py-6 lg:px-8 lg:py-8"
     >
       {/* Outer background panel */}
-      <div className="mx-auto w-full max-w-[1350px] rounded-[15px] bg-[#D2DBD8] px-3 py-3 sm:rounded-[18px] sm:px-6 sm:py-8 lg:px-[46px] lg:py-[46px]">
+      <div className="mx-auto w-full max-w-[1350px] rounded-[15px] bg-transparent px-3 py-3 sm:rounded-[18px] sm:px-6 sm:py-8 lg:px-[46px] lg:py-[46px]">
+
         {/* Dashboard window */}
-        <div className="mx-auto w-full max-w-[1088px] overflow-hidden rounded-[9px] border border-[#BFD8EA] border-t-2 border-t-[#19A9B8] bg-white shadow-[0_18px_55px_rgba(26,61,86,0.08)]">
+        <div className="mx-auto w-full max-w-[1088px] overflow-hidden rounded-[9px] border border-[#8BB630]/30 border-t-2 border-t-[#8BB630] bg-[#152019]/95 shadow-[0_18px_55px_rgba(0,0,0,0.28)]">
+
           {/* Header */}
-          <header className="flex min-h-[48px] items-center justify-between gap-2 border-b border-[#D5E4EF] bg-gradient-to-r from-[#E7F5FA] to-[#F5F9ED] px-3 sm:min-h-[60px] sm:px-5 lg:px-6">
+          <header className="flex min-h-[48px] items-center justify-between gap-2 border-b border-white/15 bg-[#152019] px-3 sm:min-h-[60px] sm:px-5 lg:px-6">
             <div className="flex min-w-0 items-center gap-2 sm:gap-4">
-              <div className="flex items-center gap-1.5 text-[#648A13] sm:gap-2">
+              <div className="flex items-center gap-1.5 text-[#8BB630] sm:gap-2">
                 <ShieldCheck
                   className="h-[13px] w-[13px] sm:h-[18px] sm:w-[18px]"
                   strokeWidth={2}
                 />
+
                 <span className="text-[8px] font-extrabold tracking-[0.4px] sm:text-xs">
                   TRACKOWLS
                 </span>
               </div>
 
-              <span className="hidden text-[7px] font-bold tracking-[0.4px] text-[#55728B] sm:inline sm:text-[10px]">
+              <span className="hidden text-[7px] font-bold tracking-[0.4px] text-[#B9C7BB] sm:inline sm:text-[10px]">
                 WORKSPACE
               </span>
             </div>
 
-            <span className="shrink-0 rounded-[3px] border border-[#C7DDEB] px-2 py-1.5 text-[8px] text-[#45637F] sm:px-3 sm:py-2 sm:text-[10px]">
+            <span className="shrink-0 rounded-[3px] border border-white/20 px-2 py-1.5 text-[8px] text-[#C0CCC1] sm:px-3 sm:py-2 sm:text-[10px]">
               Concept preview
             </span>
           </header>
 
           <div className="flex min-w-0">
-            {/* Desktop sidebar — unchanged on desktop */}
-            <aside className="hidden w-[55px] shrink-0 flex-col items-center gap-2 border-r border-[#D5E4EF] bg-white py-4 sm:flex lg:gap-3 lg:py-5">
+
+            {/* Desktop sidebar */}
+            <aside className="hidden w-[55px] shrink-0 flex-col items-center gap-2 border-r border-white/15 bg-[#152019]/95 py-4 sm:flex lg:gap-3 lg:py-5">
               {sidebarItems.map(({ label, icon: Icon }) => {
                 const selected = activeTab === label;
 
@@ -151,8 +154,8 @@ function PlatformPreview() {
                     onClick={() => handleTabChange(label)}
                     className={`flex h-8 w-8 items-center justify-center rounded-md transition-colors ${
                       selected
-                        ? "bg-[#F2F6EB] text-[#648A13]"
-                        : "text-[#6486A0] hover:bg-[#EFF6FA] hover:text-[#648A13]"
+                        ? "bg-[#8BB630]/15 text-[#8BB630]"
+                        : "text-[#AAB8AD] hover:bg-white/10 hover:text-[#8BB630]"
                     }`}
                   >
                     <Icon size={18} strokeWidth={1.8} />
@@ -168,8 +171,8 @@ function PlatformPreview() {
                 onClick={() => handleTabChange("Reporting")}
                 className={`flex h-8 w-8 items-center justify-center rounded-md transition-colors ${
                   activeTab === "Reporting"
-                    ? "bg-[#F2F6EB] text-[#648A13]"
-                    : "text-[#6486A0] hover:bg-[#EFF6FA] hover:text-[#648A13]"
+                    ? "bg-[#8BB630]/15 text-[#8BB630]"
+                    : "text-[#AAB8AD] hover:bg-white/10 hover:text-[#8BB630]"
                 }`}
               >
                 <ChartNoAxesColumn size={18} strokeWidth={1.8} />
@@ -178,14 +181,15 @@ function PlatformPreview() {
 
             {/* Dashboard content */}
             <main className="min-w-0 flex-1 px-3 py-4 sm:px-5 sm:py-6 lg:px-[21px] lg:py-[22px]">
+
               {/* Heading */}
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
-                  <p className="text-[8px] font-medium uppercase tracking-[1px] text-[#587895] sm:text-[10px]">
+                  <p className="text-[8px] font-medium uppercase tracking-[1px] text-[#AAB8AD] sm:text-[10px]">
                     Enforcement overview
                   </p>
 
-                  <h1 className="mt-1.5 text-[13px] font-bold leading-tight tracking-[-0.3px] text-[#15334E] sm:mt-2 sm:text-[17px]">
+                  <h1 className="mt-1.5 text-[13px] font-bold leading-tight tracking-[-0.3px] text-white sm:mt-2 sm:text-[17px]">
                     A clear view of every case.
                   </h1>
                 </div>
@@ -193,7 +197,7 @@ function PlatformPreview() {
                 <LockKeyhole
                   size={15}
                   strokeWidth={1.6}
-                  className="mt-2 shrink-0 text-[#3F829D] sm:mt-3 sm:h-[18px] sm:w-[18px]"
+                  className="mt-2 shrink-0 text-[#8BB630] sm:mt-3 sm:h-[18px] sm:w-[18px]"
                 />
               </div>
 
@@ -201,7 +205,7 @@ function PlatformPreview() {
               <div
                 role="tablist"
                 aria-label="Workspace sections"
-                className="mt-3 flex gap-1 border-b border-[#D2E1ED] sm:mt-5 sm:gap-1"
+                className="mt-3 flex gap-1 border-b border-white/15 sm:mt-5 sm:gap-1"
               >
                 {["Cases", "Evidence", "Reporting"].map((tab) => (
                   <button
@@ -213,8 +217,8 @@ function PlatformPreview() {
                     onClick={() => handleTabChange(tab)}
                     className={`min-w-0 flex-1 border-b-2 px-2 py-2 text-[10px] transition-colors sm:flex-none sm:min-w-[74px] sm:px-4 sm:py-2.5 sm:text-xs ${
                       activeTab === tab
-                        ? "border-[#648A13] bg-[#F3F6EC] font-medium text-[#648A13]"
-                        : "border-transparent text-[#15334E] hover:bg-[#F5F8FB]"
+                        ? "border-[#648A13] bg-[#8BB630]/10 font-medium text-[#8BB630]"
+                        : "border-transparent text-white hover:bg-white/5"
                     }`}
                   >
                     {tab}
@@ -222,31 +226,31 @@ function PlatformPreview() {
                 ))}
               </div>
 
-              {/* ================================================== */}
               {/* MOBILE: CASES */}
-              {/* ================================================== */}
               {activeTab === "Cases" && (
                 <div className="mt-4 sm:hidden">
+
                   {/* Metric cards */}
                   <div className="grid grid-cols-3 gap-1.5">
                     {current.metrics.map((metric) => (
                       <div
                         key={metric.label}
-                        className="min-w-0 rounded-[5px] border border-[#D2E1ED] bg-[#F0F6FA] px-2 py-3"
+                        className="min-w-0 rounded-[5px] border border-white/15 bg-white/[0.045] px-2 py-3"
                       >
-                        <p className="min-h-[30px] text-[10px] leading-[1.5] text-[#58728A]">
+                        <p className="min-h-[30px] text-[10px] leading-[1.5] text-[#AAB8AD]">
                           {metric.label}
                         </p>
-                        <p className="mt-1 text-[27px] font-normal leading-none tracking-[-0.5px] text-[#244966]">
+
+                        <p className="mt-1 text-[27px] font-normal leading-none tracking-[-0.5px] text-white">
                           {metric.value}
                         </p>
                       </div>
                     ))}
                   </div>
 
-                  {/* Case list: two columns, like reference */}
+                  {/* Case list */}
                   <div className="mt-6">
-                    <div className="grid grid-cols-[1.7fr_0.8fr] items-center border-b border-[#8798A5] px-2 py-2 text-[10px] text-[#58728A]">
+                    <div className="grid grid-cols-[1.7fr_0.8fr] items-center border-b border-white/20 px-2 py-2 text-[10px] text-[#AAB8AD]">
                       <span>Case / asset</span>
                       <span>Channel</span>
                     </div>
@@ -254,18 +258,19 @@ function PlatformPreview() {
                     {caseData.map((row) => (
                       <div
                         key={row.id}
-                        className="grid min-h-[63px] grid-cols-[1.7fr_0.8fr] items-center border-b border-[#8798A5] px-2 py-2"
+                        className="grid min-h-[63px] grid-cols-[1.7fr_0.8fr] items-center border-b border-white/20 px-2 py-2"
                       >
                         <div className="min-w-0 pr-2">
-                          <p className="text-[13px] font-medium text-[#15334E]">
+                          <p className="text-[13px] font-medium text-white">
                             {row.id}
                           </p>
-                          <p className="mt-1 text-[10px] leading-[1.5] text-[#58728A]">
+
+                          <p className="mt-1 text-[10px] leading-[1.5] text-[#AAB8AD]">
                             {row.asset}
                           </p>
                         </div>
 
-                        <span className="min-w-0 break-words text-[12px] leading-[1.4] text-[#45637F]">
+                        <span className="min-w-0 break-words text-[12px] leading-[1.4] text-[#C0CCC1]">
                           {row.channel}
                         </span>
                       </div>
@@ -273,38 +278,38 @@ function PlatformPreview() {
                   </div>
 
                   <div className="mt-5 flex items-center justify-between gap-2 px-[1px]">
-                    <span className="flex items-center gap-1.5 text-[10px] text-[#527B35]">
+                    <span className="flex items-center gap-1.5 text-[10px] text-[#A8D46A]">
                       <Check size={12} strokeWidth={2} />
                       Evidence recorded
                     </span>
-                    <span className="text-[10px] text-[#648099]">
+
+                    <span className="text-[10px] text-[#9BAA9F]">
                       Illustrative data only
                     </span>
                   </div>
                 </div>
               )}
 
-              {/* ================================================== */}
               {/* MOBILE: EVIDENCE */}
-              {/* ================================================== */}
               {activeTab === "Evidence" && (
                 <div className="mt-1 sm:hidden">
                   {evidenceItems.map((item) => (
                     <div
                       key={item.title}
-                      className="flex min-h-[75px] items-center gap-3 border-b border-[#D5E4EF] py-3"
+                      className="flex min-h-[75px] items-center gap-3 border-b border-white/15 py-3"
                     >
                       <FileText
                         size={20}
                         strokeWidth={1.8}
-                        className="shrink-0 text-[#648A13]"
+                        className="shrink-0 text-[#8BB630]"
                       />
 
                       <div className="min-w-0 flex-1">
-                        <p className="text-[12px] leading-[1.45] text-[#15334E]">
+                        <p className="text-[12px] leading-[1.45] text-white">
                           {item.title}
                         </p>
-                        <p className="mt-1 text-[10px] leading-[1.4] text-[#58728A]">
+
+                        <p className="mt-1 text-[10px] leading-[1.4] text-[#AAB8AD]">
                           {item.description}
                         </p>
                       </div>
@@ -312,20 +317,19 @@ function PlatformPreview() {
                       <Check
                         size={15}
                         strokeWidth={1.8}
-                        className="shrink-0 text-[#648A13]"
+                        className="shrink-0 text-[#8BB630]"
                       />
                     </div>
                   ))}
                 </div>
               )}
 
-              {/* ================================================== */}
               {/* MOBILE: REPORTING */}
-              {/* ================================================== */}
               {activeTab === "Reporting" && (
                 <div className="mt-5 sm:hidden">
-                  <div className="min-h-[320px] overflow-hidden rounded-[16px] border border-[#D0DCD7] bg-[#E7EEEA]">
-                    <h2 className="px-0 py-3 text-[15px] font-semibold tracking-[-0.4px] text-[#15334E]">
+                  <div className="min-h-[320px] overflow-hidden rounded-[16px] border border-[#8BB630]/30 bg-[#152019]/80">
+
+                    <h2 className="px-0 py-3 text-[15px] font-semibold tracking-[-0.4px] text-white">
                       Sample reporting breakdown
                     </h2>
 
@@ -333,17 +337,18 @@ function PlatformPreview() {
                       {reportItems.map((item) => (
                         <div
                           key={item.label}
-                          className="flex min-h-[50px] items-center justify-between gap-3 border-b border-[#D8E2DE] py-3 text-[12px] text-[#24435B]"
+                          className="flex min-h-[50px] items-center justify-between gap-3 border-b border-white/15 py-3 text-[12px] text-[#D5DED6]"
                         >
                           <span>{item.label}</span>
-                          <span className="font-semibold text-[#15334E]">
+
+                          <span className="font-semibold text-white">
                             {item.value}
                           </span>
                         </div>
                       ))}
                     </div>
 
-                    <p className="pt-4 text-[11px] leading-[1.7] text-[#647A87]">
+                    <p className="pt-4 text-[11px] leading-[1.7] text-[#AAB8AD]">
                       Figures illustrate the interface; they are not TrackOwls
                       results.
                     </p>
@@ -351,31 +356,31 @@ function PlatformPreview() {
                 </div>
               )}
 
-              {/* ================================================== */}
-              {/* TABLET/DESKTOP: EXISTING DASHBOARD LAYOUT */}
-              {/* ================================================== */}
+              {/* TABLET/DESKTOP DASHBOARD */}
               <div className="hidden sm:block">
+
                 {/* Metric cards */}
                 <div className="mt-5 grid grid-cols-3 gap-2.5 lg:gap-[11px]">
                   {current.metrics.map((metric) => (
                     <div
                       key={metric.label}
-                      className="min-w-0 rounded-[4px] border border-[#D2E1ED] bg-[#F0F6FA] px-3 py-3.5 sm:min-h-[82px]"
+                      className="min-w-0 rounded-[4px] border border-white/15 bg-white/[0.045] px-3 py-3.5 sm:min-h-[82px]"
                     >
-                      <p className="text-[10px] leading-[1.4] text-[#58728A]">
+                      <p className="text-[10px] leading-[1.4] text-[#AAB8AD]">
                         {metric.label}
                       </p>
 
-                      <p className="mt-3 text-[26px] font-normal leading-none tracking-[-0.5px] text-[#244966]">
+                      <p className="mt-3 text-[26px] font-normal leading-none tracking-[-0.5px] text-white">
                         {metric.value}
                       </p>
                     </div>
                   ))}
                 </div>
 
-                {/* Existing three-column table */}
+                {/* Three-column table */}
                 <div className="mt-5 w-full">
-                  <div className="grid grid-cols-[1.55fr_0.75fr_0.65fr] items-center border-b border-[#15334E] px-2 py-3 text-[10px] text-[#45637F]">
+
+                  <div className="grid grid-cols-[1.55fr_0.75fr_0.65fr] items-center border-b border-white/20 px-2 py-3 text-[10px] text-[#C0CCC1]">
                     <span>{current.firstColumn}</span>
                     <span>Channel</span>
                     <span>Status</span>
@@ -384,18 +389,19 @@ function PlatformPreview() {
                   {current.rows.map((row) => (
                     <div
                       key={row.id}
-                      className="grid min-h-[54px] grid-cols-[1.55fr_0.75fr_0.65fr] items-center border-b border-[#15334E] px-2 py-2.5 last:border-b-0"
+                      className="grid min-h-[54px] grid-cols-[1.55fr_0.75fr_0.65fr] items-center border-b border-white/20 px-2 py-2.5 last:border-b-0"
                     >
                       <div className="min-w-0 pr-2">
-                        <p className="text-xs font-medium text-[#15334E]">
+                        <p className="text-xs font-medium text-white">
                           {row.id}
                         </p>
-                        <p className="mt-1 break-words text-[9px] leading-[1.4] text-[#58728A]">
+
+                        <p className="mt-1 break-words text-[9px] leading-[1.4] text-[#AAB8AD]">
                           {row.asset}
                         </p>
                       </div>
 
-                      <span className="min-w-0 break-words pr-1 text-[11px] text-[#45637F]">
+                      <span className="min-w-0 break-words pr-1 text-[11px] text-[#C0CCC1]">
                         {row.channel}
                       </span>
 
@@ -403,10 +409,10 @@ function PlatformPreview() {
                         <span
                           className={`inline-flex max-w-full whitespace-nowrap rounded-[2px] border px-1.5 py-1 text-[9px] leading-none ${
                             row.status === "Verified"
-                              ? "border-[#B9D6A6] bg-[#F0F7EA] text-[#527B35]"
+                              ? "border-[#8BB630]/40 bg-[#8BB630]/10 text-[#A8D46A]"
                               : row.status === "Submitted"
-                                ? "border-[#F0C981] bg-[#FFF8E9] text-[#946A23]"
-                                : "border-[#B9D6A6] bg-[#F1F6F8] text-[#45637F]"
+                                ? "border-[#D6AD52]/50 bg-[#D6AD52]/10 text-[#E6C477]"
+                                : "border-[#8BB630]/40 bg-white/5 text-[#C0CCC1]"
                           }`}
                         >
                           {row.status}
@@ -416,10 +422,11 @@ function PlatformPreview() {
                   ))}
                 </div>
 
-                {/* Existing footer status */}
+                {/* Footer status */}
                 <div className="mt-4 flex flex-wrap items-center justify-between gap-x-2 gap-y-1 px-[1px]">
-                  <span className="flex items-center gap-1.5 text-[10px] text-[#527B35]">
+                  <span className="flex items-center gap-1.5 text-[10px] text-[#A8D46A]">
                     <Check size={11} strokeWidth={2} />
+
                     {activeTab === "Cases"
                       ? "Evidence recorded"
                       : activeTab === "Evidence"
@@ -427,7 +434,7 @@ function PlatformPreview() {
                         : "Reporting records available"}
                   </span>
 
-                  <span className="text-[10px] text-[#648099]">
+                  <span className="text-[10px] text-[#9BAA9F]">
                     Illustrative data only
                   </span>
                 </div>
@@ -436,8 +443,8 @@ function PlatformPreview() {
           </div>
         </div>
 
-        {/* Existing disclaimer */}
-        <p className="mx-auto mt-3 hidden max-w-[650px] text-center text-[8px] leading-[1.6] text-[#45637F] sm:block sm:text-[10px] sm:leading-5">
+        {/* Disclaimer */}
+        <p className="mx-auto mt-3 hidden max-w-[650px] text-center text-[8px] leading-[1.6] text-[#C0CCC1] sm:block sm:text-[10px] sm:leading-5">
           Interactive concept preview. Sample data illustrates the proposed
           interface; this is not a live client portal.
         </p>
