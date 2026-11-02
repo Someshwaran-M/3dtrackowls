@@ -1,6 +1,5 @@
 import React from "react";
-import { motion } from "motion/react";
-import { TextRoll } from "../ui/TextRoll";
+import { motion, useReducedMotion } from "framer-motion";
 
 const challenges = [
   {
@@ -23,14 +22,98 @@ const challenges = [
   },
 ];
 
+// FAST LETTER ANIMATION
+function AnimatedText({
+  text,
+  delay = 0,
+  stagger = 0.006,
+  duration = 0.2,
+  reduceMotion,
+}) {
+  const words = text.split(" ");
+
+  return (
+    <motion.span
+      aria-label={text}
+      className="inline"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.25 }}
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            delayChildren: delay,
+            staggerChildren: stagger,
+          },
+        },
+      }}
+    >
+      <span aria-hidden="true">
+        {words.map((word, wordIndex) => (
+          <React.Fragment key={wordIndex}>
+            <motion.span
+              className="inline-block whitespace-nowrap"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: stagger,
+                  },
+                },
+              }}
+            >
+              {Array.from(word).map((letter, letterIndex) => (
+                <motion.span
+                  key={letterIndex}
+                  className="inline-block"
+                  variants={
+                    reduceMotion
+                      ? {
+                          hidden: { opacity: 0 },
+                          visible: { opacity: 1 },
+                        }
+                      : {
+                          hidden: {
+                            opacity: 0,
+                            y: 8,
+                            filter: "blur(2px)",
+                          },
+                          visible: {
+                            opacity: 1,
+                            y: 0,
+                            filter: "blur(0px)",
+                          },
+                        }
+                  }
+                  transition={{
+                    duration,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                >
+                  {letter}
+                </motion.span>
+              ))}
+            </motion.span>
+
+            {wordIndex !== words.length - 1 && " "}
+          </React.Fragment>
+        ))}
+      </span>
+    </motion.span>
+  );
+}
+
 export default function HomeChallenge() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section
       id="home-challenge"
       className="
-        w-full overflow-hidden
-        border-y border-[rgba(171,198,215,0.15)]
-        bg-transparent
+        relative w-full overflow-hidden
+        border-y border-[#1B3045]
+        bg-[#030D1B]
         font-['Roboto',Arial,sans-serif]
         text-white
       "
@@ -38,127 +121,93 @@ export default function HomeChallenge() {
       <div
         className="
           mx-auto w-full max-w-[1600px]
-          px-6 py-[78px]
-          sm:px-10 sm:py-[86px]
-          lg:px-[4.5%] lg:py-[119px]
+          px-6 py-[48px]
+          sm:px-10 sm:py-[58px]
+          lg:px-[4.5%] lg:py-[72px]
         "
       >
         {/* HEADER */}
         <div
           className="
-            grid grid-cols-1 gap-7
+            grid grid-cols-1 gap-5
             lg:grid-cols-[minmax(0,1fr)_minmax(340px,0.47fr)]
-            lg:items-end lg:gap-[75px]
+            lg:items-end lg:gap-[60px]
           "
         >
-          {/* LEFT HEADING */}
           <div className="min-w-0">
 
             {/* Eyebrow */}
-            <p
-              className="
-                mb-[29px]
-                text-[14px] font-bold
-                uppercase leading-[1.2]
-                tracking-[1.8px]
-                text-[#d1ed14]
-              "
-            >
-              <TextRoll duration={0.06} stagger={0.001}>
-                The challenge
-              </TextRoll>
+            <p className="mb-[20px] text-[12px] font-bold uppercase leading-[1.2] tracking-[1.8px] text-[#A4CB35]">
+              The challenge
             </p>
 
             {/* Main Heading */}
             <h2
               className="
                 m-0
-                text-[42px] font-bold
-                leading-[1.15]
-                tracking-[-1.6px]
-                text-[#f8fafc]
-                sm:text-[50px]
-                lg:text-[64px]
-                lg:leading-[1.14]
+                text-[36px] font-bold
+                leading-[1.15] tracking-[-1.4px]
+                text-white
+                sm:text-[46px]
+                lg:text-[58px]
+                lg:leading-[1.12]
                 lg:tracking-[-2px]
               "
             >
-              <span className="block">
-                <TextRoll duration={0.06} stagger={0.001}>
-                  Piracy moves fast.
-                </TextRoll>
-              </span>
+              <AnimatedText
+                text="Piracy moves fast."
+                reduceMotion={reduceMotion}
+                stagger={0.008}
+              />
 
               <span className="block">
-                <TextRoll duration={0.06} stagger={0.001}>
-                  Your response should too.
-                </TextRoll>
+                <AnimatedText
+                  text="Your response should too."
+                  delay={0.1}
+                  reduceMotion={reduceMotion}
+                  stagger={0.008}
+                />
               </span>
             </h2>
           </div>
 
-          {/* SUPPORTING TEXT */}
-          <div className="min-w-0 lg:justify-self-end">
-            <p
-              className="
-                m-0 max-w-[490px]
-                pb-[2px]
-                text-[16px] font-normal
-                leading-[1.75]
-                tracking-[-0.1px]
-                text-[#b7cbd9]
-                sm:text-[18px]
-                lg:text-[20px]
-              "
-            >
-              <TextRoll duration={0.06} stagger={0.001}>
-                Unauthorized copies and brand misuse spread across channels. A
-                useful response connects discovery, verification and action.
-              </TextRoll>
-            </p>
-          </div>
+          {/* Supporting Text */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              duration: 0.45,
+              delay: 0.1,
+              ease: "easeOut",
+            }}
+            className="
+              m-0 max-w-[490px]
+              text-[15px] font-normal
+              leading-[1.65]
+              text-[#A6B7C9]
+              sm:text-[17px]
+              lg:justify-self-end lg:text-[18px]
+            "
+          >
+            Unauthorized copies and brand misuse spread across channels. A
+            useful response connects discovery, verification and action.
+          </motion.p>
         </div>
 
-        {/* HORIZONTAL DIVIDER */}
-        <motion.div
-          initial={{
-            scaleX: 0,
-            opacity: 0,
-          }}
-          whileInView={{
-            scaleX: 1,
-            opacity: 1,
-          }}
-          viewport={{
-            once: false,
-            amount: 0.1,
-          }}
-          transition={{
-            duration: 0.15,
-            ease: "easeOut",
-          }}
-          style={{
-            transformOrigin: "left",
-          }}
-          className="
-            my-[43px]
-            h-px w-full
-            bg-[rgba(171,198,215,0.18)]
-            sm:my-[51px]
-            lg:my-[56px]
-          "
-        />
+        {/* DIVIDER */}
+        <div className="my-[28px] h-px w-full bg-[#1B3045] sm:my-[34px] lg:my-[38px]" />
 
         {/* CHALLENGE CARDS */}
         <div
           className="
             grid grid-cols-1
-            gap-8
+            items-stretch
+            gap-4
             sm:grid-cols-2
-            sm:gap-x-10 sm:gap-y-10
+            sm:gap-5
             lg:grid-cols-3
-            lg:gap-x-[72px]
-            lg:gap-y-0
+            lg:gap-[3.5%]
           "
         >
           {challenges.map((challenge, index) => (
@@ -166,124 +215,80 @@ export default function HomeChallenge() {
               key={challenge.number}
               initial={{
                 opacity: 0,
-                y: 12,
-                rotateX: 0,
-                scale: 0.99,
+                y: reduceMotion ? 0 : 12,
               }}
               whileInView={{
                 opacity: 1,
                 y: 0,
-                rotateX: 0,
-                scale: 1,
               }}
               viewport={{
-                once: false,
-                amount: 0.05,
+                once: true,
+                amount: 0.2,
               }}
               transition={{
-                duration: 0.15,
-                delay: index * 0.02,
-                ease: "easeOut",
-              }}
-              whileHover={{
-                y: -5,
-                rotateX: 2,
-                scale: 1.01,
-                transition: {
-                  duration: 0.12,
-                  ease: "easeOut",
-                },
-              }}
-              style={{
-                transformStyle: "preserve-3d",
-                perspective: "1000px",
+                duration: 0.45,
+                delay: index * 0.08,
+                ease: [0.22, 1, 0.36, 1],
               }}
               className="
-                group relative min-w-0
-                overflow-hidden
-                rounded-xl
-                border border-[rgba(171,198,215,0.15)]
-                bg-[rgba(10,26,46,0.5)]
-                p-6
-                backdrop-blur-md
-                transition-all duration-150
-                hover:border-[#d1ed14]/50
-                hover:bg-[rgba(14,34,60,0.7)]
-                hover:shadow-[0_20px_45px_rgba(0,0,0,0.3),0_0_20px_rgba(209,237,20,0.07)]
+                group relative flex h-full
+                min-w-0 flex-col
+                rounded-[14px]
+                border border-[#263B50]
+                bg-[#0A192A]
+                p-[20px]
+                transition-colors duration-300
+                hover:border-[#526B48]
+                sm:p-[22px]
+                lg:p-[23px]
               "
             >
-              {/* Subtle 3D lighting */}
-              <div
-                aria-hidden="true"
-                className="
-                  pointer-events-none
-                  absolute -right-16 -top-16
-                  h-40 w-40
-                  rounded-full
-                  bg-[#d1ed14]/[0.035]
-                  blur-[55px]
-                  transition-all duration-200
-                  group-hover:bg-[#d1ed14]/[0.12]
-                "
-              />
-
-              {/* Number */}
-              <p
-                className="
-                  relative z-10 m-0
-                  text-[14px] font-bold
-                  leading-[1.4]
-                  text-[#d1ed14]
-                "
-                style={{
-                  transform: "translateZ(25px)",
-                }}
-              >
-                <TextRoll duration={0.06} stagger={0.001}>
-                  {challenge.number}
-                </TextRoll>
+              {/* CARD NUMBER */}
+              <p className="m-0 text-[14px] font-bold leading-[1.4] text-[#A7B9C9]">
+                <AnimatedText
+                  text={challenge.number}
+                  reduceMotion={reduceMotion}
+                  stagger={0.025}
+                  duration={0.18}
+                />
               </p>
 
-              {/* Title */}
+              {/* CARD TITLE */}
               <h3
                 className="
-                  relative z-10
-                  mb-0 mt-[18px]
-                  text-[24px] font-bold
-                  leading-[1.25]
-                  tracking-[-0.6px]
+                  mb-0 mt-[20px]
+                  text-[22px] font-bold
+                  leading-[1.3] tracking-[-0.5px]
                   text-white
-                  sm:text-[27px]
-                  lg:text-[29px]
+                  sm:text-[24px]
                 "
-                style={{
-                  transform: "translateZ(35px)",
-                }}
               >
-                <TextRoll duration={0.06} stagger={0.001}>
-                  {challenge.title}
-                </TextRoll>
+                <AnimatedText
+                  text={challenge.title}
+                  reduceMotion={reduceMotion}
+                  stagger={0.008}
+                  duration={0.2}
+                />
               </h3>
 
-              {/* Description */}
+              {/* CARD DESCRIPTION */}
               <p
                 className="
-                  relative z-10
-                  mb-0 mt-[16px]
+                  mb-0 mt-[17px]
+                  w-full max-w-[470px]
                   text-[15px] font-normal
-                  leading-[1.7]
-                  text-[#b7cbd9]
+                  leading-[1.7] tracking-[-0.1px]
+                  text-[#A6B7C9]
                   sm:text-[17px]
                 "
-                style={{
-                  transform: "translateZ(20px)",
-                }}
               >
-                <TextRoll duration={0.06} stagger={0.001}>
-                  {challenge.description}
-                </TextRoll>
+                <AnimatedText
+                  text={challenge.description}
+                  reduceMotion={reduceMotion}
+                  stagger={0.004}
+                  duration={0.18}
+                />
               </p>
-
             </motion.article>
           ))}
         </div>
@@ -291,3 +296,4 @@ export default function HomeChallenge() {
     </section>
   );
 }
+
