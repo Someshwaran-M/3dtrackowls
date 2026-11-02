@@ -161,10 +161,10 @@ function AboutMission() {
                   className="pointer-events-none absolute h-[220px] w-[220px] rounded-full bg-[#8BB630]/10 blur-[80px] sm:h-[300px] sm:w-[300px] lg:h-[400px] lg:w-[400px]"
                 />
 
-       <img
-  src="/images/logo/TrackOwls Owl Logo - Copy.png"
+     <img
+  src="/images/logo/logo.png"
   alt="TrackOwls — Scan, Detect, Remove, Protect"
-  className="mission-logo relative z-10 h-auto w-full max-w-[270px] rounded-xl bg-white p-3 object-contain shadow-sm transition-opacity hover:opacity-95 sm:max-w-[350px] lg:max-w-[450px] xl:max-w-[490px]"
+  className="mission-logo relative z-10 h-auto w-full max-w-[270px] rounded-4xl bg-white p-3 object-contain shadow-sm transition-opacity hover:opacity-95 sm:max-w-[350px] lg:max-w-[450px] xl:max-w-[490px]"
 />
               </div>
 
