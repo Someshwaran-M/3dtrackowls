@@ -22,7 +22,7 @@ const challenges = [
   },
 ];
 
-// FAST LETTER ANIMATION
+// LETTER-BY-LETTER ANIMATION
 function AnimatedText({
   text,
   delay = 0,
@@ -38,7 +38,11 @@ function AnimatedText({
       className="inline"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{
+        once: true,
+        amount: 0.01,
+        margin: "0px 0px -5% 0px",
+      }}
       variants={{
         hidden: {},
         visible: {
@@ -65,7 +69,7 @@ function AnimatedText({
             >
               {Array.from(word).map((letter, letterIndex) => (
                 <motion.span
-                  key={letterIndex}
+                  key={`${letter}-${letterIndex}`}
                   className="inline-block"
                   variants={
                     reduceMotion
@@ -175,7 +179,10 @@ export default function HomeChallenge() {
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{
+              once: true,
+              amount: 0.05,
+            }}
             transition={{
               duration: 0.45,
               delay: 0.1,
@@ -223,7 +230,7 @@ export default function HomeChallenge() {
               }}
               viewport={{
                 once: true,
-                amount: 0.2,
+                amount: 0.05,
               }}
               transition={{
                 duration: 0.45,
