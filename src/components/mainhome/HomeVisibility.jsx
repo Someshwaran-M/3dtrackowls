@@ -139,9 +139,11 @@ export default function HomeVisibility() {
           padding: 40px 34px;
           border: 1px solid rgba(171, 198, 215, 0.22);
           border-radius: 10px;
-          background: rgba(10, 26, 46, 0.65);
-          backdrop-filter: blur(14px);
-          -webkit-backdrop-filter: blur(14px);
+          background: transparent !important;
+          background-color: transparent !important;
+          background-image: none !important;
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;
         }
 
         .visibility-report-intro {
@@ -186,7 +188,9 @@ export default function HomeVisibility() {
           padding: 0 20px;
           border: 1px solid rgba(171, 198, 215, 0.25);
           border-radius: 6px;
-          background: rgba(10, 26, 46, 0.6);
+          background: transparent !important;
+          background-color: transparent !important;
+          background-image: none !important;
           color: white;
           font-family: inherit;
           font-size: 12px;
@@ -200,7 +204,8 @@ export default function HomeVisibility() {
 
         .visibility-download:hover {
           border-color: #d1ed14;
-          background: rgba(209, 237, 20, 0.15);
+          background: rgba(209, 237, 20, 0.08);
+          background-color: rgba(209, 237, 20, 0.08);
           color: #d1ed14;
         }
 
@@ -469,6 +474,44 @@ export default function HomeVisibility() {
             transition-duration: 0.01ms !important;
           }
         }
+
+        /* REMOVE NAVY GLASS BACKGROUNDS */
+        .visibility-section .visibility-report,
+        .visibility-section .visibility-download {
+          background: transparent !important;
+          background-color: transparent !important;
+          background-image: none !important;
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;
+        }
+
+        /* Override global header/navy panel styles affecting this section */
+        .galaxy-site .visibility-section .visibility-header,
+        .galaxy-site .visibility-section .visibility-header > div,
+        .visibility-section .visibility-header,
+        .visibility-section .visibility-header > div {
+          background: transparent !important;
+          background-color: transparent !important;
+          background-image: none !important;
+          box-shadow: none !important;
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;
+          border: 0 !important;
+        }
+
+        .galaxy-site .visibility-section .visibility-header::before,
+        .galaxy-site .visibility-section .visibility-header::after,
+        .galaxy-site .visibility-section .visibility-header > div::before,
+        .galaxy-site .visibility-section .visibility-header > div::after,
+        .visibility-section .visibility-header::before,
+        .visibility-section .visibility-header::after,
+        .visibility-section .visibility-header > div::before,
+        .visibility-section .visibility-header > div::after {
+          content: none !important;
+          display: none !important;
+          background: transparent !important;
+        }
+
       `}</style>
 
       <div className="visibility-container">

@@ -1,6 +1,10 @@
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { Link } from "react-router-dom";
 
 const workflowStages = [
@@ -37,32 +41,90 @@ const workflowStages = [
 ];
 
 export default function HomeHowItWorks() {
+  const timelineRef = useRef(null);
+
+  // Scroll progress
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 75%", "end 35%"],
+  });
+
+  // Progress animation
+  const progressScale = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, 1]
+  );
+
+  // Desktop: left to right
+  const horizontalPosition = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", "100%"]
+  );
+
+  // Mobile: top to bottom
+  const verticalPosition = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", "100%"]
+  );
+
   return (
-    <section id="home-how-it-works" className="workflow-section">
+    <section
+      id="home-how-it-works"
+      className="workflow-section"
+    >
       <style>{`
+
+        /* GLOBAL WORKFLOW STYLES */
+
         .workflow-section,
         .workflow-section * {
           box-sizing: border-box;
         }
 
         .workflow-section {
+          position: relative;
           width: 100%;
           overflow: hidden;
-          background: transparent;
+          background: transparent !important;
           border-top: 1px solid rgba(171, 198, 215, 0.15);
           border-bottom: 1px solid rgba(171, 198, 215, 0.15);
           color: #ffffff;
           font-family: Roboto, Arial, sans-serif;
         }
 
+        /* REMOVE ALL CONTENT BACKGROUNDS */
+
+        .workflow-container,
+        .workflow-header,
+        .workflow-header > div,
+        .workflow-heading,
+        .workflow-heading span,
+        .workflow-eyebrow,
+        .workflow-intro,
+        .workflow-grid,
+        .workflow-stage,
+        .workflow-number,
+        .workflow-title,
+        .workflow-description,
+        .workflow-cta-wrap,
+        .workflow-cta {
+          background: transparent !important;
+          background-color: transparent !important;
+        }
+
         .workflow-container {
+          position: relative;
           width: calc(100% - 80px);
           max-width: 1380px;
           margin: 0 auto;
           padding: 120px 0 118px;
         }
 
-        /* Header layout */
+        /* HEADER */
+
         .workflow-header {
           display: grid;
           grid-template-columns: minmax(0, 1fr) 485px;
@@ -103,18 +165,80 @@ export default function HomeHowItWorks() {
           line-height: 1.65;
         }
 
-        /* Five aligned columns */
+        /* WORKFLOW GRID */
+
         .workflow-grid {
+          position: relative;
           display: grid;
           grid-template-columns: repeat(5, minmax(0, 1fr));
           column-gap: 30px;
           align-items: start;
         }
 
+        /* DESKTOP BASE LINE */
+
+        .workflow-grid::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 1px;
+          background: rgba(171, 198, 215, 0.25);
+        }
+
+        /* DESKTOP PROGRESS TRACK */
+
+        .workflow-horizontal-track {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          z-index: 5;
+          pointer-events: none;
+        }
+
+        .workflow-horizontal-progress {
+          position: absolute;
+          inset: 0;
+          height: 2px;
+          background: #d1ed14;
+          transform-origin: left center;
+          box-shadow: 0 0 10px rgba(209, 237, 20, 0.55);
+        }
+
+        /* DESKTOP MOVING DOT */
+
+        .workflow-horizontal-dot {
+          position: absolute;
+          top: 50%;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: #d1ed14;
+          border: 2px solid #d1ed14;
+          box-shadow:
+            0 0 0 4px rgba(209, 237, 20, 0.12),
+            0 0 15px rgba(209, 237, 20, 0.8);
+          transform: translate(-50%, -50%);
+          z-index: 6;
+        }
+
+        /* MOBILE TRACK */
+
+        .workflow-vertical-track {
+          display: none;
+        }
+
+        /* WORKFLOW STAGES */
+
         .workflow-stage {
+          position: relative;
           min-width: 0;
-          border-top: 1px solid rgba(171, 198, 215, 0.25);
+          border-top: none;
           padding-top: 40px;
+          background: transparent !important;
         }
 
         .workflow-number {
@@ -143,7 +267,8 @@ export default function HomeHowItWorks() {
           line-height: 1.65;
         }
 
-        /* Simple text link */
+        /* CTA */
+
         .workflow-cta-wrap {
           margin-top: 76px;
         }
@@ -166,8 +291,10 @@ export default function HomeHowItWorks() {
           border-color: #d1ed14;
         }
 
-        /* Tablet */
+        /* TABLET */
+
         @media (max-width: 1200px) {
+
           .workflow-container {
             width: calc(100% - 64px);
             padding-top: 86px;
@@ -221,8 +348,10 @@ export default function HomeHowItWorks() {
           }
         }
 
-        /* Small tablet */
+        /* SMALL TABLET */
+
         @media (max-width: 760px) {
+
           .workflow-container {
             width: calc(100% - 48px);
             padding-top: 64px;
@@ -280,8 +409,10 @@ export default function HomeHowItWorks() {
           }
         }
 
-        /* Mobile */
+        /* MOBILE - VERTICAL TIMELINE */
+
         @media (max-width: 480px) {
+
           .workflow-container {
             width: calc(100% - 40px);
             padding-top: 48px;
@@ -309,13 +440,75 @@ export default function HomeHowItWorks() {
             font-size: 15px;
           }
 
+          /* SINGLE COLUMN */
+
           .workflow-grid {
             grid-template-columns: 1fr;
             row-gap: 25px;
+            padding-left: 27px;
           }
 
+          /* REMOVE HORIZONTAL LINE */
+
+          .workflow-grid::before {
+            display: none;
+          }
+
+          .workflow-horizontal-track {
+            display: none;
+          }
+
+          /* VERTICAL BASE LINE */
+
+          .workflow-vertical-track {
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 5px;
+            width: 2px;
+            background: rgba(171, 198, 215, 0.25);
+            z-index: 4;
+            pointer-events: none;
+          }
+
+          /* VERTICAL PROGRESS */
+
+          .workflow-vertical-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: #d1ed14;
+            transform-origin: top center;
+            box-shadow: 0 0 10px rgba(209, 237, 20, 0.55);
+          }
+
+          /* MOBILE MOVING DOT */
+
+          .workflow-vertical-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #d1ed14;
+            border: 2px solid #d1ed14;
+            box-shadow:
+              0 0 0 4px rgba(209, 237, 20, 0.12),
+              0 0 15px rgba(209, 237, 20, 0.8);
+            transform: translate(-50%, -50%);
+            z-index: 6;
+          }
+
+          /* STAGE CONTENT */
+
           .workflow-stage {
-            padding-top: 21px;
+            padding-top: 10px;
+            border-top: none;
+            background: transparent !important;
           }
 
           .workflow-number {
@@ -342,7 +535,35 @@ export default function HomeHowItWorks() {
           }
         }
 
+        /* REMOVE DARK BACKGROUND FROM WORKFLOW HEADER */
+
+        .workflow-section .workflow-header,
+        .workflow-section header.workflow-header,
+        .workflow-section .workflow-header > div,
+        .workflow-section .workflow-header .workflow-eyebrow,
+        .workflow-section .workflow-header .workflow-heading,
+        .workflow-section .workflow-header .workflow-heading span,
+        .workflow-section .workflow-header .workflow-intro {
+          background: transparent !important;
+          background-color: transparent !important;
+          background-image: none !important;
+          box-shadow: none !important;
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;
+        }
+
+        .workflow-section .workflow-header::before,
+        .workflow-section .workflow-header::after,
+        .workflow-section .workflow-header > div::before,
+        .workflow-section .workflow-header > div::after {
+          content: none !important;
+          display: none !important;
+        }
+
+        /* REDUCED MOTION */
+
         @media (prefers-reduced-motion: reduce) {
+
           .workflow-section *,
           .workflow-section *::before,
           .workflow-section *::after {
@@ -350,17 +571,25 @@ export default function HomeHowItWorks() {
             animation-duration: 0.01ms !important;
           }
         }
+
       `}</style>
 
       <div className="workflow-container">
+
+        {/* HEADER */}
+
         <motion.header
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.45, ease: "easeOut" }}
+          transition={{
+            duration: 0.45,
+            ease: "easeOut",
+          }}
           className="workflow-header"
         >
           <div>
+
             <p className="workflow-eyebrow">
               How TrackOwls Works
             </p>
@@ -369,27 +598,88 @@ export default function HomeHowItWorks() {
               <span>From detection</span>
               <span>to enforcement.</span>
             </h2>
+
           </div>
 
           <p className="workflow-intro">
             Five connected stages. One traceable record of what
             was found, verified and actioned.
           </p>
+
         </motion.header>
 
-        <div className="workflow-grid">
+        {/* WORKFLOW TIMELINE */}
+
+        <div
+          ref={timelineRef}
+          className="workflow-grid"
+        >
+
+          {/* DESKTOP HORIZONTAL PROGRESS */}
+
+          <div className="workflow-horizontal-track">
+
+            <motion.div
+              className="workflow-horizontal-progress"
+              style={{
+                scaleX: progressScale,
+              }}
+            />
+
+            <motion.div
+              className="workflow-horizontal-dot"
+              style={{
+                left: horizontalPosition,
+              }}
+            />
+
+          </div>
+
+          {/* MOBILE VERTICAL PROGRESS */}
+
+          <div className="workflow-vertical-track">
+
+            <motion.div
+              className="workflow-vertical-progress"
+              style={{
+                scaleY: progressScale,
+              }}
+            />
+
+            <motion.div
+              className="workflow-vertical-dot"
+              style={{
+                top: verticalPosition,
+              }}
+            />
+
+          </div>
+
+          {/* WORKFLOW STAGES */}
+
           {workflowStages.map((stage, index) => (
+
             <motion.article
               key={stage.number}
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
+              initial={{
+                opacity: 0,
+                y: 8,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.15,
+              }}
               transition={{
                 duration: 0.35,
                 delay: index * 0.05,
               }}
               className="workflow-stage"
             >
+
               <span className="workflow-number">
                 {stage.number}
               </span>
@@ -401,15 +691,26 @@ export default function HomeHowItWorks() {
               <p className="workflow-description">
                 {stage.description}
               </p>
+
             </motion.article>
+
           ))}
+
         </div>
 
+        {/* CTA */}
+
         <div className="workflow-cta-wrap">
-          <Link to="/how-it-works" className="workflow-cta">
+
+          <Link
+            to="/how-it-works"
+            className="workflow-cta"
+          >
             Understand the workflow
           </Link>
+
         </div>
+
       </div>
     </section>
   );

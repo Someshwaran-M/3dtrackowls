@@ -249,7 +249,7 @@ return ( <section
       position: sticky;
       top: 100px;
       width: 100%;
-      height: 350px;
+      height: 640px;
       margin-bottom: 45px;
       flex-shrink: 0;
     }
@@ -302,7 +302,7 @@ return ( <section
       flex-direction: column;
       min-width: 0;
       width: 100%;
-      height: 350px;
+      height: 640px;
       overflow: hidden;
       border: 1px solid rgba(171, 198, 215, 0.2);
       border-radius: 8px;
@@ -323,9 +323,9 @@ return ( <section
     ================================= */
 
     .solution-image {
-      flex: 0 0 206px;
-      width: calc(100% - 35px);
-      height: 506px;
+      flex: 0 0 380px;
+      width: calc(100% - 24px);
+      height: 380px;
       margin: 0;
       overflow: hidden;
       background: rgba(6, 18, 32, 0.7);
@@ -736,6 +736,35 @@ return ( <section
       .solution-link {
         transition: none;
       }
+    }
+
+
+    /* =================================
+       SOLUTIONS HEADER - REMOVE DARK PANEL
+       Keep the existing galaxy background visible.
+    ================================= */
+
+    .solutions-section .solutions-header,
+    .solutions-section header.solutions-header,
+    .solutions-section .solutions-header > div,
+    .solutions-section .solutions-header .solutions-eyebrow,
+    .solutions-section .solutions-header .solutions-heading,
+    .solutions-section .solutions-header .solutions-heading span,
+    .solutions-section .solutions-header .solutions-view-all {
+      background: transparent !important;
+      background-color: transparent !important;
+      background-image: none !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
+    .solutions-section .solutions-header::before,
+    .solutions-section .solutions-header::after,
+    .solutions-section .solutions-header > div::before,
+    .solutions-section .solutions-header > div::after {
+      content: none !important;
+      display: none !important;
     }
 
   `}</style>
