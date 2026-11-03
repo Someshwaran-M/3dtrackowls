@@ -157,7 +157,7 @@ function ProtectionPriorities() {
         </a>
       </div>
 
-      <div className="rounded-2xl border border-[#c8d6d2] bg-[#edf3ef]/70 p-5 sm:p-7 lg:p-8">
+      <div className="rounded-2xl border border-[#c8d6d2] bg-[#102D45]/70 p-5 sm:p-7 lg:p-8">
         <h3 className="text-lg font-bold tracking-tight text-[#18324b] sm:text-xl">
           Typical priorities
         </h3>
