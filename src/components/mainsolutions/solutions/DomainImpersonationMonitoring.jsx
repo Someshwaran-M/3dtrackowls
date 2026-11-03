@@ -1920,12 +1920,105 @@ export default function LivestreamingProtection() {
             transition-duration: .01ms !important;
           }
         }
+
+        /* ===== TrackOwls premium navy theme ===== */
+        .lsp-page {
+          --lsp-blue: #071B2D !important;
+          --lsp-blue-deep: #0B263D !important;
+          --lsp-panel: #102D45 !important;
+          --lsp-panel-alt: #15354E !important;
+          --lsp-ink: #F3F7FA !important;
+          --lsp-muted: #B7C8D6 !important;
+          --lsp-line: #29465D !important;
+          --lsp-lime: #D5F51F !important;
+          --lsp-green: #B8D83D !important;
+          background: #071B2D !important;
+          color: #F3F7FA !important;
+        }
+
+        /* Replace light section and card surfaces with layered navy. */
+        .lsp-page .lsp-hero,
+        .lsp-page .lsp-service,
+        .lsp-page .lsp-coverage-card,
+        .lsp-page .lsp-workflow-card,
+        .lsp-page .lsp-investment,
+        .lsp-page .lsp-challenge,
+        .lsp-page .lsp-engagement,
+        .lsp-page .lsp-enforcement,
+        .lsp-page [class*="card"],
+        .lsp-page [class*="panel"] {
+          background-color: #102D45 !important;
+          border-color: #29465D !important;
+        }
+
+        .lsp-page .lsp-workflow-item:hover,
+        .lsp-page .lsp-workflow-item.active {
+          background: #1B405B !important;
+          border-color: #45647D !important;
+        }
+
+        /* Darken the hero image overlay and outer hero background. */
+        .lsp-page > section {
+          background-color: #071B2D !important;
+          background-image: none !important;
+        }
+        .lsp-page > section > div > div {
+          background-color: #102D45 !important;
+        }
+        .lsp-page .bg-\\[\\#D5DDDA\\],
+        .lsp-page [class*="D5DDDA"] {
+          background-color: #102D45 !important;
+        }
+        .lsp-page [class*="from-\\[\\#DCEAF4\\]"] {
+          background-image: linear-gradient(90deg, rgba(7,27,45,.97), rgba(11,38,61,.88), rgba(11,38,61,.62)) !important;
+        }
+        .lsp-page [class*="bg-\\[\\#8BBCE0"] {
+          background-color: rgba(213,245,31,.08) !important;
+        }
+
+        /* Keep headings bright and supporting copy readable. */
+        .lsp-page h1,
+        .lsp-page h2,
+        .lsp-page h3,
+        .lsp-page h4,
+        .lsp-page h5,
+        .lsp-page strong,
+        .lsp-page .lsp-hero h1 {
+          color: #F3F7FA !important;
+        }
+        .lsp-page p,
+        .lsp-page li,
+        .lsp-page .lsp-hero p,
+        .lsp-page .lsp-workflow-copy > span,
+        .lsp-page .lsp-check-list li,
+        .lsp-page .lsp-output-list li {
+          color: #B7C8D6 !important;
+        }
+
+        /* Lime accent buttons and icons. */
+        .lsp-page .lsp-button {
+          background: #D5F51F !important;
+          border-color: #D5F51F !important;
+          color: #071B2D !important;
+        }
+        .lsp-page .lsp-button:hover {
+          background: #B8D83D !important;
+        }
+        .lsp-page .lsp-play-button {
+          background: #15354E !important;
+          border-color: #29465D !important;
+          color: #F3F7FA !important;
+        }
+        .lsp-page .lsp-play-button:hover {
+          background: #1B405B !important;
+        }
+
       `}</style>
 
       <section className="w-full bg-linear-gradient(120deg, #e7f2f7, #cfe5ee); px-3 pt-26 pb-7 font-['Roboto',sans-serif] sm:px-5 sm:pt-25 sm:pb-9 lg:px-8 lg:pt-25 lg:pb-8"
     >
       <div className="mx-auto w-full max-w-[1440px]">
-        <div className="relative isolate flex min-h-[300px] w-full items-center overflow-hidden rounded-[14px] border border-[#8BB630]/30 bg-[#D5DDDA] sm:min-h-[400px] sm:rounded-[17px] lg:min-h-[410px] xl:min-h-[440px]">
+        <div className="relative isolate flex min-h-[300px] w-full items-center overflow-hidden rounded-[14px] border border-[#8BB630]/30 bg-[#102D45] sm:min-h-[400px] sm:rounded-[17px] lg:min-h-[410px] xl:min-h-[440px]">
 {/* Background image */}
           <div
             aria-hidden="true"
@@ -1938,13 +2031,13 @@ export default function LivestreamingProtection() {
           {/* Light blue overlay */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 z-[-1] bg-gradient-to-r from-[#DCEAF4]/95 via-[#DCEAF4]/85 to-[#DCEAF4]/45"
+            className="pointer-events-none absolute inset-0 z-[-1] bg-gradient-to-r from-[#071B2D]/95 via-[#0B263D]/88 to-[#0B263D]/62"
           />
 
           {/* Soft blue atmospheric glow */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -right-20 top-1/2 z-[-1] h-64 w-64 -translate-y-1/2 rounded-full bg-[#8BBCE0]/30 blur-3xl sm:h-80 sm:w-80 lg:h-[450px] lg:w-[450px]"
+            className="pointer-events-none absolute -right-20 top-1/2 z-[-1] h-64 w-64 -translate-y-1/2 rounded-full bg-[#D5F51F]/10 blur-3xl sm:h-80 sm:w-80 lg:h-[450px] lg:w-[450px]"
           />
           
           {/* Main content */}
@@ -1952,17 +2045,17 @@ export default function LivestreamingProtection() {
             <div className="max-w-[1000px]">    
 
 
-           <span className="mb-5 inline-flex items-center gap-2.5 text-[10px] font-extrabold uppercase tracking-[1.8px] text-[#648A13] sm:mb-6 sm:text-[11px] lg:mb-7 lg:text-[12px]">
+           <span className="mb-5 inline-flex items-center gap-2.5 text-[10px] font-extrabold uppercase tracking-[1.8px] text-[#D5F51F] sm:mb-6 sm:text-[11px] lg:mb-7 lg:text-[12px]">
                Solutions
               </span>
 
               {/* Heading */}
-              <h1 className="m-0 max-w-[900px] text-[34px] font-bold leading-[1.12] tracking-[-1.3px] text-[#15334E] min-[400px]:text-[39px] sm:text-[48px] sm:leading-[1.1] sm:tracking-[-1.8px] md:text-[58px] lg:text-[68px] lg:leading-[1.06] lg:tracking-[-2.4px] xl:text-[76px]">
+              <h1 className="m-0 max-w-[900px] text-[34px] font-bold leading-[1.12] tracking-[-1.3px] text-[#F3F7FA] min-[400px]:text-[39px] sm:text-[48px] sm:leading-[1.1] sm:tracking-[-1.8px] md:text-[58px] lg:text-[68px] lg:leading-[1.06] lg:tracking-[-2.4px] xl:text-[76px]">
                 Domain &amp; Impersonation Monitoring
               </h1>
 
               {/* Description */}
-              <p className="mt-5 max-w-[650px] text-[14px] font-normal leading-[1.75] text-[#526B86] sm:mt-6 sm:text-[15px] sm:leading-[1.8] lg:mt-7 lg:text-[17px] lg:leading-[1.8]">
+              <p className="mt-5 max-w-[650px] text-[14px] font-normal leading-[1.75] text-[#B7C8D6] sm:mt-6 sm:text-[15px] sm:leading-[1.8] lg:mt-7 lg:text-[17px] lg:leading-[1.8]">
                 Investigate lookalike websites, suspicious brand-related domains and accounts that may impersonate your business.
               </p> 
 

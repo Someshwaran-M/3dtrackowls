@@ -180,10 +180,10 @@ function SignalBars({ active = false, playing = true }) {
       {Array.from({ length: 3 }, (_, index) => (
         <span
           key={index}
-          className={`block h-[17px] w-[28px] border border-[#405444] ${
+          className={`block h-[17px] w-[28px] border border-[#34536B] ${
             active
-              ? "bg-gradient-to-b from-[#344638] to-[#1B2920]"
-              : "bg-gradient-to-b from-[#344638] to-[#1B2920]"
+              ? "bg-gradient-to-b from-[#29465D] to-[#0B263D]"
+              : "bg-gradient-to-b from-[#29465D] to-[#0B263D]"
           } ${playing ? "animate-pulse" : ""}`}
           style={{
             animationDelay: `${index * 150}ms`,
@@ -208,13 +208,13 @@ function StatusCard({
     <div
       className={`absolute z-20 w-[108px] rounded-md border p-2.5 transition-all duration-500 sm:w-[120px] sm:p-3 ${
         highlighted
-          ? "border-[#8BB630] bg-[#1B2920] shadow-[0_0_18px_rgba(213,245,31,0.06)]"
-          : "border-[#344638] bg-[#203025]"
+          ? "border-[#D5F51F] bg-[#0B263D] shadow-[0_0_18px_rgba(213,245,31,0.06)]"
+          : "border-[#29465D] bg-[#102D45]"
       } ${className}`}
     >
       <div
         className={`flex items-center gap-1.5 text-[8px] font-medium leading-relaxed sm:text-[9px] ${
-          highlighted ? "text-[#8BB630]" : "text-[#B5C1B6]"
+          highlighted ? "text-[#D5F51F]" : "text-[#B7C8D6]"
         }`}
       >
         <Play size={12} className="shrink-0" />
@@ -277,21 +277,21 @@ function BroadcastIllustration({
     : (step / stages.length) * 100 + elapsed / stages.length;
 
   return (
-    <div className="relative w-full overflow-hidden rounded-xl border border-[#344638] bg-[#152019] font-sans text-[#F5F8F2] shadow-xl">
+    <div className="relative w-full overflow-hidden rounded-xl border border-[#29465D] bg-[#071B2D] font-sans text-[#F3F7FA] shadow-xl">
       {/* Dashboard header */}
-      <div className="flex min-h-[16px] items-center justify-between border-b border-[#344638] bg-[#1B2920] px-3 py-3 sm:px-4">
+      <div className="flex min-h-[16px] items-center justify-between border-b border-[#29465D] bg-[#0B263D] px-3 py-3 sm:px-4">
         <div className="flex items-center gap-2 text-[9px] font-semibold sm:text-[10px]">
-          <Play size={13} className="text-[#B5C1B6]" />
+          <Play size={13} className="text-[#B7C8D6]" />
           <span>OTT & VOD Protection</span>
         </div>
 
-        <span className="text-[7px] font-black tracking-[1px] text-[#8BB630] sm:text-[8px]">
+        <span className="text-[7px] font-black tracking-[1px] text-[#D5F51F] sm:text-[8px]">
           ILLUSTRATIVE
         </span>
       </div>
 
       {/* Animated monitoring canvas */}
-      <div className="relative isolate h-[285px] overflow-hidden bg-[radial-gradient(ellipse_at_50%_45%,#26372A_0%,#1B2920_48%,#152019_100%)] sm:h-[320px] md:h-[396px]">
+      <div className="relative isolate h-[285px] overflow-hidden bg-[radial-gradient(ellipse_at_50%_45%,#153A56_0%,#0B263D_48%,#071B2D_100%)] sm:h-[320px] md:h-[396px]">
         {/* Dotted world map */}
         <svg
           viewBox="0 0 600 300"
@@ -306,7 +306,7 @@ function BroadcastIllustration({
               height="6"
               patternUnits="userSpaceOnUse"
             >
-              <circle cx="2" cy="2" r="1" fill="#527D90" />
+              <circle cx="2" cy="2" r="1" fill="#52718A" />
             </pattern>
 
             <radialGradient id="broadcastMapFade">
@@ -347,7 +347,7 @@ function BroadcastIllustration({
           {/* Dotted scanning routes */}
           <g
             fill="none"
-            stroke="#8BB630"
+            stroke="#D5F51F"
             strokeWidth="1.25"
             strokeDasharray="3 9"
             strokeLinecap="round"
@@ -362,7 +362,7 @@ function BroadcastIllustration({
           </g>
 
           {/* Scanning points */}
-          <g fill="#8BB630">
+          <g fill="#D5F51F">
             <circle cx="90" cy="91" r="2.5" />
             <circle cx="493" cy="88" r="2.5" />
             <circle cx="275" cy="150" r="3" />
@@ -371,7 +371,7 @@ function BroadcastIllustration({
 
           {/* Moving signal pulses */}
           {playing && (
-            <g fill="#8BB630">
+            <g fill="#D5F51F">
               <circle r="3">
                 <animateMotion
                   dur="4s"
@@ -395,17 +395,17 @@ function BroadcastIllustration({
        
 
         {/* Outer scanner ring */}
-        <div className="absolute left-1/2 top-[47%] h-[112px] w-[112px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#8BB630]/40 sm:h-[132px] sm:w-[132px]" />
+        <div className="absolute left-1/2 top-[47%] h-[112px] w-[112px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#D5F51F]/40 sm:h-[132px] sm:w-[132px]" />
 
         {/* Pulsing scanner ring */}
         <div
-          className={`absolute left-1/2 top-[47%] h-[88px] w-[88px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#8BB630]/90 sm:h-[90px] sm:w-[90px] ${
+          className={`absolute left-1/2 top-[47%] h-[88px] w-[88px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#D5F51F]/90 sm:h-[90px] sm:w-[90px] ${
             playing ? "animate-pulse" : ""
           }`}
         />
 
         {/* Central animated status */}
-        <div className="absolute left-1/2 top-[47%] z-10 flex h-[86px] w-[86px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-1 rounded-full border border-[#8BB630] bg-[#1B2920] text-[#8BB630] shadow-[0_0_24px_rgba(213,245,31,0.08)] transition-all duration-500">
+        <div className="absolute left-1/2 top-[47%] z-10 flex h-[86px] w-[86px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-1 rounded-full border border-[#D5F51F] bg-[#0B263D] text-[#D5F51F] shadow-[0_0_24px_rgba(213,245,31,0.08)] transition-all duration-500">
           <CenterIcon
             size={29}
             strokeWidth={1.8}
@@ -442,8 +442,8 @@ function BroadcastIllustration({
         />
 
         {/* Monitoring scope line */}
-        <div className="absolute bottom-0 left-0 right-0 flex min-h-[43px] items-center gap-3 border-t border-[#344638]/80 bg-[#152019]/60 px-3 sm:px-5">
-          <div className="flex shrink-0 items-center gap-1.5 text-[8px] text-[#B5C1B6] sm:text-[9px]">
+        <div className="absolute bottom-0 left-0 right-0 flex min-h-[43px] items-center gap-3 border-t border-[#29465D]/80 bg-[#071B2D]/60 px-3 sm:px-5">
+          <div className="flex shrink-0 items-center gap-1.5 text-[8px] text-[#B7C8D6] sm:text-[9px]">
             {step === 0 ? (
               <Search size={13} />
             ) : step === 1 ? (
@@ -455,7 +455,7 @@ function BroadcastIllustration({
           </div>
 
           <div
-            className="h-[2px] flex-1 overflow-hidden bg-[#344638]"
+            className="h-[2px] flex-1 overflow-hidden bg-[#29465D]"
             role="progressbar"
             aria-label="Protection workflow progress"
             aria-valuemin={0}
@@ -463,7 +463,7 @@ function BroadcastIllustration({
             aria-valuenow={Math.round(progress)}
           >
             <div
-              className="h-full bg-[#8BB630] transition-all duration-300"
+              className="h-full bg-[#D5F51F] transition-all duration-300"
               style={{
                 width: `${Math.min(progress, 100)}%`,
               }}
@@ -473,8 +473,8 @@ function BroadcastIllustration({
       </div>
 
       {/* Dashboard footer */}
-      <div className="flex min-h-[57px] items-center justify-between gap-2 border-t border-[#344638] bg-[#1B2920] px-3 py-3 sm:px-4">
-        <span className="text-[6px] font-extrabold tracking-[0.65px] text-[#91A095] sm:text-[7px] sm:tracking-[1px]">
+      <div className="flex min-h-[57px] items-center justify-between gap-2 border-t border-[#29465D] bg-[#0B263D] px-3 py-3 sm:px-4">
+        <span className="text-[6px] font-extrabold tracking-[0.65px] text-[#91AFC4] sm:text-[7px] sm:tracking-[1px]">
           SCAN / DETECT / REMOVE / PROTECT
         </span>
 
@@ -482,7 +482,7 @@ function BroadcastIllustration({
           type="button"
           onClick={togglePlayback}
           aria-label={playing ? "Pause animation" : "Play animation"}
-          className="inline-flex min-h-[29px] shrink-0 items-center gap-1.5 rounded border border-[#405444] bg-transparent px-2.5 py-1.5 text-[9px] font-semibold text-[#F5F8F2] transition-colors hover:border-[#8BB630] hover:text-[#8BB630]"
+          className="inline-flex min-h-[29px] shrink-0 items-center gap-1.5 rounded border border-[#34536B] bg-transparent px-2.5 py-1.5 text-[9px] font-semibold text-[#F3F7FA] transition-colors hover:border-[#D5F51F] hover:text-[#D5F51F]"
         >
           {playing ? <Pause size={12} /> : <Play size={12} />}
           {playing ? "Pause" : "Play"}
@@ -683,19 +683,19 @@ export default function LivestreamingProtection() {
     <main className="lsp-page">
       <style>{`
         .lsp-page {
-          --lsp-blue: #152019;
-          --lsp-blue-deep: #1B2920;
-          --lsp-panel: #1B2920;
-          --lsp-panel-alt: #203025;
-          --lsp-ink: #F5F8F2;
-          --lsp-muted: #B5C1B6;
-          --lsp-line: #344638;
-          --lsp-lime: #8BB630;
-          --lsp-green: #8BB630;
+          --lsp-blue: #071B2D;
+          --lsp-blue-deep: #0B263D;
+          --lsp-panel: #0B263D;
+          --lsp-panel-alt: #102D45;
+          --lsp-ink: #F3F7FA;
+          --lsp-muted: #B7C8D6;
+          --lsp-line: #29465D;
+          --lsp-lime: #D5F51F;
+          --lsp-green: #D5F51F;
           width: 100%;
           overflow: hidden;
-          background: #152019;
-          color: #F5F8F2;
+          background: #071B2D;
+          color: #F3F7FA;
           font-family: Roboto, Arial, sans-serif;
           line-height: 1.6;
         }
@@ -721,9 +721,9 @@ export default function LivestreamingProtection() {
         .lsp-page .lsp-challenge,
         .lsp-page .lsp-enforcement,
         .lsp-page .lsp-contact {
-          background-color: #1B2920;
-          color: #F5F8F2;
-          border-color: #344638;
+          background-color: #0B263D;
+          color: #F3F7FA;
+          border-color: #29465D;
         }
 
         .lsp-page .lsp-coverage-card,
@@ -731,44 +731,44 @@ export default function LivestreamingProtection() {
         .lsp-page .lsp-workflow-card,
         .lsp-page .lsp-info-card,
         .lsp-page .lsp-enforcement-card {
-          background-color: #203025;
-          color: #F5F8F2;
-          border-color: #344638;
+          background-color: #102D45;
+          color: #F3F7FA;
+          border-color: #29465D;
         }
 
         .lsp-page .lsp-workflow-item:hover,
         .lsp-page .lsp-workflow-item.active {
-          background-color: #26372A;
-          border-color: #405444;
+          background-color: #153A56;
+          border-color: #34536B;
         }
 
         .lsp-page .lsp-hero {
-          background-color: #152019;
-          border-color: #344638;
+          background-color: #071B2D;
+          border-color: #29465D;
         }
 
         .lsp-page .lsp-hero h1,
         .lsp-page h2,
         .lsp-page h3,
         .lsp-page .lsp-workflow-copy strong {
-          color: #F5F8F2;
+          color: #F3F7FA;
         }
 
         .lsp-page p,
         .lsp-page .lsp-check-list li,
         .lsp-page .lsp-output-list li,
         .lsp-page .lsp-workflow-copy > span {
-          color: #B5C1B6;
+          color: #B7C8D6;
         }
 
         .lsp-page .lsp-button {
-          background: #8BB630;
-          border-color: #8BB630;
-          color: #152019 !important;
+          background: #D5F51F;
+          border-color: #D5F51F;
+          color: #071B2D !important;
         }
 
         .lsp-page .lsp-button:hover {
-          background: #6D900B;
+          background: #B8D83D;
         }
 
 
@@ -809,7 +809,7 @@ export default function LivestreamingProtection() {
           max-width: 1350px;
           padding: clamp(32px, 5vw, 62px) clamp(25px, 4vw, 40px);
           overflow: hidden;
-          border: 1px solid #344638;
+          border: 1px solid #29465D;
           border-radius: 12px;
           
         }
@@ -820,11 +820,11 @@ export default function LivestreamingProtection() {
           right: -60px;
           width: 340px;
           height: 340px;
-          border: 1px solid #8BB63033;
+          border: 1px solid #D5F51F33;
           border-radius: 50%;
           box-shadow:
-            0 0 0 30px #8BB63014,
-            0 0 0 60px #8BB6300D;
+            0 0 0 30px #D5F51F14,
+            0 0 0 60px #D5F51F0D;
           content: "";
           pointer-events: none;
         }
@@ -837,7 +837,7 @@ export default function LivestreamingProtection() {
 
         .lsp-hero h1 {
           margin: 8px 0 20px;
-          color: #F5F8F2;
+          color: #F3F7FA;
           font-size: clamp(38px, 6vw, 68px);
           font-weight: 800;
           line-height: 1.05;
@@ -848,7 +848,7 @@ export default function LivestreamingProtection() {
         .lsp-hero p {
           max-width: 670px;
           margin-bottom: 0;
-          color: #B5C1B6;
+          color: #B7C8D6;
           font-size: clamp(14px, 1.4vw, 16px);
           line-height: 1.8;
         }
@@ -872,9 +872,9 @@ export default function LivestreamingProtection() {
           gap: clamp(25px, 6vw, 70px);
           margin-bottom: 26px;
           padding: clamp(25px, 4vw, 42px);
-          border: 1px solid #344638;
+          border: 1px solid #29465D;
           border-radius: 17px;
-          background: #1B2920;
+          background: #0B263D;
         }
 
         .lsp-service-icon {
@@ -905,10 +905,10 @@ export default function LivestreamingProtection() {
           gap: 10px;
           min-height: 44px;
           padding: 12px 18px;
-          border: 1px solid #8BB630;
+          border: 1px solid #D5F51F;
           border-radius: 5px;
           background: var(--lsp-green);
-          color: white !important;
+          color: #071B2D !important;
           font-size: 12px;
           font-weight: 800;
           transition: transform 180ms ease, background 180ms ease;
@@ -916,14 +916,14 @@ export default function LivestreamingProtection() {
 
         .lsp-button:hover {
           transform: translateY(-2px);
-          background: #6D900B;
+          background: #B8D83D;
         }
 
         .lsp-coverage-card {
           padding: clamp(20px, 3vw, 29px);
-          border: 1px solid #344638;
+          border: 1px solid #29465D;
           border-radius: 14px;
-          background: #203025;
+          background: #102D45;
         }
 
         .lsp-coverage-card h3 {
@@ -946,7 +946,7 @@ export default function LivestreamingProtection() {
           display: flex;
           align-items: flex-start;
           gap: 12px;
-          color: #C1CCC2;
+          color: #C4D3DF;
           font-size: 13px;
           line-height: 1.65;
         }
@@ -960,7 +960,7 @@ export default function LivestreamingProtection() {
 
         .lsp-small-note {
           margin: 22px 0 0;
-          color: #91A095;
+          color: #91AFC4;
           font-size: 10px;
           line-height: 1.75;
         }
@@ -969,9 +969,9 @@ export default function LivestreamingProtection() {
           margin-top: 26px;
           margin-bottom: 26px;
           padding: clamp(23px, 4vw, 44px);
-          border: 1px solid #344638;
+          border: 1px solid #29465D;
           border-radius: 17px;
-          background: linear-gradient(140deg, #203025, #18271D);
+          background: linear-gradient(140deg, #102D45, #0A2238);
         }
 
         .lsp-motion-heading {
@@ -1005,16 +1005,16 @@ export default function LivestreamingProtection() {
         .lsp-demo-column {
           min-width: 0;
           overflow: hidden;
-          border: 1px solid #344638;
+          border: 1px solid #29465D;
           border-radius: 13px;
-          background: #1B2920;
+          background: #0B263D;
         }
 
         .lsp-visual {
           overflow: hidden;
-          border-bottom: 1px solid #b8cfd9;
-          background: linear-gradient(150deg, #203025, #18271D);
-          color: #173b52;
+          border-bottom: 1px solid #29465D;
+          background: linear-gradient(150deg, #102D45, #0A2238);
+          color: #F3F7FA;
         }
 
         .lsp-visual-top,
@@ -1024,11 +1024,11 @@ export default function LivestreamingProtection() {
           justify-content: space-between;
           gap: 12px;
           padding: 14px 17px;
-          background: #203025;
+          background: #102D45;
         }
 
         .lsp-visual-top {
-          border-bottom: 1px solid #344638;
+          border-bottom: 1px solid #29465D;
           font-size: 10px;
           font-weight: 750;
         }
@@ -1062,8 +1062,8 @@ export default function LivestreamingProtection() {
           inset: 0;
           opacity: .55;
           background:
-            linear-gradient(90deg, #8BB63018 1px, transparent 1px),
-            linear-gradient(#8BB63018 1px, transparent 1px);
+            linear-gradient(90deg, #D5F51F18 1px, transparent 1px),
+            linear-gradient(#D5F51F18 1px, transparent 1px);
           background-size: 32px 32px;
         }
 
@@ -1071,7 +1071,7 @@ export default function LivestreamingProtection() {
           position: absolute;
           width: 68%;
           aspect-ratio: 1.8;
-          border: 1px dashed #8BB630;
+          border: 1px dashed #D5F51F;
           border-radius: 50%;
           animation: lsp-orbit-spin 22s linear infinite;
         }
@@ -1083,7 +1083,7 @@ export default function LivestreamingProtection() {
         .lsp-orbit-two {
           width: 78%;
           aspect-ratio: 1.2;
-          border-color: #557044;
+          border-color: #3B617D;
           animation-duration: 28s;
           animation-direction: reverse;
         }
@@ -1091,7 +1091,7 @@ export default function LivestreamingProtection() {
         .lsp-orbit-three {
           width: 46%;
           aspect-ratio: 1;
-          border-color: #8BB630;
+          border-color: #D5F51F;
           animation-duration: 18s;
         }
 
@@ -1101,7 +1101,7 @@ export default function LivestreamingProtection() {
           bottom: 0;
           left: 0;
           width: 1px;
-          background: linear-gradient(transparent, #8BB630, transparent);
+          background: linear-gradient(transparent, #D5F51F, transparent);
           opacity: .75;
           animation: lsp-scan 6s ease-in-out infinite alternate;
         }
@@ -1112,9 +1112,9 @@ export default function LivestreamingProtection() {
           width: 145px;
           max-width: 34%;
           padding: 12px;
-          border: 1px solid #405444;
+          border: 1px solid #34536B;
           border-radius: 9px;
-          background: #203025;
+          background: #102D45;
           box-shadow: 0 7px 18px #00000030;
         }
 
@@ -1138,7 +1138,7 @@ export default function LivestreamingProtection() {
           display: flex;
           align-items: flex-start;
           gap: 7px;
-          color: #E2EADF;
+          color: #EAF2F8;
           font-size: 9px;
           font-weight: 700;
           line-height: 1.5;
@@ -1161,7 +1161,7 @@ export default function LivestreamingProtection() {
           width: 4px;
           height: calc(4px + (var(--bar) * 1.25px));
           border-radius: 1px;
-          background: #6F806F;
+          background: #52718A;
           animation: lsp-signal 1s ease-in-out infinite alternate;
           animation-delay: calc(var(--bar) * 100ms);
         }
@@ -1176,9 +1176,9 @@ export default function LivestreamingProtection() {
           justify-content: center;
           flex-direction: column;
           gap: 3px;
-          border: 1px solid #8caf3a;
+          border: 1px solid #D5F51F;
           border-radius: 50%;
-          background: #203025;
+          background: #102D45;
           box-shadow: 0 0 0 10px #91b63d14, 0 0 0 20px #91b63d0c;
           color: var(--lsp-green);
           animation: lsp-core-pulse 3s ease-in-out infinite;
@@ -1200,9 +1200,9 @@ export default function LivestreamingProtection() {
           align-items: center;
           gap: 15px;
           padding: 13px 17px;
-          border-top: 1px solid #344638;
-          background: #e8f1f4;
-          color: #B5C1B6;
+          border-top: 1px solid #29465D;
+          background: #102D45;
+          color: #B7C8D6;
           font-size: 9px;
         }
 
@@ -1214,7 +1214,7 @@ export default function LivestreamingProtection() {
           flex: 1;
           height: 3px;
           overflow: hidden;
-          background: #344638;
+          background: #29465D;
         }
 
         .lsp-progress span {
@@ -1235,7 +1235,7 @@ export default function LivestreamingProtection() {
           display: flex;
           align-items: center;
           gap: 6px;
-          color: #B5C1B6;
+          color: #B7C8D6;
           font-size: 8px;
           white-space: nowrap;
         }
@@ -1248,7 +1248,7 @@ export default function LivestreamingProtection() {
         }
 
         .lsp-is-paused .lsp-live-indicator i {
-          background: #718071;
+          background: #52718A;
         }
 
         .lsp-demo-controls {
@@ -1266,16 +1266,16 @@ export default function LivestreamingProtection() {
           align-items: center;
           gap: 7px;
           padding: 8px 11px;
-          border: 1px solid #405444;
+          border: 1px solid #34536B;
           border-radius: 5px;
-          background: #203025;
-          color: #F5F8F2;
+          background: #102D45;
+          color: #F3F7FA;
           font-size: 10px !important;
           cursor: pointer;
         }
 
         .lsp-play-button:hover {
-          background: #fff;
+          background: #153A56;
         }
 
         .lsp-workflow-card {
@@ -1283,9 +1283,9 @@ export default function LivestreamingProtection() {
           min-width: 0;
           flex-direction: column;
           padding: clamp(20px, 3vw, 28px);
-          border: 1px solid #344638;
+          border: 1px solid #29465D;
           border-radius: 13px;
-          background: #203025;
+          background: #102D45;
         }
 
         .lsp-card-kicker {
@@ -1319,13 +1319,13 @@ export default function LivestreamingProtection() {
 
         .lsp-workflow-item:hover,
         .lsp-workflow-item.active {
-          border-color: #405444;
-          background: #26372A;
+          border-color: #34536B;
+          background: #153A56;
         }
 
         .lsp-workflow-number {
           padding-top: 1px;
-          color: #829681;
+          color: #8AA7BC;
           font-size: 15px;
           font-weight: 850;
         }
@@ -1346,7 +1346,7 @@ export default function LivestreamingProtection() {
         }
 
         .lsp-workflow-copy > span {
-          color: #B5C1B6;
+          color: #B7C8D6;
           font-size: 11px;
           line-height: 1.75;
         }
@@ -1382,7 +1382,7 @@ export default function LivestreamingProtection() {
 
         .lsp-disclaimer {
           margin: 18px 0 0;
-          color: #91A095;
+          color: #91AFC4;
           font-size: 10px;
           line-height: 1.8;
         }
@@ -1398,9 +1398,9 @@ export default function LivestreamingProtection() {
 
         .lsp-investment-image {
           overflow: hidden;
-          border: 1px solid #344638;
+          border: 1px solid #29465D;
           border-radius: 10px;
-          background: #203025;
+          background: #102D45;
         }
 
         .lsp-investment-image img {
@@ -1413,7 +1413,7 @@ export default function LivestreamingProtection() {
         .lsp-investment-image > span {
           display: block;
           padding: 11px 14px;
-          color: #AAB8AC;
+          color: #A9BDCC;
           font-size: 10px;
         }
 
@@ -1436,9 +1436,9 @@ export default function LivestreamingProtection() {
           gap: clamp(28px, 5vw, 70px);
           margin-bottom: 26px;
           padding: clamp(27px, 4vw, 43px);
-          border: 1px solid #344638;
+          border: 1px solid #29465D;
           border-radius: 15px;
-          background: #1B2920;
+          background: #0B263D;
         }
 
         .lsp-challenge-title h2 {
@@ -1476,9 +1476,9 @@ export default function LivestreamingProtection() {
 
         .lsp-info-card {
           padding: clamp(23px, 3vw, 33px);
-          border: 1px solid #344638;
+          border: 1px solid #29465D;
           border-radius: 13px;
-          background: #203025;
+          background: #102D45;
         }
 
         .lsp-info-card h2 {
@@ -1499,9 +1499,9 @@ export default function LivestreamingProtection() {
           margin-top: 26px;
           margin-bottom: 26px;
           padding: clamp(25px, 4vw, 42px);
-          border: 1px solid #344638;
+          border: 1px solid #29465D;
           border-radius: 16px;
-          background: #1B2920;
+          background: #0B263D;
         }
 
         .lsp-enforcement-inner > h2 {
@@ -1519,9 +1519,9 @@ export default function LivestreamingProtection() {
           min-width: 0;
           min-height: 190px;
           padding: 20px 18px;
-          border: 1px solid #c2d6d8;
+          border: 1px solid #29465D;
           border-radius: 12px;
-          background: #203025;
+          background: #102D45;
           transition: transform 180ms ease, box-shadow 180ms ease;
         }
 
@@ -1544,7 +1544,7 @@ export default function LivestreamingProtection() {
 
         .lsp-enforcement-card p {
           margin-bottom: 0;
-          color: #B5C1B6;
+          color: #B7C8D6;
           font-size: 11px;
           line-height: 1.8;
         }
@@ -1554,9 +1554,9 @@ export default function LivestreamingProtection() {
           max-width: 1440px;
           margin: 26px auto;
           padding: clamp(26px, 4vw, 43px);
-          border: 1px solid #344638;
+          border: 1px solid #29465D;
           border-radius: 14px;
-          background: #203025;
+          background: #102D45;
         }
 
         .lsp-contact-inner {
@@ -1976,12 +1976,107 @@ export default function LivestreamingProtection() {
             transition-duration: .01ms !important;
           }
         }
+
+        /* ===== FINAL NAVY BLUE THEME — NO GREEN OR WHITE SURFACES ===== */
+        .lsp-page {
+          --lsp-blue: #071B2D !important;
+          --lsp-blue-deep: #0B263D !important;
+          --lsp-panel: #102D45 !important;
+          --lsp-panel-alt: #153A56 !important;
+          --lsp-ink: #F3F7FA !important;
+          --lsp-muted: #B7C8D6 !important;
+          --lsp-line: #29465D !important;
+          --lsp-lime: #D5F51F !important;
+          --lsp-green: #D5F51F !important;
+          background: #071B2D !important;
+          color: #F3F7FA !important;
+        }
+
+        .lsp-page .lsp-hero,
+        .lsp-page .lsp-service,
+        .lsp-page .lsp-motion,
+        .lsp-page .lsp-challenge,
+        .lsp-page .lsp-enforcement,
+        .lsp-page .lsp-contact {
+          background: #0B263D !important;
+          border-color: #29465D !important;
+          color: #F3F7FA !important;
+        }
+
+        .lsp-page .lsp-coverage-card,
+        .lsp-page .lsp-demo-column,
+        .lsp-page .lsp-workflow-card,
+        .lsp-page .lsp-info-card,
+        .lsp-page .lsp-enforcement-card,
+        .lsp-page .lsp-feed,
+        .lsp-page .lsp-core,
+        .lsp-page .lsp-visual-top,
+        .lsp-page .lsp-visual-bottom,
+        .lsp-page .lsp-visual-status,
+        .lsp-page .lsp-play-button {
+          background: #102D45 !important;
+          border-color: #29465D !important;
+          color: #F3F7FA !important;
+        }
+
+        .lsp-page .lsp-visual-stage {
+          background: radial-gradient(ellipse at 50% 45%, #153A56 0%, #0B263D 52%, #071B2D 100%) !important;
+        }
+
+        .lsp-page .lsp-workflow-item:hover,
+        .lsp-page .lsp-workflow-item.active {
+          background: #153A56 !important;
+          border-color: #3B617D !important;
+        }
+
+        .lsp-page .lsp-hero h1,
+        .lsp-page h2,
+        .lsp-page h3,
+        .lsp-page h4,
+        .lsp-page h5,
+        .lsp-page strong {
+          color: #F3F7FA !important;
+        }
+
+        .lsp-page p,
+        .lsp-page li,
+        .lsp-page .lsp-hero p,
+        .lsp-page .lsp-workflow-copy > span {
+          color: #B7C8D6 !important;
+        }
+
+        .lsp-page .lsp-eyebrow,
+        .lsp-page .lsp-service-icon,
+        .lsp-page .lsp-check-list li svg,
+        .lsp-page .lsp-output-list li svg,
+        .lsp-page .lsp-workflow-arrow,
+        .lsp-page .lsp-workflow-number,
+        .lsp-page .lsp-card-kicker,
+        .lsp-page .lsp-enforcement-card > span {
+          color: #D5F51F !important;
+        }
+
+        .lsp-page .lsp-button {
+          background: #D5F51F !important;
+          border-color: #D5F51F !important;
+          color: #071B2D !important;
+        }
+
+        .lsp-page .lsp-button:hover {
+          background: #B8D83D !important;
+        }
+
+        .lsp-page .lsp-play-button:hover {
+          background: #153A56 !important;
+          border-color: #D5F51F !important;
+        }
+
       `}</style>
 
-      <section className="w-full bg-linear-gradient(120deg, #152019, #1B2920); px-3 pt-26 pb-7 font-['Roboto',sans-serif] sm:px-5 sm:pt-25 sm:pb-9 lg:px-8 lg:pt-25 lg:pb-8"
+      <section className="w-full bg-linear-gradient(120deg, #071B2D, #0B263D); px-3 pt-26 pb-7 font-['Roboto',sans-serif] sm:px-5 sm:pt-25 sm:pb-9 lg:px-8 lg:pt-25 lg:pb-8"
     >
       <div className="mx-auto w-full max-w-[1440px]">
-        <div className="relative isolate flex min-h-[300px] w-full items-center overflow-hidden rounded-[14px] border border-[#8BB630]/30 bg-[#1B2920] sm:min-h-[400px] sm:rounded-[17px] lg:min-h-[410px] xl:min-h-[440px]">
+        <div className="relative isolate flex min-h-[300px] w-full items-center overflow-hidden rounded-[14px] border border-[#D5F51F]/30 bg-[#0B263D] sm:min-h-[400px] sm:rounded-[17px] lg:min-h-[410px] xl:min-h-[440px]">
 {/* Background image */}
           <div
             aria-hidden="true"
@@ -1994,13 +2089,13 @@ export default function LivestreamingProtection() {
           {/* Light blue overlay */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 z-[-1] bg-gradient-to-r from-[#152019]/95 via-[#152019]/85 to-[#152019]/45"
+            className="pointer-events-none absolute inset-0 z-[-1] bg-gradient-to-r from-[#071B2D]/95 via-[#071B2D]/85 to-[#071B2D]/45"
           />
 
           {/* Soft blue atmospheric glow */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -right-20 top-1/2 z-[-1] h-64 w-64 -translate-y-1/2 rounded-full bg-[#8BB630]/30 blur-3xl sm:h-80 sm:w-80 lg:h-[450px] lg:w-[450px]"
+            className="pointer-events-none absolute -right-20 top-1/2 z-[-1] h-64 w-64 -translate-y-1/2 rounded-full bg-[#D5F51F]/30 blur-3xl sm:h-80 sm:w-80 lg:h-[450px] lg:w-[450px]"
           />
           
           {/* Main content */}
@@ -2013,12 +2108,12 @@ export default function LivestreamingProtection() {
               </span>
 
               {/* Heading */}
-              <h1 className="m-0 max-w-[900px] text-[34px] font-bold leading-[1.12] tracking-[-1.3px] text-[#F5F8F2] min-[400px]:text-[39px] sm:text-[48px] sm:leading-[1.1] sm:tracking-[-1.8px] md:text-[58px] lg:text-[68px] lg:leading-[1.06] lg:tracking-[-2.4px] xl:text-[76px]">
+              <h1 className="m-0 max-w-[900px] text-[34px] font-bold leading-[1.12] tracking-[-1.3px] text-[#F3F7FA] min-[400px]:text-[39px] sm:text-[48px] sm:leading-[1.1] sm:tracking-[-1.8px] md:text-[58px] lg:text-[68px] lg:leading-[1.06] lg:tracking-[-2.4px] xl:text-[76px]">
                 OTT &amp; VOD Protection
               </h1>
 
               {/* Description */}
-              <p className="mt-5 max-w-[650px] text-[14px] font-normal leading-[1.75] text-[#B5C1B6] sm:mt-6 sm:text-[15px] sm:leading-[1.8] lg:mt-7 lg:text-[17px] lg:leading-[1.8]">
+              <p className="mt-5 max-w-[650px] text-[14px] font-normal leading-[1.75] text-[#B7C8D6] sm:mt-6 sm:text-[15px] sm:leading-[1.8] lg:mt-7 lg:text-[17px] lg:leading-[1.8]">
                 Identify unauthorized copies of films, series and premium on-demand content, then coordinate evidence-led enforcement.
               </p> 
 
