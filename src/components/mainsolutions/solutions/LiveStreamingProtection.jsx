@@ -183,7 +183,7 @@ function SignalBars({ active = false, playing = true }) {
         <span
           key={index}
           className={`block w-[3px] rounded-[1px] ${
-            active ? "bg-[#D5F51F]" : "bg-[#B6CBD5]"
+            active ? "bg-[#8BB630]" : "bg-[#91A095]"
           } ${playing ? "animate-pulse" : ""}`}
           style={{
             height: `${4 + (index % 4) * 2}px`,
@@ -209,13 +209,13 @@ function StatusCard({
     <div
       className={`absolute z-20 w-[108px] rounded-md border p-2.5 transition-all duration-500 sm:w-[120px] sm:p-3 ${
         highlighted
-          ? "border-[#D5F51F] bg-[#102D40] shadow-[0_0_18px_rgba(213,245,31,0.06)]"
-          : "border-[#3A5A70] bg-[#112D43]"
+          ? "border-[#8BB630] bg-[#203025] shadow-[0_0_18px_rgba(213,245,31,0.06)]"
+          : "border-[#405444] bg-[#1B2920]"
       } ${className}`}
     >
       <div
         className={`flex items-center gap-1.5 text-[8px] font-medium leading-relaxed sm:text-[9px] ${
-          highlighted ? "text-[#D5F51F]" : "text-[#C1D2DC]"
+          highlighted ? "text-[#8BB630]" : "text-[#B5C1B6]"
         }`}
       >
         <Radio size={12} className="shrink-0" />
@@ -278,21 +278,21 @@ function BroadcastIllustration({
     : (step / stages.length) * 100 + elapsed / stages.length;
 
   return (
-    <div className="relative w-full overflow-hidden rounded-xl border border-[#35566B] bg-[#0D2538] font-sans text-slate-100 shadow-xl">
+    <div className="relative w-full overflow-hidden rounded-xl border border-[#344638] bg-[#152019] font-sans text-[#F5F8F2] shadow-xl">
       {/* Dashboard header */}
-      <div className="flex min-h-[16px] items-center justify-between border-b border-[#35566B] bg-[#102C42] px-3 py-3 sm:px-4">
+      <div className="flex min-h-[16px] items-center justify-between border-b border-[#344638] bg-[#1B2920] px-3 py-3 sm:px-4">
         <div className="flex items-center gap-2 text-[9px] font-semibold sm:text-[10px]">
-          <Radio size={13} className="text-[#C1D2DC]" />
+          <Radio size={13} className="text-[#B5C1B6]" />
           <span>Live Streaming Protection</span>
         </div>
 
-        <span className="text-[7px] font-black tracking-[1px] text-[#D5F51F] sm:text-[8px]">
+        <span className="text-[7px] font-black tracking-[1px] text-[#8BB630] sm:text-[8px]">
           ILLUSTRATIVE
         </span>
       </div>
 
       {/* Animated monitoring canvas */}
-      <div className="relative isolate h-[285px] overflow-hidden bg-[radial-gradient(ellipse_at_50%_45%,#1C3E4D_0%,#123346_48%,#0B2335_100%)] sm:h-[320px] md:h-[396px]">
+      <div className="relative isolate h-[285px] overflow-hidden bg-[radial-gradient(ellipse_at_50%_45%,#26372A_0%,#1B2920_48%,#152019_100%)] sm:h-[320px] md:h-[396px]">
         {/* Dotted world map */}
         <svg
           viewBox="0 0 600 300"
@@ -348,7 +348,7 @@ function BroadcastIllustration({
           {/* Dotted scanning routes */}
           <g
             fill="none"
-            stroke="#A8D82D"
+            stroke="#8BB630"
             strokeWidth="1.25"
             strokeDasharray="3 9"
             strokeLinecap="round"
@@ -363,7 +363,7 @@ function BroadcastIllustration({
           </g>
 
           {/* Scanning points */}
-          <g fill="#D5F51F">
+          <g fill="#8BB630">
             <circle cx="90" cy="91" r="2.5" />
             <circle cx="493" cy="88" r="2.5" />
             <circle cx="275" cy="150" r="3" />
@@ -372,7 +372,7 @@ function BroadcastIllustration({
 
           {/* Moving signal pulses */}
           {playing && (
-            <g fill="#D5F51F">
+            <g fill="#8BB630">
               <circle r="3">
                 <animateMotion
                   dur="4s"
@@ -400,13 +400,13 @@ function BroadcastIllustration({
 
         {/* Pulsing scanner ring */}
         <div
-          className={`absolute left-1/2 top-[47%] h-[88px] w-[88px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#D5F51F]/90 sm:h-[90px] sm:w-[90px] ${
+          className={`absolute left-1/2 top-[47%] h-[88px] w-[88px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#8BB630]/90 sm:h-[90px] sm:w-[90px] ${
             playing ? "animate-pulse" : ""
           }`}
         />
 
         {/* Central animated status */}
-        <div className="absolute left-1/2 top-[47%] z-10 flex h-[86px] w-[86px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-1 rounded-full border border-[#D5F51F] bg-[#102E40] text-[#D5F51F] shadow-[0_0_24px_rgba(213,245,31,0.08)] transition-all duration-500">
+        <div className="absolute left-1/2 top-[47%] z-10 flex h-[86px] w-[86px] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-1 rounded-full border border-[#8BB630] bg-[#102E40] text-[#8BB630] shadow-[0_0_24px_rgba(213,245,31,0.08)] transition-all duration-500">
           <CenterIcon
             size={29}
             strokeWidth={1.8}
@@ -443,7 +443,7 @@ function BroadcastIllustration({
         />
 
         {/* Monitoring scope line */}
-        <div className="absolute bottom-0 left-0 right-0 flex min-h-[43px] items-center gap-3 border-t border-[#35566B]/80 bg-[#0D2538]/60 px-3 sm:px-5">
+        <div className="absolute bottom-0 left-0 right-0 flex min-h-[43px] items-center gap-3 border-t border-[#344638]/80 bg-[#152019]/60 px-3 sm:px-5">
           <div className="flex shrink-0 items-center gap-1.5 text-[8px] text-[#C3D2DB] sm:text-[9px]">
             {step === 0 ? (
               <Search size={13} />
@@ -464,7 +464,7 @@ function BroadcastIllustration({
             aria-valuenow={Math.round(progress)}
           >
             <div
-              className="h-full bg-[#D5F51F] transition-all duration-300"
+              className="h-full bg-[#8BB630] transition-all duration-300"
               style={{
                 width: `${Math.min(progress, 100)}%`,
               }}
@@ -474,7 +474,7 @@ function BroadcastIllustration({
       </div>
 
       {/* Dashboard footer */}
-      <div className="flex min-h-[57px] items-center justify-between gap-2 border-t border-[#35566B] bg-[#102C42] px-3 py-3 sm:px-4">
+      <div className="flex min-h-[57px] items-center justify-between gap-2 border-t border-[#344638] bg-[#1B2920] px-3 py-3 sm:px-4">
         <span className="text-[6px] font-extrabold tracking-[0.65px] text-[#A9BFCC] sm:text-[7px] sm:tracking-[1px]">
           SCAN / DETECT / REMOVE / PROTECT
         </span>
@@ -483,7 +483,7 @@ function BroadcastIllustration({
           type="button"
           onClick={togglePlayback}
           aria-label={playing ? "Pause animation" : "Play animation"}
-          className="inline-flex min-h-[29px] shrink-0 items-center gap-1.5 rounded border border-[#456579] bg-transparent px-2.5 py-1.5 text-[9px] font-semibold text-[#D2E0E8] transition-colors hover:border-[#D5F51F] hover:text-[#D5F51F]"
+          className="inline-flex min-h-[29px] shrink-0 items-center gap-1.5 rounded border border-[#456579] bg-transparent px-2.5 py-1.5 text-[9px] font-semibold text-[#D2E0E8] transition-colors hover:border-[#8BB630] hover:text-[#8BB630]"
         >
           {playing ? <Pause size={12} /> : <Play size={12} />}
           {playing ? "Pause" : "Play"}
@@ -686,15 +686,15 @@ export default function LivestreamingProtection() {
     <main className="lsp-page">
       <style>{`
         .lsp-page {
-          --lsp-blue: #dcebf2;
-          --lsp-blue-deep: #c6dfe9;
-          --lsp-panel: #edf4f5;
-          --lsp-panel-alt: #e5eef0;
-          --lsp-ink: #18324b;
-          --lsp-muted: #526e82;
-          --lsp-line: #c5d7dc;
-          --lsp-lime: #b8d83d;
-          --lsp-green: #658d13;
+          --lsp-blue: #152019;
+          --lsp-blue-deep: #1B2920;
+          --lsp-panel: #1B2920;
+          --lsp-panel-alt: #203025;
+          --lsp-ink: #F5F8F2;
+          --lsp-muted: #B5C1B6;
+          --lsp-line: #344638;
+          --lsp-lime: #8BB630;
+          --lsp-green: #8BB630;
           width: 100%;
           overflow: hidden;
           background: var(--lsp-blue);
@@ -755,7 +755,7 @@ export default function LivestreamingProtection() {
           max-width: 1350px;
           padding: clamp(32px, 5vw, 62px) clamp(25px, 4vw, 40px);
           overflow: hidden;
-          border: 1px solid #a7c3ce;
+          border: 1px solid #344638;
           border-radius: 12px;
           
         }
@@ -766,11 +766,11 @@ export default function LivestreamingProtection() {
           right: -60px;
           width: 340px;
           height: 340px;
-          border: 1px solid #8fb8c544;
+          border: 1px solid #8BB63033;
           border-radius: 50%;
           box-shadow:
-            0 0 0 30px #8fb8c51a,
-            0 0 0 60px #8fb8c514;
+            0 0 0 30px #8BB63014,
+            0 0 0 60px #8BB6300D;
           content: "";
           pointer-events: none;
         }
@@ -783,7 +783,7 @@ export default function LivestreamingProtection() {
 
         .lsp-hero h1 {
           margin: 8px 0 20px;
-          color: #16324b;
+          color: #F5F8F2;
           font-size: clamp(38px, 6vw, 68px);
           font-weight: 800;
           line-height: 1.05;
@@ -794,7 +794,7 @@ export default function LivestreamingProtection() {
         .lsp-hero p {
           max-width: 670px;
           margin-bottom: 0;
-          color: #435f75;
+          color: #B5C1B6;
           font-size: clamp(14px, 1.4vw, 16px);
           line-height: 1.8;
         }
@@ -818,9 +818,9 @@ export default function LivestreamingProtection() {
           gap: clamp(25px, 6vw, 70px);
           margin-bottom: 26px;
           padding: clamp(25px, 4vw, 42px);
-          border: 1px solid #c1d4d7;
+          border: 1px solid #344638;
           border-radius: 17px;
-          background: #d1e3e7;
+          background: #1B2920;
         }
 
         .lsp-service-icon {
@@ -851,7 +851,7 @@ export default function LivestreamingProtection() {
           gap: 10px;
           min-height: 44px;
           padding: 12px 18px;
-          border: 1px solid #5d8111;
+          border: 1px solid #8BB630;
           border-radius: 5px;
           background: var(--lsp-green);
           color: white !important;
@@ -862,14 +862,14 @@ export default function LivestreamingProtection() {
 
         .lsp-button:hover {
           transform: translateY(-2px);
-          background: #4e7010;
+          background: #6D900B;
         }
 
         .lsp-coverage-card {
           padding: clamp(20px, 3vw, 29px);
-          border: 1px solid #c5d8da;
+          border: 1px solid #344638;
           border-radius: 14px;
-          background: #e9f1f1;
+          background: #203025;
         }
 
         .lsp-coverage-card h3 {
@@ -892,7 +892,7 @@ export default function LivestreamingProtection() {
           display: flex;
           align-items: flex-start;
           gap: 12px;
-          color: #4a667c;
+          color: #C1CCC2;
           font-size: 13px;
           line-height: 1.65;
         }
@@ -906,7 +906,7 @@ export default function LivestreamingProtection() {
 
         .lsp-small-note {
           margin: 22px 0 0;
-          color: #61798a;
+          color: #91A095;
           font-size: 10px;
           line-height: 1.75;
         }
@@ -915,9 +915,9 @@ export default function LivestreamingProtection() {
           margin-top: 26px;
           margin-bottom: 26px;
           padding: clamp(23px, 4vw, 44px);
-          border: 1px solid #b5ced8;
+          border: 1px solid #344638;
           border-radius: 17px;
-          background: linear-gradient(140deg, #d3e7ef, #c3dce8);
+          background: linear-gradient(140deg, #203025, #18271D);
         }
 
         .lsp-motion-heading {
@@ -951,15 +951,15 @@ export default function LivestreamingProtection() {
         .lsp-demo-column {
           min-width: 0;
           overflow: hidden;
-          border: 1px solid #a9c6d2;
+          border: 1px solid #344638;
           border-radius: 13px;
-          background: #eaf2f5;
+          background: #1B2920;
         }
 
         .lsp-visual {
           overflow: hidden;
           border-bottom: 1px solid #b8cfd9;
-          background: linear-gradient(150deg, #e2f0f5, #c7dfe9);
+          background: linear-gradient(150deg, #203025, #18271D);
           color: #173b52;
         }
 
@@ -970,11 +970,11 @@ export default function LivestreamingProtection() {
           justify-content: space-between;
           gap: 12px;
           padding: 14px 17px;
-          background: #d5e7ee;
+          background: #203025;
         }
 
         .lsp-visual-top {
-          border-bottom: 1px solid #b9d1dc;
+          border-bottom: 1px solid #344638;
           font-size: 10px;
           font-weight: 750;
         }
@@ -1008,8 +1008,8 @@ export default function LivestreamingProtection() {
           inset: 0;
           opacity: .55;
           background:
-            linear-gradient(90deg, #7ba4b31c 1px, transparent 1px),
-            linear-gradient(#7ba4b31c 1px, transparent 1px);
+            linear-gradient(90deg, #8BB63018 1px, transparent 1px),
+            linear-gradient(#8BB63018 1px, transparent 1px);
           background-size: 32px 32px;
         }
 
@@ -1017,7 +1017,7 @@ export default function LivestreamingProtection() {
           position: absolute;
           width: 68%;
           aspect-ratio: 1.8;
-          border: 1px dashed #7d9e70;
+          border: 1px dashed #8BB630;
           border-radius: 50%;
           animation: lsp-orbit-spin 22s linear infinite;
         }
@@ -1029,7 +1029,7 @@ export default function LivestreamingProtection() {
         .lsp-orbit-two {
           width: 78%;
           aspect-ratio: 1.2;
-          border-color: #8db2be;
+          border-color: #557044;
           animation-duration: 28s;
           animation-direction: reverse;
         }
@@ -1037,7 +1037,7 @@ export default function LivestreamingProtection() {
         .lsp-orbit-three {
           width: 46%;
           aspect-ratio: 1;
-          border-color: #96b54d;
+          border-color: #8BB630;
           animation-duration: 18s;
         }
 
@@ -1047,7 +1047,7 @@ export default function LivestreamingProtection() {
           bottom: 0;
           left: 0;
           width: 1px;
-          background: linear-gradient(transparent, #81a93b, transparent);
+          background: linear-gradient(transparent, #8BB630, transparent);
           opacity: .75;
           animation: lsp-scan 6s ease-in-out infinite alternate;
         }
@@ -1058,10 +1058,10 @@ export default function LivestreamingProtection() {
           width: 145px;
           max-width: 34%;
           padding: 12px;
-          border: 1px solid #a9c7d2;
+          border: 1px solid #405444;
           border-radius: 9px;
-          background: #eaf3f6;
-          box-shadow: 0 7px 18px #466b7b12;
+          background: #203025;
+          box-shadow: 0 7px 18px #00000030;
         }
 
         .lsp-feed-left {
@@ -1084,7 +1084,7 @@ export default function LivestreamingProtection() {
           display: flex;
           align-items: flex-start;
           gap: 7px;
-          color: #294c62;
+          color: #E2EADF;
           font-size: 9px;
           font-weight: 700;
           line-height: 1.5;
@@ -1107,7 +1107,7 @@ export default function LivestreamingProtection() {
           width: 4px;
           height: calc(4px + (var(--bar) * 1.25px));
           border-radius: 1px;
-          background: #7393a4;
+          background: #6F806F;
           animation: lsp-signal 1s ease-in-out infinite alternate;
           animation-delay: calc(var(--bar) * 100ms);
         }
@@ -1124,7 +1124,7 @@ export default function LivestreamingProtection() {
           gap: 3px;
           border: 1px solid #8caf3a;
           border-radius: 50%;
-          background: #e9f3f0;
+          background: #203025;
           box-shadow: 0 0 0 10px #91b63d14, 0 0 0 20px #91b63d0c;
           color: var(--lsp-green);
           animation: lsp-core-pulse 3s ease-in-out infinite;
@@ -1146,9 +1146,9 @@ export default function LivestreamingProtection() {
           align-items: center;
           gap: 15px;
           padding: 13px 17px;
-          border-top: 1px solid #b9d1dc;
+          border-top: 1px solid #344638;
           background: #e8f1f4;
-          color: #405e72;
+          color: #B5C1B6;
           font-size: 9px;
         }
 
@@ -1160,7 +1160,7 @@ export default function LivestreamingProtection() {
           flex: 1;
           height: 3px;
           overflow: hidden;
-          background: #c0d4dd;
+          background: #344638;
         }
 
         .lsp-progress span {
@@ -1181,7 +1181,7 @@ export default function LivestreamingProtection() {
           display: flex;
           align-items: center;
           gap: 6px;
-          color: #456478;
+          color: #B5C1B6;
           font-size: 8px;
           white-space: nowrap;
         }
@@ -1194,7 +1194,7 @@ export default function LivestreamingProtection() {
         }
 
         .lsp-is-paused .lsp-live-indicator i {
-          background: #859ba5;
+          background: #718071;
         }
 
         .lsp-demo-controls {
@@ -1212,10 +1212,10 @@ export default function LivestreamingProtection() {
           align-items: center;
           gap: 7px;
           padding: 8px 11px;
-          border: 1px solid #a6c3cf;
+          border: 1px solid #405444;
           border-radius: 5px;
-          background: #f4f8f8;
-          color: #25445a;
+          background: #203025;
+          color: #F5F8F2;
           font-size: 10px !important;
           cursor: pointer;
         }
@@ -1229,9 +1229,9 @@ export default function LivestreamingProtection() {
           min-width: 0;
           flex-direction: column;
           padding: clamp(20px, 3vw, 28px);
-          border: 1px solid #c2d6da;
+          border: 1px solid #344638;
           border-radius: 13px;
-          background: #e8f0f0;
+          background: #203025;
         }
 
         .lsp-card-kicker {
@@ -1265,13 +1265,13 @@ export default function LivestreamingProtection() {
 
         .lsp-workflow-item:hover,
         .lsp-workflow-item.active {
-          border-color: #b7cfd5;
-          background: #f8fbfb;
+          border-color: #405444;
+          background: #26372A;
         }
 
         .lsp-workflow-number {
           padding-top: 1px;
-          color: #7799a5;
+          color: #829681;
           font-size: 15px;
           font-weight: 850;
         }
@@ -1292,7 +1292,7 @@ export default function LivestreamingProtection() {
         }
 
         .lsp-workflow-copy > span {
-          color: #597386;
+          color: #B5C1B6;
           font-size: 11px;
           line-height: 1.75;
         }
@@ -1328,7 +1328,7 @@ export default function LivestreamingProtection() {
 
         .lsp-disclaimer {
           margin: 18px 0 0;
-          color: #4d687a;
+          color: #91A095;
           font-size: 10px;
           line-height: 1.8;
         }
@@ -1344,9 +1344,9 @@ export default function LivestreamingProtection() {
 
         .lsp-investment-image {
           overflow: hidden;
-          border: 1px solid #abc4ce;
+          border: 1px solid #344638;
           border-radius: 10px;
-          background: #eef4f6;
+          background: #203025;
         }
 
         .lsp-investment-image img {
@@ -1359,7 +1359,7 @@ export default function LivestreamingProtection() {
         .lsp-investment-image > span {
           display: block;
           padding: 11px 14px;
-          color: #587386;
+          color: #AAB8AC;
           font-size: 10px;
         }
 
@@ -1382,9 +1382,9 @@ export default function LivestreamingProtection() {
           gap: clamp(28px, 5vw, 70px);
           margin-bottom: 26px;
           padding: clamp(27px, 4vw, 43px);
-          border: 1px solid #c1d5da;
+          border: 1px solid #344638;
           border-radius: 15px;
-          background: #d2e4e8;
+          background: #1B2920;
         }
 
         .lsp-challenge-title h2 {
@@ -1422,9 +1422,9 @@ export default function LivestreamingProtection() {
 
         .lsp-info-card {
           padding: clamp(23px, 3vw, 33px);
-          border: 1px solid #c3d6da;
+          border: 1px solid #344638;
           border-radius: 13px;
-          background: #e8f0ef;
+          background: #203025;
         }
 
         .lsp-info-card h2 {
@@ -1445,9 +1445,9 @@ export default function LivestreamingProtection() {
           margin-top: 26px;
           margin-bottom: 26px;
           padding: clamp(25px, 4vw, 42px);
-          border: 1px solid #c0d5d9;
+          border: 1px solid #344638;
           border-radius: 16px;
-          background: #d0e2e6;
+          background: #1B2920;
         }
 
         .lsp-enforcement-inner > h2 {
@@ -1467,13 +1467,13 @@ export default function LivestreamingProtection() {
           padding: 20px 18px;
           border: 1px solid #c2d6d8;
           border-radius: 12px;
-          background: #e8f0ef;
+          background: #203025;
           transition: transform 180ms ease, box-shadow 180ms ease;
         }
 
         .lsp-enforcement-card:hover {
           transform: translateY(-4px);
-          box-shadow: 0 9px 20px #365d6b12;
+          box-shadow: 0 9px 20px #00000030;
         }
 
         .lsp-enforcement-card > span {
@@ -1490,7 +1490,7 @@ export default function LivestreamingProtection() {
 
         .lsp-enforcement-card p {
           margin-bottom: 0;
-          color: #536f80;
+          color: #B5C1B6;
           font-size: 11px;
           line-height: 1.8;
         }
@@ -1500,9 +1500,9 @@ export default function LivestreamingProtection() {
           max-width: 1440px;
           margin: 26px auto;
           padding: clamp(26px, 4vw, 43px);
-          border: 1px solid #adcbd5;
+          border: 1px solid #344638;
           border-radius: 14px;
-          background: #c7e0e9;
+          background: #203025;
         }
 
         .lsp-contact-inner {
@@ -1924,10 +1924,10 @@ export default function LivestreamingProtection() {
         }
       `}</style>
 
-      <section className="w-full bg-linear-gradient(120deg, #e7f2f7, #cfe5ee); px-3 pt-26 pb-7 font-['Roboto',sans-serif] sm:px-5 sm:pt-25 sm:pb-9 lg:px-8 lg:pt-25 lg:pb-8"
+      <section className="w-full bg-[#152019] px-3 pt-26 pb-7 font-['Roboto',sans-serif] sm:px-5 sm:pt-25 sm:pb-9 lg:px-8 lg:pt-25 lg:pb-8"
     >
       <div className="mx-auto w-full max-w-[1440px]">
-        <div className="relative isolate flex min-h-[300px] w-full items-center overflow-hidden rounded-[14px] border border-[#8BB630]/30 bg-[#D5DDDA] sm:min-h-[400px] sm:rounded-[17px] lg:min-h-[410px] xl:min-h-[440px]">
+        <div className="relative isolate flex min-h-[300px] w-full items-center overflow-hidden rounded-[14px] border border-[#8BB630]/30 bg-[#152019] sm:min-h-[400px] sm:rounded-[17px] lg:min-h-[410px] xl:min-h-[440px]">
 {/* Background image */}
           <div
             aria-hidden="true"
@@ -1940,13 +1940,13 @@ export default function LivestreamingProtection() {
           {/* Light blue overlay */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 z-[-1] bg-gradient-to-r from-[#DCEAF4]/95 via-[#DCEAF4]/85 to-[#DCEAF4]/45"
+            className="pointer-events-none absolute inset-0 z-[-1] bg-gradient-to-r from-[#152019]/95 via-[#152019]/85 to-[#152019]/45"
           />
 
           {/* Soft blue atmospheric glow */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -right-20 top-1/2 z-[-1] h-64 w-64 -translate-y-1/2 rounded-full bg-[#8BBCE0]/30 blur-3xl sm:h-80 sm:w-80 lg:h-[450px] lg:w-[450px]"
+            className="pointer-events-none absolute -right-20 top-1/2 z-[-1] h-64 w-64 -translate-y-1/2 rounded-full bg-[#8BB630]/30 blur-3xl sm:h-80 sm:w-80 lg:h-[450px] lg:w-[450px]"
           />
           
           {/* Main content */}
@@ -1959,12 +1959,12 @@ export default function LivestreamingProtection() {
               </span>
 
               {/* Heading */}
-              <h1 className="m-0 max-w-[900px] text-[34px] font-bold leading-[1.12] tracking-[-1.3px] text-[#15334E] min-[400px]:text-[39px] sm:text-[48px] sm:leading-[1.1] sm:tracking-[-1.8px] md:text-[58px] lg:text-[68px] lg:leading-[1.06] lg:tracking-[-2.4px] xl:text-[76px]">
+              <h1 className="m-0 max-w-[900px] text-[34px] font-bold leading-[1.12] tracking-[-1.3px] text-[#F5F8F2] min-[400px]:text-[39px] sm:text-[48px] sm:leading-[1.1] sm:tracking-[-1.8px] md:text-[58px] lg:text-[68px] lg:leading-[1.06] lg:tracking-[-2.4px] xl:text-[76px]">
                 Live Streaming Protection
               </h1>
 
               {/* Description */}
-              <p className="mt-5 max-w-[650px] text-[14px] font-normal leading-[1.75] text-[#526B86] sm:mt-6 sm:text-[15px] sm:leading-[1.8] lg:mt-7 lg:text-[17px] lg:leading-[1.8]">
+              <p className="mt-5 max-w-[650px] text-[14px] font-normal leading-[1.75] text-[#B5C1B6] sm:mt-6 sm:text-[15px] sm:leading-[1.8] lg:mt-7 lg:text-[17px] lg:leading-[1.8]">
                 A focused monitoring and enforcement workflow for unauthorized
             live streams during sports, concerts and other high-value
             broadcasts.
