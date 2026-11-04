@@ -20,6 +20,7 @@ import {
 
 
 import HomeCTA from "../../mainhome/HomeCTA";
+import SolutionsCTA from "./SolutionsCTA";
 
 const stages = [
   {
@@ -2076,7 +2077,7 @@ export default function LivestreamingProtection() {
 
       <EnforcementWorkflow />
 
-      <HomeCTA />
+      <SolutionsCTA />
 
      
     </main>

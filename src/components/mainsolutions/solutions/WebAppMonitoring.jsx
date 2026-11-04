@@ -20,6 +20,7 @@ import {
 
 
 import HomeCTA from "../../mainhome/HomeCTA";
+import SolutionsCTA from "./SolutionsCTA";
 
 const stages = [
   {
@@ -1982,7 +1983,7 @@ Website &amp; App Monitoring
 
       <EnforcementWorkflow />
 
-      <HomeCTA />
+      <SolutionsCTA />
 
      
     </main>

@@ -53,6 +53,10 @@ import Music from "./components/mainindustries/industries/Music";
 import BrandIPOwners from "./components/mainindustries/industries/BrandIPOwners";
 import SportsWear from "./components/mainindustries/industries/SportsWear";
 import Publishers from "./components/mainindustries/industries/Publishers";
+import Leadership from "./components/pages/Leadership";
+import OurTeam from "./components/pages/OurTeam";
+import News from "./components/pages/News";
+import Blog from "./components/pages/Blog";
 
 function App() {
   // Add galaxy-site class to body for proper CSS variable scoping
@@ -198,6 +202,11 @@ function App() {
             />
             <Route path="/industries/sportswear" element={<SportsWear />} />
             <Route path="/industries/publishers" element={<Publishers />} />
+
+            <Route path="/leadership" element={<Leadership />} />
+            <Route path="/our-team" element={<OurTeam />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/blog" element={<Blog />} />
           </Routes>
         </main>
 

@@ -19,6 +19,7 @@ import {
 
 
 import HomeCTA from "../../mainhome/HomeCTA";
+import SolutionsCTA from "./SolutionsCTA";
 
 const stages = [
   {
@@ -846,7 +847,7 @@ export default function LivestreamingProtection() {
           border: 1px solid #D5F51F;
           border-radius: 5px;
           background: var(--lsp-green);
-          color: white !important;
+          color: black !important;
           font-size: 12px;
           font-weight: 800;
           transition: transform 180ms ease, background 180ms ease;
@@ -1977,7 +1978,7 @@ export default function LivestreamingProtection() {
 
       <EnforcementWorkflow />
 
-      <HomeCTA />
+      <SolutionsCTA />
 
      
     </main>

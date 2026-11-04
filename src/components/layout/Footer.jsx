@@ -2,23 +2,23 @@
 import React from "react";
 
 const protectionLinks = [
-  { name: "Live Streaming Protection", href: "/solutions" },
-  { name: "OTT & VOD Protection", href: "/solutions" },
-  { name: "Website & App Monitoring", href: "/solutions" },
-  { name: "Copyright Enforcement", href: "/solutions" },
-  { name: "Brand Protection", href: "/solutions" },
-  { name: "Piracy Intelligence", href: "/solutions" },
-  { name: "Marketplace & Counterfeit Monitoring", href: "/solutions" },
-  { name: "Domain & Impersonation Monitoring", href: "/solutions" },
-  { name: "Social Media & Video Protection", href: "/solutions" },
+  { name: "Live Streaming Protection", href: "/solutions/live-streaming-protection" },
+  { name: "OTT & VOD Protection", href: "/solutions/ott-vod-protection" },
+  { name: "Website & App Monitoring", href: "/solutions/web-app-monitoring" },
+  { name: "Copyright Enforcement", href: "/solutions/copyright-enforcement" },
+  { name: "Brand Protection", href: "/solutions/brand-protection" },
+  { name: "Piracy Intelligence", href: "/solutions/piracy-intelligence" },
+  { name: "Marketplace & Counterfeit Monitoring", href: "/solutions/marketplace-counterfeit-monitoring" },
+  { name: "Domain & Impersonation Monitoring", href: "/solutions/domain-impersonation-monitoring" },
+  { name: "Social Media & Video Protection", href: "/solutions/social-media-video-protection" },
 ];
 
 const companyLinks = [
   { name: "About", href: "/about" },
-  { name: "Leadership", href: "/about" },
-  { name: "Team", href: "/about" },
-  { name: "News", href: "/insights" },
-  { name: "Blog", href: "/insights" },
+  { name: "Leadership", href: "/leadership" },
+  { name: "Team", href: "/our-team" },
+  { name: "News", href: "/news" },
+  { name: "Blog", href: "/blog" },
   { name: "How it works", href: "/how-it-works" },
   { name: "Case studies", href: "/insights" },
   { name: "Insights", href: "/insights" },
@@ -133,15 +133,27 @@ export default function Footer() {
         <div className="h-px w-full bg-[rgba(255,255,255,0.1)]" />
 
         {/* Copyright row */}
-        <div className="flex flex-col gap-3 py-5 text-[10px] text-[#64748b] sm:flex-row sm:items-center sm:justify-between sm:py-6">
-          <p>
-            © {new Date().getFullYear()} TrackOwls. All rights reserved.
-          </p>
+        {/* Copyright row */}
+<div className="flex flex-col gap-3 py-5 text-[10px] text-[#64748b] sm:flex-row sm:items-center sm:justify-between sm:py-6">
 
-          <p className="tracking-[0.01em] text-[#94a3b8]">
-            Scan. Detect. Remove. Protect.
-          </p>
-        </div>
+  <p>
+    © {new Date().getFullYear()} TrackOwls. All rights reserved.
+  </p>
+
+<p className="font-medium tracking-[0.02em] text-[#94a3b8]">
+    Powered by{" "}
+    <span className="font-bold text-[#8BB630]">
+      MK Dynamic Technology
+    </span>
+  </p>
+  
+  <p className="tracking-[0.01em] text-[#94a3b8]">
+    Scan. Detect. Remove. Protect.
+  </p>
+
+  
+
+</div>
       </div>
 
       {/* Mobile-only layout adjustments */}
