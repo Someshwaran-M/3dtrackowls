@@ -87,7 +87,7 @@ Please contact me to discuss the assessment and next steps.`);
     setSubmitted(true);
 
     window.location.href =
-      `mailto:contact@trackowls.com?subject=${subject}&body=${body}`;
+      `mailto:info@trackowls.com?subject=${subject}&body=${body}`;
   };
 
   const renderCheckboxes = (options, field) => (
@@ -173,6 +173,29 @@ Please contact me to discuss the assessment and next steps.`);
               <br />
               Coimbatore, Tamil Nadu, India.
             </address>
+
+             <a
+    href="mailto:info@trackowls.com"
+    className="mt-4 inline-flex items-center gap-2 text-[14px] font-medium text-[#C0CCC1] transition duration-300 hover:text-[#8BB630]"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
+
+    info@trackowls.com
+  </a>
+  
           </div>
 
           {/* Consultation checklist */}
