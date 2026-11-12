@@ -65,22 +65,22 @@ export default function Navbar() {
           to="/"
           onClick={closeMenu}
           aria-label="TrackOwls home"
-          className="flex shrink-0 items-center gap-1.5 sm:gap-2.5 rounded-lg bg-white/95 px-3 py-1.5 shadow-sm backdrop-blur-sm transition-opacity hover:opacity-95"
+          className="flex shrink-0 items-center gap-1.5 sm:gap-1.5  px-2 py-1.5 "
         >
           {/* Owl logo */}
           <img
             src="/images/logo2/logo-remove-logo.png"
             alt="TrackOwls Owl"
             draggable="false"
-            className="h-11 w-10 object-contain sm:h-12 sm:w-9"
+            className="h-17 w-16 object-contain sm:h-18 sm:w-15"
           />
 
           {/* TrackOwls wordmark */}
           <img
-            src="/images/logo2/logo-remove-text3.png"
+            src="/images/logo/Trackowls_Owl_Logo_Banner-remove-owltext-bg.png"
             alt="TrackOwls"
             draggable="false"
-            className="h-9 w-auto max-w-[135px] object-contain sm:h-11 sm:max-w-none"
+            className="h-14 w-auto max-w-[135px] object-contain sm:h-14 sm:max-w-none"
           />
         </Link>
 
@@ -125,7 +125,7 @@ export default function Navbar() {
           aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={menuOpen}
           aria-controls="trackowls-mobile-menu"
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded border border-[rgba(255,255,255,0.15)] text-white transition hover:bg-white/10 xl:hidden"
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded border border-[rgba(28, 28, 28, 0.15)] text-[#03142C] transition hover:bg-white/10 xl:hidden"
         >
           {menuOpen ? (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">

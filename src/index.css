@@ -361,20 +361,55 @@ body.galaxy-site {
 
 /* Translucent Frosted Glass Navbar */
 .galaxy-site header {
-  background: rgba(2, 4, 13, 0.82) !important;
-  backdrop-filter: blur(14px) !important;
-  -webkit-backdrop-filter: blur(14px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: #ffffff !important;
+ background-color: #ffffff !important;
+  background-image: none !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  border-bottom: 1px solid #e5e7eb !important;
+
 }
 
 .galaxy-site header nav a:not([class*="bg-"]):not([aria-label="TrackOwls home"]) {
-  color: #e2e8f0 !important;
+  color: #03142C !important;
 }
 
+/* Navigation hover */
 .galaxy-site header nav a:hover:not([class*="bg-"]):not([aria-label="TrackOwls home"]) {
-  color: #d1ed14 !important;
+  color: #8bb630 !important;
 }
 
+/* Active navigation */
+.galaxy-site header nav a[aria-current="page"] {
+  color: #5a8c12 !important;
+}
+
+.galaxy-site header nav #trackowls-mobile-menu {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border-color: #e5e7eb !important;
+}
+
+/* Mobile Navbar Toggle Visibility */
+@media (max-width: 1279px) {
+  .navbar-mobile-toggle {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 110;
+    margin-left: auto;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 1280px) {
+  .navbar-mobile-toggle {
+    display: none !important;
+  }
+}
 /* =========================================
    TRACKOWLS WORKFLOW - REMOVE NAVY BACKGROUND
 ========================================= */
