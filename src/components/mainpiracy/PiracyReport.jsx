@@ -259,28 +259,67 @@ function PiracyReport() {
           {/* Report content */}
           <article className="min-w-0">
             {/* Editorial introduction */}
-            <header className="pb-8">
-              <Eyebrow>Editorial purpose</Eyebrow>
+            <header
+  className="relative w-full overflow-hidden rounded-xl px-6 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14"
+  style={{
+    backgroundColor: "#071C30",
+    color: "#FFFFFF",
+  }}
+>
+  {/* Background Glow */}
+  <div
+    className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full blur-[100px]"
+    style={{
+      backgroundColor: "rgba(139, 182, 48, 0.12)",
+    }}
+  />
 
-              <h1 className="max-w-[800px] text-[36px] sm:text-[46px] lg:text-[54px] font-bold leading-[1.16] tracking-[-1.1px] sm:tracking-[-1.5px] text-[#F2F6EF]">
-                Clear evidence.
-                <br />
-                Better protection decisions.
-              </h1>
+  <div className="relative z-10">
 
-              <p className="mt-4 max-w-[900px] text-sm sm:text-base leading-[1.95] text-[#B9C7BB]">
-                This TrackOwls report brings together attributed secondary
-                research and original operational guidance for rights holders.
-                It is designed to help you ask better questions about piracy
-                exposure, commercial risk and enforcement outcomes.
-              </p>
+    {/* Eyebrow */}
+    <div className="mb-5">
+      <Eyebrow>Editorial purpose</Eyebrow>
+    </div>
 
-              <p className="mt-4 text-xs sm:text-sm leading-[1.9] text-[#A7C96A]">
-                This is an editorial synthesis, not a TrackOwls survey or a
-                client-results study. Research figures retain their original
-                dates and scope.
-              </p>
-            </header>
+    {/* Main Heading */}
+    <h1
+      className="max-w-[800px] text-[36px] font-bold leading-[1.16] tracking-[-1.1px] sm:text-[46px] sm:tracking-[-1.5px] lg:text-[54px]"
+      style={{
+        color: "#FFFFFF",
+      }}
+    >
+      Clear evidence.
+      <br />
+      Better protection decisions.
+    </h1>
+
+    {/* Description */}
+    <p
+      className="mt-5 max-w-[900px] text-sm leading-[1.95] sm:text-base"
+      style={{
+        color: "#D5E0EA",
+      }}
+    >
+      This TrackOwls report brings together attributed secondary
+      research and original operational guidance for rights holders.
+      It is designed to help you ask better questions about piracy
+      exposure, commercial risk and enforcement outcomes.
+    </p>
+
+    {/* Disclaimer */}
+    <p
+      className="mt-5 text-xs leading-[1.9] sm:text-sm"
+      style={{
+        color: "#ADD122",
+      }}
+    >
+      This is an editorial synthesis, not a TrackOwls survey or a
+      client-results study. Research figures retain their original
+      dates and scope.
+    </p>
+
+  </div>
+</header>
 
             {/* Executive summary */}
             <ReportSection
