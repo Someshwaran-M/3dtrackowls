@@ -72,7 +72,7 @@ export default function Navbar() {
             src="/images/logo2/logo-remove-logo.png"
             alt="TrackOwls Owl"
             draggable="false"
-            className="h-10 w-8 object-contain sm:h-12 sm:w-9"
+            className="h-11 w-10 object-contain sm:h-12 sm:w-9"
           />
 
           {/* TrackOwls wordmark */}
