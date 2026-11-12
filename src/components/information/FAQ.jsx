@@ -133,45 +133,15 @@ function FAQ() {
 
         {/* ================= HERO SECTION ================= */}
 
-        <section className="relative overflow-hidden rounded-xl border border-white/10 bg-[#0B1A2B]/90 px-6 py-14 shadow-xl backdrop-blur-md sm:px-10 sm:py-16 lg:px-16">
-
-          {/* Subtle Glow */}
-
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full bg-[#8BB630]/10 blur-[100px]"
-          />
-
-          <div className="relative z-10 max-w-[750px]">
-
-            <span className="text-[12px] font-bold uppercase tracking-[2px] text-[#ADD122]">
-              Help Center
-            </span>
-
-            <h1 className="mt-5 text-[36px] font-bold leading-tight tracking-tight text-white sm:text-[46px] lg:text-[54px]">
-              Frequently Asked
-
-              <span className="block text-[#ADD122]">
-                Questions.
-              </span>
-            </h1>
-
-            <p className="mt-5 max-w-[620px] text-[15px] leading-[1.9] text-[#C5D0DC] sm:text-[16px]">
-              Find answers to common questions about TrackOwls,
-              digital content protection, anti-piracy solutions
-              and our services.
-            </p>
-
-          </div>
-        </section>
+       
 
         {/* ================= FAQ CONTENT ================= */}
 
-        <section className="mt-14">
+        <section className="mt-5">
 
           {/* SECTION HEADING */}
 
-          <div className="mb-9 text-center">
+          <div className="mb-5 text-center">
 
             <span className="text-[11px] font-bold uppercase tracking-[2px] text-[#ADD122]">
               Knowledge Base
