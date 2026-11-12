@@ -265,20 +265,20 @@ export default function Footer() {
       grid-area: copyright;
       text-align: left;
       white-space: nowrap;
-      font-size: 10px;
+      font-size: 11px;
     }
 
     #footer .footer-tagline {
       grid-area: tagline;
       text-align: right;
       white-space: nowrap;
-      font-size: 10px;
+      font-size: 11px;
     }
 
     #footer .footer-powered {
       grid-area: powered;
       text-align: center;
-      font-size: 11px;
+      font-size: 12px;
       margin: 0;
     }
   }
