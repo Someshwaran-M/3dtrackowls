@@ -80,7 +80,7 @@ export default function Footer() {
                 src="/images/logo2/logo-remove-logo.png"
                 alt=""
                 draggable="false"
-                className="h-9 w-7 shrink-0 object-contain sm:h-10 sm:w-8"
+                className="h-[58px] w-[58px] shrink-0 object-contain sm:h-12 sm:w-12 lg:h-14 lg:w-14"
               />
 
               <img
