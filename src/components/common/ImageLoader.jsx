@@ -110,8 +110,7 @@ const styles = `
   object-fit: contain;
   animation: loaderImageCounter 0.8s linear infinite;
 
-  /* Top-to-bottom image reveal */
-  clip-path: inset(0 0 calc(100% - var(--reveal)) 0);
+  clip-path: inset(calc(100% - var(--reveal)) 0 0 0);
 }
 
 .loader-percentage {
