@@ -1,8 +1,7 @@
-
 import React, { useState } from "react";
 
 function Career() {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     name: "",
     phone: "",
     email: "",
@@ -10,8 +9,9 @@ function Career() {
     city: "",
     state: "",
     noticePeriod: "",
-  });
+  };
 
+  const [formData, setFormData] = useState(initialFormData);
   const [resume, setResume] = useState(null);
   const [coverLetter, setCoverLetter] = useState(null);
 
@@ -19,13 +19,17 @@ function Career() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [error, setError] = useState("");
 
+  // Handle Input Changes
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
+  // Handle Form Submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -57,17 +61,7 @@ function Career() {
       }
 
       setShowSuccess(true);
-
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        address: "",
-        city: "",
-        state: "",
-        noticePeriod: "",
-      });
-
+      setFormData(initialFormData);
       setResume(null);
       setCoverLetter(null);
 
@@ -82,99 +76,71 @@ function Career() {
     }
   };
 
-  // Input Styling
+  // Common Input Styling
   const inputStyle =
-    "mt-2 w-full rounded-lg border border-[#C8D5DF] bg-white/95 px-4 py-3 text-[14px] font-normal text-[#18324B] outline-none transition-all duration-300 placeholder:text-[#8293A3] focus:border-[#8BB630] focus:bg-white focus:ring-2 focus:ring-[#8BB630]/20";
+    "mt-2 block w-full rounded-lg border border-[#B8C9D8] bg-white px-4 py-3 text-[14px] font-medium !text-white outline-none transition-all duration-300 placeholder:!text-[#8293A3] focus:border-[#8BB630] focus:ring-2 focus:ring-[#8BB630]/30";
 
+  // Label Styling
   const labelStyle =
-    "block text-[14px] font-semibold text-[#18324B]";
+    "block text-[14px] font-bold !text-white";
 
+  // Section Heading
   const sectionHeading =
-    "mb-6 border-b border-[#D4E0EC] pb-3 text-[19px] font-bold text-[#102B43]";
+    "mb-6 border-b border-[#D5E0E9] pb-3 text-[19px] font-bold !text-white";
 
   return (
-    <main className="relative mt-25 min-h-screen w-full overflow-hidden bg-[#EAF3F9] px-3 pb-16 pt-3 font-['Roboto',Arial,sans-serif] text-[#18324B] sm:px-5">
+    <main className="relative mt-[100px] min-h-screen w-full overflow-hidden bg-[#F1F6FA] px-3 pb-16 pt-5 font-['Roboto',Arial,sans-serif] !text-[#18324B] sm:px-5 sm:pt-8">
 
       <div className="mx-auto w-full max-w-[1350px]">
 
-        {/* ================= HERO SECTION ================= */}
-
-        <section className="relative flex min-h-[260px] items-center overflow-hidden rounded-lg border border-[#B7C6CB] bg-[#071C30]">
-
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage:
-                "linear-gradient(90deg, rgba(7,28,48,0.97) 0%, rgba(7,28,48,0.88) 48%, rgba(7,28,48,0.48) 100%), url('/globe.png')",
-            }}
-          />
-
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(ellipse at 72% 38%, rgba(139,182,48,0.13), transparent 48%)",
-            }}
-          />
-
-          <div className="relative z-10 w-full px-6 py-12 sm:px-8 lg:px-10">
-
-            <span className="text-[12px] font-bold uppercase tracking-[1.5px] text-[#D5F51F]">
-              Careers
-            </span>
-
-            <h1 className="mt-4 max-w-[650px] text-[34px] font-bold leading-tight tracking-tight text-white sm:text-[42px] lg:text-[46px]">
-              Help protect what creators
-              <br className="hidden sm:block" /> build.
-            </h1>
-
-            <p className="mt-4 max-w-[560px] text-[15px] leading-relaxed text-[#D0DCE6]">
-              Opportunities in anti-piracy operations, investigation,
-              engineering and business development.
-            </p>
-
-          </div>
-        </section>
-
+        
         {/* ================= APPLICATION FORM ================= */}
 
         <section
           id="contact"
-          className="relative mt-12 overflow-hidden rounded-2xl border border-white/80 bg-white/75 px-5 py-8 shadow-[0_15px_50px_rgba(24,50,75,0.08)] backdrop-blur-md sm:px-8 sm:py-10 lg:px-10"
+          className="relative  overflow-hidden rounded-2xl border border-[#D5E0E9] bg-white px-5 py-8 shadow-[0_15px_50px_rgba(24,50,75,0.08)] sm:px-8 sm:py-10 lg:px-12 lg:py-12"
         >
 
-          {/* GLASSMORPHISM BACKGROUND */}
+          {/* Decorative Background */}
 
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[#8BB630]/10 blur-[80px]"
+            className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#8BB630]/10 blur-[90px]"
           />
 
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-[#A9CBE3]/20 blur-[80px]"
+            className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-[#A9CBE3]/20 blur-[90px]"
           />
 
-          {/* FORM CONTENT */}
+          {/* Form Content */}
 
           <div className="relative z-10">
 
-            <h2 className="text-[28px] font-bold tracking-tight text-[#102B43] sm:text-[34px]">
-              Register your interest.
-            </h2>
+            {/* Form Heading */}
 
-            <p className="mt-3 max-w-[900px] text-[15px] leading-[1.8] text-[#435C75]">
-              Interested in joining TrackOwls? Complete the application
-              form below with your personal and professional details.
-              Our recruitment team will review your application and
-              contact you.
-            </p>
+            <div className="mb-9">
 
-            <form onSubmit={handleSubmit} className="mt-9 space-y-9">
+              <span className="text-[12px] font-bold uppercase tracking-[1.8px] !text-[#709A1C]">
+                Join Our Team
+              </span>
 
-              {/* PERSONAL INFORMATION */}
+              <h2 className="mt-3 text-[27px] font-bold tracking-tight !text-white sm:text-[35px]">
+                Register your interest.
+              </h2>
+
+              <p className="mt-4 max-w-[850px] text-[14px] leading-[1.9] !text-[#435C75] sm:text-[15px]">
+                Interested in joining TrackOwls? Complete the application
+                form below with your personal and professional details.
+                Our recruitment team will review your application and
+                contact you.
+              </p>
+
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-10">
+
+              {/* ================= PERSONAL INFORMATION ================= */}
 
               <div>
 
@@ -182,110 +148,135 @@ function Career() {
                   Personal Information
                 </h3>
 
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-x-7 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+
+                  {/* Full Name */}
 
                   <div>
-                    <label className={labelStyle}>
-                      Full Name *
+                    <label htmlFor="name" className={labelStyle}>
+                      Full Name <span className="text-red-500">*</span>
                     </label>
 
                     <input
+                      id="name"
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Enter your full name"
                       className={inputStyle}
+                      autoComplete="name"
                       required
                     />
                   </div>
 
+                  {/* Phone */}
+
                   <div>
-                    <label className={labelStyle}>
-                      Phone Number *
+                    <label htmlFor="phone" className={labelStyle}>
+                      Phone Number <span className="text-red-500">*</span>
                     </label>
 
                     <input
+                      id="phone"
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="Enter phone number"
                       className={inputStyle}
+                      autoComplete="tel"
                       required
                     />
                   </div>
 
+                  {/* Email */}
+
                   <div>
-                    <label className={labelStyle}>
-                      Email Address *
+                    <label htmlFor="email" className={labelStyle}>
+                      Email Address <span className="text-red-500">*</span>
                     </label>
 
                     <input
+                      id="email"
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Enter email address"
                       className={inputStyle}
+                      autoComplete="email"
                       required
                     />
                   </div>
 
+                  {/* Address */}
+
                   <div className="sm:col-span-2 lg:col-span-3">
 
-                    <label className={labelStyle}>
-                      Address *
+                    <label htmlFor="address" className={labelStyle}>
+                      Address <span className="text-red-500">*</span>
                     </label>
 
                     <textarea
+                      id="address"
                       name="address"
                       value={formData.address}
                       onChange={handleChange}
                       placeholder="Enter your complete address"
                       rows="3"
                       className={`${inputStyle} resize-none`}
+                      autoComplete="street-address"
                       required
                     />
 
                   </div>
 
+                  {/* City */}
+
                   <div>
-                    <label className={labelStyle}>
-                      City *
+                    <label htmlFor="city" className={labelStyle}>
+                      City <span className="text-red-500">*</span>
                     </label>
 
                     <input
+                      id="city"
                       type="text"
                       name="city"
                       value={formData.city}
                       onChange={handleChange}
                       placeholder="Enter city"
                       className={inputStyle}
+                      autoComplete="address-level2"
                       required
                     />
                   </div>
 
+                  {/* State */}
+
                   <div>
-                    <label className={labelStyle}>
-                      State *
+                    <label htmlFor="state" className={labelStyle}>
+                      State <span className="text-red-500">*</span>
                     </label>
 
                     <input
+                      id="state"
                       type="text"
                       name="state"
                       value={formData.state}
                       onChange={handleChange}
                       placeholder="Enter state"
                       className={inputStyle}
+                      autoComplete="address-level1"
                       required
                     />
                   </div>
 
                 </div>
+
               </div>
 
-              {/* PROFESSIONAL INFORMATION */}
+              {/* ================= PROFESSIONAL INFORMATION ================= */}
 
               <div>
 
@@ -296,38 +287,45 @@ function Career() {
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
 
                   <div>
-                    <label className={labelStyle}>
-                      Notice Period *
+
+                    <label htmlFor="noticePeriod" className={labelStyle}>
+                      Notice Period <span className="text-red-500">*</span>
                     </label>
 
-               <select
-  name="noticePeriod"
-  value={formData.noticePeriod}
-  onChange={handleChange}
-  className={`${inputStyle} !bg-white !text-[#18324B] cursor-pointer`}
-  style={{
-    color: "#18324B",
-    backgroundColor: "#FFFFFF",
-    colorScheme: "light",
-    opacity: 1,
-  }}
-  required
->
-  <option value="">Select notice period</option>
-  <option value="Immediate">Immediate</option>
-  <option value="15 Days">15 Days</option>
-  <option value="30 Days">30 Days</option>
-  <option value="45 Days">45 Days</option>
-  <option value="60 Days">60 Days</option>
-  <option value="90 Days">90 Days</option>
-  <option value="Other">Other</option>
-</select>
+                    <select
+                      id="noticePeriod"
+                      name="noticePeriod"
+                      value={formData.noticePeriod}
+                      onChange={handleChange}
+                      className={`${inputStyle} cursor-pointer`}
+                      style={{
+                        color: "#18324B",
+                        backgroundColor: "#FFFFFF",
+                        colorScheme: "light",
+                      }}
+                      required
+                    >
+                      <option value="" disabled>
+                        Select notice period
+                      </option>
+
+                      <option value="Immediate">Immediate</option>
+                      <option value="15 Days">15 Days</option>
+                      <option value="30 Days">30 Days</option>
+                      <option value="45 Days">45 Days</option>
+                      <option value="60 Days">60 Days</option>
+                      <option value="90 Days">90 Days</option>
+                      <option value="Other">Other</option>
+
+                    </select>
+
                   </div>
 
                 </div>
+
               </div>
 
-              {/* ATTACHMENTS */}
+              {/* ================= ATTACHMENTS ================= */}
 
               <div>
 
@@ -335,85 +333,121 @@ function Career() {
                   Attachments
                 </h3>
 
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+
+                  {/* Resume */}
 
                   <div>
 
-                    <label className={labelStyle}>
-                      Upload Resume *
+                    <label htmlFor="resume" className={labelStyle}>
+                      Upload Resume <span className="text-red-500">*</span>
                     </label>
 
-                     <input
-      id="resume"
-      type="file"
-      accept=".pdf,.doc,.docx"
-      onChange={(e) => setResume(e.target.files[0] || null)}
-      className="block w-full cursor-pointer text-[13px] text-[#18324B]
-        file:mr-4 file:cursor-pointer file:rounded-md
-        file:border-0 file:bg-[#8BB630]
-        file:px-5 file:py-2.5
-        file:text-[13px] file:font-bold
-        file:text-[#071C30]
-        hover:file:bg-[#ADD122]"
-      required
-    />
+                    <div className="mt-3 rounded-xl border border-dashed border-[#B8C9D8] bg-[#F8FAFC] p-5 transition-all duration-300 hover:border-[#8BB630]">
 
-                    <p className="mt-2 text-[12px] text-[#52677B]">
-                      Accepted formats: PDF, DOC, DOCX.
-                    </p>
+                      <input
+                        id="resume"
+                        type="file"
+                        accept=".pdf,.doc,.docx"
+                        onChange={(e) =>
+                          setResume(e.target.files[0] || null)
+                        }
+                        className="block w-full cursor-pointer text-[13px] !text-[#18324B]
+                        file:mr-4 file:cursor-pointer file:rounded-md
+                        file:border-0 file:bg-[#8BB630]
+                        file:px-5 file:py-2.5
+                        file:text-[13px] file:font-bold
+                        file:!text-[#071C30]
+                        hover:file:bg-[#ADD122]"
+                        required
+                      />
+
+                      {resume && (
+                        <p className="mt-3 break-all text-[12px] font-semibold !text-[#52751A]">
+                          Selected: {resume.name}
+                        </p>
+                      )}
+
+                      <p className="mt-3 text-[12px] !text-[#52677B]">
+                        Accepted formats: PDF, DOC, DOCX.
+                      </p>
+
+                    </div>
 
                   </div>
 
+                  {/* Cover Letter */}
+
                   <div>
 
-                    <label className={labelStyle}>
+                    <label htmlFor="coverLetter" className={labelStyle}>
                       Upload Cover Letter
                     </label>
 
-                     <input
-      id="coverLetter"
-      type="file"
-      accept=".pdf,.doc,.docx"
-      onChange={(e) => setCoverLetter(e.target.files[0] || null)}
-      className="block w-full cursor-pointer text-[13px] text-[#18324B]
-        file:mr-4 file:cursor-pointer file:rounded-md
-        file:border-0 file:bg-[#8BB630]
-        file:px-5 file:py-2.5
-        file:text-[13px] file:font-bold
-        file:text-[#071C30]
-        hover:file:bg-[#ADD122]"
-    />
+                    <div className="mt-3 rounded-xl border border-dashed border-[#B8C9D8] bg-[#F8FAFC] p-5 transition-all duration-300 hover:border-[#8BB630]">
 
-                    <p className="mt-2 text-[12px] text-[#52677B]">
-                      Accepted formats: PDF, DOC, DOCX.
-                    </p>
+                      <input
+                        id="coverLetter"
+                        type="file"
+                        accept=".pdf,.doc,.docx"
+                        onChange={(e) =>
+                          setCoverLetter(e.target.files[0] || null)
+                        }
+                        className="block w-full cursor-pointer text-[13px] !text-[#18324B]
+                        file:mr-4 file:cursor-pointer file:rounded-md
+                        file:border-0 file:bg-[#8BB630]
+                        file:px-5 file:py-2.5
+                        file:text-[13px] file:font-bold
+                        file:!text-[#071C30]
+                        hover:file:bg-[#ADD122]"
+                      />
+
+                      {coverLetter && (
+                        <p className="mt-3 break-all text-[12px] font-semibold !text-[#52751A]">
+                          Selected: {coverLetter.name}
+                        </p>
+                      )}
+
+                      <p className="mt-3 text-[12px] !text-[#52677B]">
+                        Accepted formats: PDF, DOC, DOCX.
+                      </p>
+
+                    </div>
 
                   </div>
 
                 </div>
+
               </div>
 
-              {/* ERROR MESSAGE */}
+              {/* ================= ERROR MESSAGE ================= */}
 
               {error && (
-                <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-[14px] text-red-700">
+                <div className="rounded-lg border border-red-200 bg-red-50 px-5 py-4 text-[14px] font-medium !text-red-700">
                   {error}
                 </div>
               )}
 
-              {/* SUBMIT BUTTON */}
+              {/* ================= SUBMIT BUTTON ================= */}
 
-              <div className="border-t border-[#D4E0EC] pt-7">
+              <div className="border-t border-[#D5E0E9] pt-8">
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-[#8BB630] px-10 py-3 text-[14px] font-bold text-[#071C30] shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#ADD122] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60"
+                  className="inline-flex min-h-[50px] w-full items-center justify-center rounded-lg bg-[#8BB630] px-10 py-3 text-[14px] font-bold !text-[#071C30] shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-[#ADD122] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                 >
-                  {loading ? "Submitting..." : "Submit Application"}
+                  {loading ? (
+                    <span className="flex items-center gap-3">
+                      <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#071C30] border-t-transparent" />
+                      Submitting...
+                    </span>
+                  ) : (
+                    "Submit Application"
+                  )}
                 </button>
 
-                <p className="mt-4 text-[13px] leading-relaxed text-[#52677B]">
+                <p className="mt-5 text-[13px] leading-relaxed !text-[#52677B]">
                   Your information will be kept confidential and used
                   only for recruitment purposes.
                 </p>
@@ -421,24 +455,27 @@ function Career() {
               </div>
 
             </form>
+
           </div>
+
         </section>
+
       </div>
 
       {/* ================= SUCCESS POPUP ================= */}
 
       {showSuccess && (
 
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#071C30]/60 px-4 backdrop-blur-md">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#071C30]/75 px-4 backdrop-blur-sm">
 
-          <div className="relative w-full max-w-[440px] rounded-2xl border border-white/80 bg-white/95 p-8 text-center shadow-2xl sm:p-10">
+          <div className="relative w-full max-w-[440px] rounded-2xl border border-[#D5E0E9] bg-white p-7 text-center shadow-2xl sm:p-10">
 
-            {/* SUCCESS ICON */}
+            {/* Success Icon */}
 
-            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[#8BB630]/20 bg-[#8BB630]/15">
+            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[#8BB630]/30 bg-[#8BB630]/15">
 
               <svg
-                className="h-10 w-10 text-[#709A1C]"
+                className="h-10 w-10 !text-[#709A1C]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -453,24 +490,26 @@ function Career() {
 
             </div>
 
-            <h2 className="mt-6 text-[25px] font-bold text-[#18324B]">
+            <h2 className="mt-6 text-[25px] font-bold !text-[#18324B]">
               Application Submitted!
             </h2>
 
-            <p className="mt-4 text-[14px] leading-[1.8] text-[#52677B]">
+            <p className="mt-4 text-[14px] leading-[1.9] !text-[#52677B]">
               Thank you for your interest in joining TrackOwls.
               Your application has been received successfully.
               Our team will review your details and contact you shortly.
             </p>
 
             <button
+              type="button"
               onClick={() => setShowSuccess(false)}
-              className="mt-7 w-full rounded-lg bg-[#8BB630] px-6 py-3 text-[14px] font-bold text-[#071C30] transition-all duration-300 hover:bg-[#ADD122]"
+              className="mt-8 w-full rounded-lg bg-[#8BB630] px-6 py-3.5 text-[14px] font-bold !text-[#071C30] transition-all duration-300 hover:bg-[#ADD122]"
             >
               Continue
             </button>
 
           </div>
+
         </div>
 
       )}
