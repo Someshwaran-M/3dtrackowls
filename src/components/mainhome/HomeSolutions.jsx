@@ -302,7 +302,7 @@ return ( <section
       flex-direction: column;
       min-width: 0;
       width: 100%;
-      height: 640px;
+      height: 540px;
       overflow: hidden;
       border: 1px solid rgba(171, 198, 215, 0.2);
       border-radius: 8px;
@@ -728,6 +728,40 @@ return ( <section
     /* =================================
        ACCESSIBILITY
     ================================= */
+
+    /* =================================
+       DESKTOP: 3 COLUMNS x 3 ROWS
+       Only affects desktop layouts.
+       Tablet and mobile styles remain unchanged.
+    ================================= */
+
+    @media (min-width: 901px) {
+      .solutions-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        align-items: stretch;
+      }
+
+      .solution-reveal {
+        position: relative;
+        top: auto;
+        width: 100%;
+        height: 400px;
+        margin-bottom: 0;
+        min-width: 0;
+      }
+
+      .solution-card {
+width: 100%;
+height: 400px;
+}
+.solution-image {
+flex: 0 0 190px;
+width: calc(100% - 24px);
+height: 190px;
+}
+    }
 
     @media (prefers-reduced-motion: reduce) {
 
