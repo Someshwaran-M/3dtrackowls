@@ -84,7 +84,7 @@ export default function Footer() {
               />
 
               <img
-                src="/images/logo2/logo-remove-text3.png"
+                src="/images/logo2/Trackowls_Owl_Logo_Banner-remove-owltext-bg.png"
                 alt="TrackOwls"
                 draggable="false"
                 className="h-auto w-[160px] max-w-full object-contain"
@@ -132,26 +132,24 @@ export default function Footer() {
         {/* Bottom divider */}
         <div className="h-px w-full bg-[rgba(255,255,255,0.1)]" />
 
-        {/* Copyright row */}
-        {/* Copyright row */}
-<div className="flex flex-col gap-3 py-5 text-[10px] text-[#64748b] sm:flex-row sm:items-center sm:justify-between sm:py-6">
+{/* Copyright row */}
+<div className="footer-bottom flex flex-col gap-3 py-5 text-[10px] text-[#64748b] sm:flex-row sm:items-center sm:justify-between sm:py-6">
 
-  <p>
+  <p className="footer-copyright">
     © {new Date().getFullYear()} TrackOwls. All rights reserved.
   </p>
 
-<p className="font-medium tracking-[0.02em] text-[#94a3b8]">
+  <p className="footer-powered font-medium tracking-[0.02em] text-[#94a3b8]">
     Powered by{" "}
     <span className="font-bold text-[#8BB630]">
       MK Dynamic Technology
     </span>
   </p>
-  
-  <p className="tracking-[0.01em] text-[#94a3b8]">
+
+  <p className="footer-tagline tracking-[0.01em] text-[#94a3b8]">
     Scan. Detect. Remove. Protect.
   </p>
 
-  
 
 </div>
       </div>
@@ -240,17 +238,45 @@ export default function Footer() {
             overflow-wrap: anywhere;
           }
 
-          /* Copyright area */
-          #footer .footer-grid + div {
-            width: 100%;
-          }
+         /* Copyright area */
+#footer .footer-grid + div {
+  width: 100%;
+}
 
-          #footer .footer-grid + div + div {
-            gap: 8px;
-            padding-top: 20px;
-            padding-bottom: 12px;
-            font-size: 10px;
-          }
+/* Mobile copyright layout */
+#footer .footer-bottom {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "copyright tagline"
+    "powered powered";
+  align-items: center;
+  column-gap: 4px;
+  row-gap: 5px;
+  padding-top: 12px;
+  padding-bottom: 10px;
+}
+
+#footer .footer-copyright {
+  grid-area: copyright;
+  text-align: left;
+  white-space: nowrap;
+  font-size: 10px;
+}
+
+#footer .footer-tagline {
+  grid-area: tagline;
+  text-align: right;
+  white-space: nowrap;
+  font-size: 10px;
+}
+
+#footer .footer-powered {
+  grid-area: powered;
+  text-align: center;
+  font-size: 11px;
+  margin: 0;
+}
         }
 
         @media (prefers-reduced-motion: reduce) {

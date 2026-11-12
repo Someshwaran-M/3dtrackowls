@@ -77,7 +77,7 @@ export default function Navbar() {
 
   {/* TrackOwls wordmark */}
   <img
-    src="/images/logo/Trackowls_Owl_Logo_Banner-remove-owltext-bg.png"
+    src="/images/logo2/Trackowls_Owl_Logo_Banner-remove-owltext-bg.png"
     alt="TrackOwls"
     draggable="false"
     className="h-11 w-auto max-w-[145px] object-contain sm:h-11 sm:max-w-[160px] lg:h-12 lg:max-w-none"
