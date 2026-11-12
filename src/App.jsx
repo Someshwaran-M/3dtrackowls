@@ -52,6 +52,7 @@ import Leadership from "./components/pages/Leadership";
 import OurTeam from "./components/pages/OurTeam";
 import News from "./components/pages/News";
 import Blog from "./components/pages/Blog";
+import FAQ from "./components/information/FAQ";
 
 function App() {
   
@@ -128,6 +129,8 @@ function App() {
             <Route path="/our-team" element={<OurTeam />} />
             <Route path="/news" element={<News />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/faq" element={<FAQ />} />
+
           </Routes>
         </main>
 
