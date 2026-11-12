@@ -96,7 +96,7 @@ function ReportSection({ id, eyebrow, title, children, perspective }) {
   return (
     <section
       id={id}
-      className="scroll-mt-28 border-t border-[rgba(190,210,190,0.16)] py-8 sm:py-10"
+      className="scroll-mt-28 border-t border-[rgba(190,210,190,0.16)] px-6 py-8 sm:px-10 sm:py-10 lg:px-14"
     >
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
 

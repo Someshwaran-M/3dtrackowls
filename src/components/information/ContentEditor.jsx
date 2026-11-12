@@ -25,9 +25,11 @@ const editorSections = [
 
 function ContentEditor() {
   return (
-    <main className="mx-auto w-full bg-[#EAF3F9] px-3 pt-5 pb-12 font-['Roboto',Arial,sans-serif] text-[#18324B] sm:mt-24 sm:px-5 sm:pb-16 lg:px-6">
+    <main className="mx-auto mt-24 min-h-screen w-full max-w-[1350px] bg-[#EAF3F9] px-0 pb-12 font-['Roboto',Arial,sans-serif] text-[#18324B] sm:mt-28 sm:pb-14">
+
       {/* Hero banner */}
-      <section className="relative  flex min-h-[190px] items-center overflow-hidden rounded-lg border border-[#314B50] bg-[#071C30] sm:min-h-[205px] lg:min-h-[215px]">
+      <section className="relative mx-[10px] mt-[10px] flex min-h-[220px] items-center overflow-hidden rounded-[7px] border border-[#B7C6CB] bg-[#071C30] sm:mx-[18px] sm:min-h-[240px] lg:min-h-[250px]">
+
         {/* World map background */}
         <div
           aria-hidden="true"
@@ -54,48 +56,61 @@ function ContentEditor() {
         />
 
         {/* Banner content */}
-        <div className="relative z-10 w-full px-5 py-9 sm:px-8 sm:py-11 lg:px-10">
-          <span className="inline-flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-[1.6px] text-[#D5F51F]">
+        <div className="relative z-10 w-full px-6 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14">
+
+          <span className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[1.5px] text-[#D5F51F] sm:text-xs">
             <span className="h-[2px] w-5 bg-[#8BB630]" />
             Website information
           </span>
 
-          <h1 className="mt-4 text-[32px] font-bold leading-[1.12] tracking-[-1.2px] text-white sm:text-[40px] sm:tracking-[-1.6px] lg:text-[46px]">
+          <h1 className="mt-4 text-[34px] font-bold leading-[1.15] tracking-[-1px] text-white sm:mt-5 sm:text-[44px] sm:tracking-[-1.5px] lg:text-[48px]">
             Content Editor
           </h1>
 
-          <p className="mt-4 max-w-[600px] text-[13px] leading-[1.8] text-[#D0DCE6] sm:text-[14px]">
+          <p className="mt-4 max-w-[650px] text-[13px] leading-[1.9] text-[#D0DCE6] sm:mt-5 sm:text-[14px]">
             Guidance for responsible content review and infringement reporting.
           </p>
+
         </div>
       </section>
 
       {/* Main information */}
       <section
         aria-label="Content editor information"
-        className="mx-auto mt-10 w-full max-w-[760px] px-2 sm:mt-14 sm:px-4 lg:mt-16"
+        className="mx-auto mt-10 w-full max-w-[1000px] px-4 pb-16 sm:mt-12 sm:px-6 sm:pb-20 lg:mt-14 lg:px-8"
       >
-        <div className="space-y-8 sm:space-y-9">
+
+        <div className="space-y-7 sm:space-y-8 lg:space-y-9">
+
           {editorSections.map((section) => (
-            <article key={section.title} className="group">
-              <h2 className="text-[17px] font-bold leading-[1.4] tracking-[-0.35px] text-[#18324B] transition-colors duration-200 group-hover:text-[#648A13] sm:text-[19px]">
+            <article
+              key={section.title}
+              className="w-full rounded-md bg-[rgba(10,32,53,0.78)] px-5 py-5 transition-colors duration-300 sm:px-7 sm:py-6 lg:px-8 lg:py-7"
+            >
+
+              <h2 className="mb-3 text-[18px] font-bold leading-[1.4] tracking-[-0.35px] text-white transition-colors duration-200 sm:text-[20px]">
                 {section.title}
               </h2>
 
-              <p className="mt-2.5 text-[13px] leading-[1.8] text-[#526B86] sm:mt-3 sm:text-[14px] sm:leading-[1.9]">
+              <p className="m-0 text-[13px] font-normal leading-[1.9] text-[#B9C9D7] sm:text-[14px] md:text-[15px]">
                 {section.description}
               </p>
+
             </article>
           ))}
+
         </div>
 
         {/* Footer note */}
-        <div className="mt-8 pt-5 sm:mt-10 sm:pt-6">
-          <p className="text-[10px] leading-[1.8] text-[#71869B] sm:text-[11px]">
+        <div className="mt-10 border-t border-[#D5E0E8] pt-5 sm:mt-12">
+
+          <p className="text-[11px] leading-[1.9] text-[#71869B] sm:text-xs">
             Website notices prepared for this initial version. Final company
             details and policies require review before commercial public launch.
           </p>
+
         </div>
+
       </section>
     </main>
   );

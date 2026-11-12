@@ -8,7 +8,7 @@ const assets = [
     description:
       "A finished film carries the work of production teams, studios and distributors. Protection planning connects the title, release window and authorized channels with evidence of suspected copies.",
     linkText: "Explore film & OTT protection",
-    link: "/industries",
+    link: "/industries/film-entertainment",
   },
   {
     image: "/images/home/music-recording.png",
@@ -17,7 +17,7 @@ const assets = [
     description:
       "Music and spoken-word releases need reliable reference assets. Analyst review links a suspected upload or download page to the protected recording before a rights-based complaint is considered.",
     linkText: "Explore copyright enforcement",
-    link: "/services",
+    link: "/solutions/copyright-enforcement",
   },
   {
     image: "/images/home/digital-servers.png",
@@ -26,7 +26,7 @@ const assets = [
     description:
       "Public websites, apps and linked sources can distribute protected assets through different routes. Investigation captures the source URL and context, then follows verified cases through reporting and outcome checks.",
     linkText: "Explore website monitoring",
-    link: "/platform",
+    link: "/solutions/web-app-monitoring",
   },
 ];
 

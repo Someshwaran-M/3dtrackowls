@@ -382,7 +382,7 @@ export default function SolutionsMotion() {
   const solutionLinks = [
     "/solutions/live-streaming-protection",
     "/solutions/ott-vod-protection",
-    "/solutions/website-app-monitoring",
+    "/solutions/web-app-monitoring",
     "/solutions/copyright-enforcement",
     "/solutions/brand-protection",
     "/solutions/piracy-intelligence",

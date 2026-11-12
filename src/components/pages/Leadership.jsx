@@ -54,7 +54,7 @@ const Leadership = () => {
   return (
     <section
       id="leadership"
-      className="relative overflow-hidden bg-[#F5F8F2] px-5 py-14 font-['Roboto'] text-[#152019] sm:px-8 sm:py-16 lg:px-16 lg:py-20"
+      className="relative overflow-hidden mt-4 bg-[#F5F8F2] px-5 py-14 font-['Roboto'] text-[#152019] sm:px-8 sm:py-16 lg:px-16 lg:py-20"
     >
       {/* Background glow */}
       <div className="pointer-events-none absolute -right-40 top-0 h-80 w-80 rounded-full bg-[#8BB630]/10 blur-[100px]" />

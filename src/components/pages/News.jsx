@@ -89,7 +89,7 @@ const News = () => {
   return (
     <section
       id="news"
-      className="relative isolate overflow-hidden bg-transparent px-5 py-14 font-['Roboto'] text-white sm:px-8 sm:py-16 lg:px-16 lg:py-20"
+      className="relative isolate overflow-hidden mt-4 bg-transparent px-5 py-14 font-['Roboto'] text-white sm:px-8 sm:py-16 lg:px-16 lg:py-20"
     >
 
       {/* BACKGROUND GLOW */}

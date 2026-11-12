@@ -26,8 +26,10 @@ const termsSections = [
 function InformationTerms() {
   return (
     <main className="mx-auto mt-24 min-h-screen w-full max-w-[1350px] bg-[#EAF3F9] px-0 pb-12 font-['Roboto',Arial,sans-serif] text-[#18324B] sm:mt-28 sm:pb-14">
+
       {/* Hero banner */}
-      <section className="relative mx-[10px] mt-[10px] flex min-h-[210px] items-center overflow-hidden rounded-[7px] border border-[#B7C6CB] bg-[#071C30] sm:mx-[18px] sm:min-h-[230px] lg:min-h-[245px]">
+      <section className="relative mx-[10px] mt-[10px] flex min-h-[220px] items-center overflow-hidden rounded-[7px] border border-[#B7C6CB] bg-[#071C30] sm:mx-[18px] sm:min-h-[240px] lg:min-h-[250px]">
+
         {/* World map background */}
         <div
           aria-hidden="true"
@@ -49,45 +51,56 @@ function InformationTerms() {
         />
 
         {/* Banner content */}
-        <div className="relative z-10 px-[22px] py-9 sm:px-[36px] sm:py-10 lg:px-[48px]">
-          <span className="block text-[10px] font-extrabold uppercase tracking-[1.4px] text-[#D5F51F]">
+        <div className="relative z-10 w-full px-6 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14">
+
+          <span className="block text-[11px] font-extrabold uppercase tracking-[1.5px] text-[#D5F51F] sm:text-xs">
             Website information
           </span>
 
-          <h1 className="mt-4 text-[34px] font-bold leading-[1.08] tracking-[-1.5px] text-white sm:mt-5 sm:text-[44px] lg:text-[48px]">
+          <h1 className="mt-4 text-[34px] font-bold leading-[1.15] tracking-[-1px] text-white sm:mt-5 sm:text-[44px] sm:tracking-[-1.5px] lg:text-[48px]">
             Website Terms
           </h1>
 
-          <p className="mt-4 text-[12px] leading-[1.8] text-[#D0DCE6] sm:mt-5 sm:text-[13px]">
+          <p className="mt-4 text-[13px] leading-[1.9] text-[#D0DCE6] sm:mt-5 sm:text-[14px]">
             Conditions for using the TrackOwls website.
           </p>
+
         </div>
       </section>
 
       {/* Terms content */}
       <section
         aria-label="Website terms and conditions"
-        className="mx-auto mt-10 w-[calc(100%-36px)] max-w-[760px] sm:mt-14 sm:w-[calc(100%-64px)] lg:mt-16"
+        className="mx-auto mt-10 w-full max-w-[1000px] px-4 pb-16 sm:mt-12 sm:px-6 sm:pb-20 lg:mt-14 lg:px-8"
       >
+
         <div className="space-y-7 sm:space-y-8 lg:space-y-9">
+
           {termsSections.map((section) => (
-            <article key={section.title}>
-              <h2 className="text-[16px] font-bold leading-[1.5] tracking-[-0.35px] text-[#18324B] sm:text-[17px]">
+            <article
+              key={section.title}
+              className="w-full rounded-md bg-[rgba(10,32,53,0.78)] px-5 py-5 sm:px-7 sm:py-6 lg:px-8 lg:py-7"
+            >
+
+              <h2 className="mb-3 text-[18px] font-bold leading-[1.4] tracking-[-0.35px] text-white sm:text-[20px]">
                 {section.title}
               </h2>
 
-              <p className="mt-2 text-[12px] leading-[1.85] text-[#435C75] sm:mt-2.5 sm:text-[13px] sm:leading-[1.9]">
+              <p className="m-0 text-[13px] font-normal leading-[1.9] text-[#B9C9D7] sm:text-[14px] md:text-[15px]">
                 {section.description}
               </p>
+
             </article>
           ))}
+
         </div>
 
         {/* Footer note */}
-        <p className="mt-8 text-[10px] leading-[1.8] text-[#71869B] sm:mt-10 sm:text-[11px]">
+        <p className="mt-10 border-t border-[#D5E0E8] pt-5 text-[11px] leading-[1.9] text-[#71869B] sm:mt-12 sm:text-xs">
           Website notices prepared for this initial version. Final company
           details and policies require review before commercial public launch.
         </p>
+
       </section>
     </main>
   );

@@ -99,7 +99,7 @@ export default function HomePlatform() {
   const handleExplore = () => {
     // /request-demo is not registered in the supplied App.jsx.
     // Use the existing Contact route so the button always navigates.
-    navigate("/contact");
+    navigate("/platform");
   };
 
   const cardMotion = reduceMotion
