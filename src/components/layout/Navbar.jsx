@@ -65,14 +65,14 @@ export default function Navbar() {
   to="/"
   onClick={closeMenu}
   aria-label="TrackOwls home"
-  className="flex shrink-0 items-center gap-1.5 px-2 py-1.5 sm:gap-2 sm:px-3 lg:px-4"
+  className="flex shrink-0 items-center gap-1 px-2 py-1.5 sm:gap-1.5 sm:px-3 lg:px-4"
 >
   {/* Owl logo */}
   <img
     src="/images/logo2/logo-remove-logo.png"
     alt="TrackOwls Owl"
     draggable="false"
-    className="h-10 w-10 shrink-0 object-contain sm:h-12 sm:w-12 lg:h-14 lg:w-14"
+    className="h-12 w-12 shrink-0 object-contain sm:h-12 sm:w-12 lg:h-14 lg:w-14"
   />
 
   {/* TrackOwls wordmark */}
@@ -80,7 +80,7 @@ export default function Navbar() {
     src="/images/logo/Trackowls_Owl_Logo_Banner-remove-owltext-bg.png"
     alt="TrackOwls"
     draggable="false"
-    className="h-9 w-auto max-w-[125px] object-contain sm:h-11 sm:max-w-[160px] lg:h-12 lg:max-w-none"
+    className="h-11 w-auto max-w-[145px] object-contain sm:h-11 sm:max-w-[160px] lg:h-12 lg:max-w-none"
   />
 </Link>
 
@@ -170,7 +170,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={handleConsultation}
-            className="mt-5 flex w-full items-center justify-center rounded-[8px] bg-[#5a8c12] px-5 py-3 text-[15px] font-semibold text-white transition hover:bg-[#689d14]"
+            className="mt-5 flex w-full items-center justify-center rounded-[8px] bg-[#d1ed14] px-5 py-3 text-[15px] font-semibold text-[#02040d] transition hover:bg-[#689d14]"
           >
             Request a consultation
           </button>
