@@ -1,8 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
-// Loader
-import TrackOwlsLoader from "./components/common/TrackOwlsLoader";
+import ImageLoader from "./components/common/ImageLoader";
 import GalaxyBackground from "./components/common/GalaxyBackground";
 
 // Layout
@@ -59,47 +58,41 @@ import News from "./components/pages/News";
 import Blog from "./components/pages/Blog";
 
 function App() {
+
   // Add galaxy-site class to body for proper CSS variable scoping
   useEffect(() => {
     document.body.classList.add("galaxy-site");
+
     return () => document.body.classList.remove("galaxy-site");
   }, []);
-  // Show the loader on each full page load or browser refresh.
-  // Internal React Router navigation does not reload this component.
-  const [loading, setLoading] = useState(() => {
-    try {
-      return sessionStorage.getItem("trackowls-loader-shown") !== "true";
-    } catch {
-      return true;
-    }
-  });
 
+  // Show loader every time the application loads or refreshes
+  const [loading, setLoading] = useState(true);
+
+  // Handle loader completion
   const handleLoaderComplete = useCallback(() => {
-    try {
-      sessionStorage.setItem("trackowls-loader-shown", "true");
-    } catch {
-      // Continue normally if sessionStorage is unavailable.
-    }
-
     setLoading(false);
   }, []);
 
   return (
     <div className="min-h-screen text-[#152019] dark:text-white">
+
       {/* 3D WebGL Galaxy background — fixed layer, matches reference site */}
       <GalaxyBackground />
-      {/* TrackOwls loader: shown once per full page load */}
+
+      {/* Image Loader — appears on every browser refresh */}
       {loading && (
-        <TrackOwlsLoader
-          duration={8000}
-          autoEnter={true}
-          onEnter={handleLoaderComplete}
+        <ImageLoader
           onComplete={handleLoaderComplete}
+          duration={2000}
         />
       )}
 
       {/* Existing website */}
-      <div className={loading ? "invisible" : "visible"} aria-hidden={loading}>
+      <div
+        className={loading ? "invisible" : "visible"}
+        aria-hidden={loading}
+      >
         <Navbar />
 
         <main>

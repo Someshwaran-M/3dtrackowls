@@ -55,7 +55,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 w-full bg-[rgba(2,4,13,0.82)] backdrop-blur-xl border-b border-[rgba(255,255,255,0.08)]">
+    <header className="fixed inset-x-0 top-0 z-50 w-full bg-black/95 backdrop-blur-xl border-b border-[rgba(255,255,255,0.08)]">
       <nav
         aria-label="Main navigation"
         className="relative mx-auto flex h-20 w-full max-w-[1500px] items-center justify-between px-4 sm:px-6 lg:px-12"
