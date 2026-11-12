@@ -155,141 +155,146 @@ export default function Footer() {
       </div>
 
       {/* Mobile-only layout adjustments */}
-      <style>{`
-        @media (max-width: 639px) {
-          #footer > div {
-            padding-top: 26px;
-            padding-left: 10px;
-            padding-right: 10px;
-          }
+    <style>{`
+  @media (max-width: 639px) {
+    /* Main footer spacing */
+    #footer > div {
+      padding-top: 20px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
 
-          #footer .footer-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-            column-gap: 22px;
-            row-gap: 36px;
-            padding-bottom: 36px;
-          }
+    /* Footer grid */
+    #footer .footer-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      column-gap: 18px;
+      row-gap: 12px;
+      padding-bottom: 18px;
+    }
 
-          /* Logo and description span both columns */
-          #footer .footer-brand {
-            grid-column: 1 / -1;
-            grid-row: 1;
-            max-width: 280px;
-          }
+    /* Brand section */
+    #footer .footer-brand {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      max-width: 280px;
+    }
 
-          #footer .footer-brand > a {
-            gap: 7px;
-          }
+    #footer .footer-brand > a {
+      gap: 7px;
+    }
 
-          #footer .footer-brand > a img:last-child {
-            width: 175px;
-          }
+    #footer .footer-brand > a img:last-child {
+      width: 175px;
+    }
 
-          #footer .footer-brand > p {
-            margin-top: 16px;
-          }
+    #footer .footer-brand > p {
+      margin-top: 10px;
+    }
 
-          #footer .footer-brand > div {
-            margin-top: 27px;
-          }
+    #footer .footer-brand > div {
+      margin-top: 16px;
+    }
 
-          /* Protection: left column */
-          #footer .footer-protection {
-            grid-column: 1;
-            grid-row: 2;
-            min-width: 0;
-          }
+    /* Protection column */
+    #footer .footer-protection {
+      grid-column: 1;
+      grid-row: 2;
+      min-width: 0;
+    }
 
-          /* Company: right column */
-          #footer .footer-company {
-            grid-column: 2;
-            grid-row: 2;
-            min-width: 0;
-          }
+    /* Company column */
+    #footer .footer-company {
+      grid-column: 2;
+      grid-row: 2;
+      min-width: 0;
+    }
 
-          /* Information: full width below both columns */
-          #footer .footer-information {
-            grid-column: 1 / -1;
-            grid-row: 3;
-            margin-top: 0;
-          }
+    /* Information section */
+    #footer .footer-information {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      margin-top: 0;
+    }
 
-          #footer .footer-grid h3 {
-            margin-bottom: 16px;
-            font-size: 12px;
-          }
+    /* Section headings */
+    #footer .footer-grid h3 {
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
 
-          #footer .footer-grid ul {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-          }
+    /* Footer links */
+    #footer .footer-grid ul {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
 
-          #footer .footer-grid li {
-            min-width: 0;
-            line-height: 1.65;
-          }
+    #footer .footer-grid li {
+      min-width: 0;
+      line-height: 1.5;
+    }
 
-          #footer .footer-grid li a {
-            display: inline;
-            font-size: 12px;
-            line-height: 1.65;
-            overflow-wrap: anywhere;
-          }
+    #footer .footer-grid li a {
+      display: inline;
+      font-size: 12px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
 
-         /* Copyright area */
-#footer .footer-grid + div {
-  width: 100%;
-}
+    /* Copyright divider */
+    #footer .footer-grid + div {
+      width: 100%;
+    }
 
-/* Mobile copyright layout */
-#footer .footer-bottom {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "copyright tagline"
-    "powered powered";
-  align-items: center;
-  column-gap: 4px;
-  row-gap: 5px;
-  padding-top: 12px;
-  padding-bottom: 10px;
-}
+    /* Mobile copyright layout */
+    #footer .footer-bottom {
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-areas:
+        "copyright tagline"
+        "powered powered";
+      align-items: center;
+      column-gap: 4px;
+      row-gap: 4px;
+      padding-top: 10px;
+      padding-bottom: 8px;
+    }
 
-#footer .footer-copyright {
-  grid-area: copyright;
-  text-align: left;
-  white-space: nowrap;
-  font-size: 10px;
-}
+    #footer .footer-copyright {
+      grid-area: copyright;
+      text-align: left;
+      white-space: nowrap;
+      font-size: 10px;
+    }
 
-#footer .footer-tagline {
-  grid-area: tagline;
-  text-align: right;
-  white-space: nowrap;
-  font-size: 10px;
-}
+    #footer .footer-tagline {
+      grid-area: tagline;
+      text-align: right;
+      white-space: nowrap;
+      font-size: 10px;
+    }
 
-#footer .footer-powered {
-  grid-area: powered;
-  text-align: center;
-  font-size: 11px;
-  margin: 0;
-}
-        }
+    #footer .footer-powered {
+      grid-area: powered;
+      text-align: center;
+      font-size: 11px;
+      margin: 0;
+    }
+  }
 
-        @media (prefers-reduced-motion: reduce) {
-          #footer *,
-          #footer *::before,
-          #footer *::after {
-            transition-duration: 0.01ms !important;
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            scroll-behavior: auto !important;
-          }
-        }
-      `}</style>
+  /* Reduced motion accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    #footer *,
+    #footer *::before,
+    #footer *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+    }
+  }
+`}</style>
     </footer>
   );
 }
