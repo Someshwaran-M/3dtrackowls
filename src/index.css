@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* ─── Galaxy background CSS variables (from reference site) ─── */
 :root {
   --voyage-background: #02040d;
   --voyage-highlight:  #d1ed14;
@@ -37,13 +36,11 @@
   --network-border:      2px;
 }
 
-/* ─── Galaxy site body class ─── */
 body.galaxy-site {
   isolation: isolate;
   background: var(--voyage-background);
 }
 
-/* ─── Fixed full-screen canvas background ─── */
 .site-galaxy-background {
   z-index: -1;
   pointer-events: none;
@@ -61,7 +58,6 @@ body.galaxy-site {
   inset: 0;
 }
 
-/* ─── Galaxy voyage scrolling section ─── */
 .galaxy-voyage {
   height: var(--voyage-height);
   background: var(--voyage-background);
@@ -149,13 +145,11 @@ body.galaxy-site {
   display: flex;
 }
 
-/* ─── When galaxy-site is active, style the site accordingly ─── */
 .galaxy-site .galaxy-voyage,
 .galaxy-site .galaxy-sticky {
   background: transparent;
 }
 
-/* ─── Motion reveal animations (from reference site) ─── */
 .motion-reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -171,7 +165,6 @@ body.galaxy-site {
   .motion-reveal { opacity: 1; transform: none; }
 }
 
-/* ─── Mobile adjustments ─── */
 @media (max-width: 760px) {
   .galaxy-content .protection-copy { width: 70%; }
   .galaxy-content h1 { font-size: var(--network-display-mobile) !important; }
@@ -182,14 +175,12 @@ body.galaxy-site {
   .galaxy-shade { background: linear-gradient(180deg, var(--voyage-shade), transparent); }
 } 
 
-/* ─── Global transparency & glass card overrides for galaxy site ─── */
 body.galaxy-site {
   background-color: var(--voyage-background) !important;
   color: var(--network-foreground);
   overflow-x: hidden;
 }
 
-/* Remove all opaque white & light backgrounds across all landing screens and overall website */
 .galaxy-site main,
 .galaxy-site section,
 .galaxy-site footer,
@@ -236,7 +227,6 @@ body.galaxy-site {
   mix-blend-mode: luminosity !important;
 }
 
-/* Translucent glass styling with card opacity so the 3D galaxy shows behind cards */
 .galaxy-site article,
 .galaxy-site .solution-card,
 .galaxy-site .hp-case,
@@ -252,14 +242,12 @@ body.galaxy-site {
   border-color: rgba(171, 198, 215, 0.2) !important;
 }
 
-/* Hover effect on glass cards */
 .galaxy-site article:hover,
 .galaxy-site .solution-card:hover {
   background: rgba(14, 34, 60, 0.78) !important;
   border-color: rgba(209, 237, 20, 0.45) !important;
 }
 
-/* Headings and labels readability on dark galaxy background */
 .galaxy-site h1,
 .galaxy-site h2,
 .galaxy-site h3,
@@ -286,7 +274,6 @@ body.galaxy-site {
   color: #f8fafc !important;
 }
 
-/* Body / description text */
 .galaxy-site p,
 .galaxy-site li,
 .galaxy-site .hp-intro,
@@ -306,7 +293,6 @@ body.galaxy-site {
   color: #b7cbd9 !important;
 }
 
-/* Eyebrows, highlights and accents in vibrant lime */
 .galaxy-site [class*="eyebrow"],
 .galaxy-site .hp-eyebrow,
 .galaxy-site .hp-case-eyebrow,
@@ -326,7 +312,6 @@ body.galaxy-site {
   color: #d1ed14 !important;
 }
 
-/* Links and actions */
 .galaxy-site a.solution-link,
 .galaxy-site .workflow-cta,
 .galaxy-site .solutions-view-all {
@@ -334,7 +319,6 @@ body.galaxy-site {
   border-color: rgba(209, 237, 20, 0.4) !important;
 }
 
-/* Borders and dividers */
 .galaxy-site hr,
 .galaxy-site [class*="border-[#D8E4EF]"],
 .galaxy-site [class*="border-[#D1E0EC]"],
@@ -359,7 +343,6 @@ body.galaxy-site {
   background-color: rgba(171, 198, 215, 0.18) !important;
 }
 
-/* Translucent Frosted Glass Navbar */
 .galaxy-site header {
   background: #ffffff !important;
  background-color: #ffffff !important;
@@ -376,12 +359,10 @@ body.galaxy-site {
   color: #03142C !important;
 }
 
-/* Navigation hover */
 .galaxy-site header nav a:hover:not([class*="bg-"]):not([aria-label="TrackOwls home"]) {
   color: #8bb630 !important;
 }
 
-/* Active navigation */
 .galaxy-site header nav a[aria-current="page"] {
   color: #5a8c12 !important;
 }
@@ -392,7 +373,6 @@ body.galaxy-site {
   border-color: #e5e7eb !important;
 }
 
-/* Mobile Navbar Toggle Visibility */
 @media (max-width: 1279px) {
   .navbar-mobile-toggle {
     display: flex !important;
@@ -410,11 +390,7 @@ body.galaxy-site {
     display: none !important;
   }
 }
-/* =========================================
-   TRACKOWLS WORKFLOW - REMOVE NAVY BACKGROUND
-========================================= */
 
-/* Remove dark background from workflow cards */
 .galaxy-site .workflow-section .workflow-stage,
 .galaxy-site .workflow-section .workflow-stage:hover,
 .workflow-section .workflow-stage,
@@ -429,7 +405,6 @@ body.galaxy-site {
     box-shadow: none !important;
 }
 
-/* Remove background from workflow content */
 .galaxy-site .workflow-section .workflow-number,
 .galaxy-site .workflow-section .workflow-title,
 .galaxy-site .workflow-section .workflow-description {
@@ -438,13 +413,11 @@ body.galaxy-site {
     background-image: none !important;
 }
 
-/* Preserve the existing workflow section background */
 .galaxy-site .workflow-section {
     background: transparent !important;
     background-color: transparent !important;
 }
 
-/* Preserve text visibility */
 .galaxy-site .workflow-section .workflow-title {
     color: #f8fafc !important;
 }
@@ -457,7 +430,6 @@ body.galaxy-site {
     color: #d1ed14 !important;
 }
 
-/* Galaxy hero layout */
 .galaxy-sticky {
   display: flex;
   flex-direction: column;
@@ -478,7 +450,6 @@ body.galaxy-site {
   width: 100%;
 }
 
-/* Mobile spacing */
 @media (max-width: 640px) {
   .galaxy-footer {
     padding-top: 22px;
