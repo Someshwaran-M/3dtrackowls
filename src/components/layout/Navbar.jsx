@@ -62,27 +62,27 @@ export default function Navbar() {
       >
         {/* Brand logo & text image */}
         <Link
-          to="/"
-          onClick={closeMenu}
-          aria-label="TrackOwls home"
-          className="flex shrink-0 items-center gap-1.5 sm:gap-1.5  px-2 py-1.5 "
-        >
-          {/* Owl logo */}
-          <img
-            src="/images/logo2/logo-remove-logo.png"
-            alt="TrackOwls Owl"
-            draggable="false"
-            className="h-17 w-16 object-contain sm:h-18 sm:w-15"
-          />
+  to="/"
+  onClick={closeMenu}
+  aria-label="TrackOwls home"
+  className="flex shrink-0 items-center gap-1.5 px-2 py-1.5 sm:gap-2 sm:px-3 lg:px-4"
+>
+  {/* Owl logo */}
+  <img
+    src="/images/logo2/logo-remove-logo.png"
+    alt="TrackOwls Owl"
+    draggable="false"
+    className="h-10 w-10 shrink-0 object-contain sm:h-12 sm:w-12 lg:h-14 lg:w-14"
+  />
 
-          {/* TrackOwls wordmark */}
-          <img
-            src="/images/logo/Trackowls_Owl_Logo_Banner-remove-owltext-bg.png"
-            alt="TrackOwls"
-            draggable="false"
-            className="h-14 w-auto max-w-[135px] object-contain sm:h-14 sm:max-w-none"
-          />
-        </Link>
+  {/* TrackOwls wordmark */}
+  <img
+    src="/images/logo/Trackowls_Owl_Logo_Banner-remove-owltext-bg.png"
+    alt="TrackOwls"
+    draggable="false"
+    className="h-9 w-auto max-w-[125px] object-contain sm:h-11 sm:max-w-[160px] lg:h-12 lg:max-w-none"
+  />
+</Link>
 
         {/* Desktop navigation */}
         <div className="hidden items-center gap-8 xl:flex">
