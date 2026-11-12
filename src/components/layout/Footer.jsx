@@ -77,14 +77,14 @@ export default function Footer() {
               className="inline-flex items-center gap-2 rounded-lg bg-white/95 px-3 py-1.5 shadow-sm backdrop-blur-sm"
             >
               <img
-                src="/images/logo/Trackowls_Owl_Logo_Banner-remove-owl-bg.png"
+                src="/images/logo2/logo-remove-logo.png"
                 alt=""
                 draggable="false"
                 className="h-9 w-7 shrink-0 object-contain sm:h-10 sm:w-8"
               />
 
               <img
-                src="/images/logo/Trackowls_Owl_Logo_Banner-remove-owltext-bg.png"
+                src="/images/logo2/logo-remove-text.png"
                 alt="TrackOwls"
                 draggable="false"
                 className="h-auto w-[160px] max-w-full object-contain"

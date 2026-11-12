@@ -69,7 +69,7 @@ export default function Navbar() {
         >
           {/* Owl logo */}
           <img
-            src="/images/logo/Trackowls_Owl_Logo_Banner-remove-owl-bg.png"
+            src="/images/logo2/logo-remove-logo.png"
             alt="TrackOwls Owl"
             draggable="false"
             className="h-10 w-8 object-contain sm:h-12 sm:w-9"
@@ -77,7 +77,7 @@ export default function Navbar() {
 
           {/* TrackOwls wordmark */}
           <img
-            src="/images/logo/Trackowls_Owl_Logo_Banner-remove-owltext-bg.png"
+            src="/images/logo2/logo-remove-text.png"
             alt="TrackOwls"
             draggable="false"
             className="h-9 w-auto max-w-[135px] object-contain sm:h-11 sm:max-w-none"

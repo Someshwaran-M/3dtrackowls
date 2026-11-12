@@ -91,7 +91,7 @@ export default function TrackOwlsLoader({
           <div className="track-loader__owl-scan" />
 
           <img
-            src="/images/logo/Trackowls_Owl_Logo_Banner-remove-owl-bg.png"
+            src="/images/logo2/logo-remove-logo.png"
             alt="TrackOwls owl logo"
             className="track-loader__owl"
           />
@@ -102,7 +102,7 @@ export default function TrackOwlsLoader({
             Track
           </span>
 
-          <span className="track-loader__brand-green">
+          <span className="track-loader__brand-dark">
             Owls
           </span>
           
