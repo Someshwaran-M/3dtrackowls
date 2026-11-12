@@ -65,15 +65,15 @@ export default function Navbar() {
   to="/"
   onClick={closeMenu}
   aria-label="TrackOwls home"
-  className="flex shrink-0 items-center gap-1 px-2 py-1.5 sm:gap-1.5 sm:px-3 lg:px-4"
+  className="flex shrink-0 items-center gap-1 px-1 py-1.5 sm:gap-1.5 sm:px-2 lg:px-3"
 >
   {/* Owl logo */}
   <img
-    src="/images/logo2/logo-remove-logo.png"
-    alt="TrackOwls Owl"
-    draggable="false"
-    className="h-12 w-12 shrink-0 object-contain sm:h-12 sm:w-12 lg:h-14 lg:w-14"
-  />
+  src="/images/logo2/logo-remove-logo.png"
+  alt="TrackOwls Owl"
+  draggable="false"
+  className="h-[58px] w-[58px] shrink-0 object-contain sm:h-12 sm:w-12 lg:h-14 lg:w-14"
+/>
 
   {/* TrackOwls wordmark */}
   <img
