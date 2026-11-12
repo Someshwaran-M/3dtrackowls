@@ -168,7 +168,7 @@ export default function Footer() {
     #footer .footer-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      column-gap: 18px;
+      column-gap: 28px;
       row-gap: 12px;
       padding-bottom: 18px;
     }
