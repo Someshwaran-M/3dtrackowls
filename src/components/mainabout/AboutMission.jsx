@@ -162,7 +162,7 @@ function AboutMission() {
                 />
 
      <img
-  src="/images/logo2/logo.png"
+  src="/images/logo2/logo2.png"
   alt="TrackOwls — Scan, Detect, Remove, Protect"
   className="mission-logo relative z-10 h-auto w-full max-w-[270px] rounded-4xl bg-white p-3 object-contain shadow-sm transition-opacity hover:opacity-95 sm:max-w-[350px] lg:max-w-[450px] xl:max-w-[490px]"
 />

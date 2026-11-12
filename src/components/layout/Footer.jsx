@@ -84,7 +84,7 @@ export default function Footer() {
               />
 
               <img
-                src="/images/logo2/logo-remove-text.png"
+                src="/images/logo2/logo-remove-text3.png"
                 alt="TrackOwls"
                 draggable="false"
                 className="h-auto w-[160px] max-w-full object-contain"
