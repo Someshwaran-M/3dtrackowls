@@ -50,7 +50,7 @@ const socialLinks = [
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/p-dhanalakshmi-03a60b438/",
+    href: "https://www.linkedin.com/company/trackowls-technologies-private-limited/",
     icon: "linkedin",
   },
 ];
