@@ -1055,11 +1055,11 @@ function Career() {
 
             </div>
 
-            <h2 className="mt-6 text-[25px] font-bold !text-[#18324B]">
+            <h2 className="mt-6 text-[25px] font-bold !text-white">
               Application Submitted!
             </h2>
 
-            <p className="mt-4 text-[14px] leading-[1.9] !text-[#52677B]">
+            <p className="mt-4 text-[14px] leading-[1.9] !text-white/80">
               Thank you for your interest in joining TrackOwls.
               Your application has been received successfully.
               Our team will review your details and contact you shortly.
