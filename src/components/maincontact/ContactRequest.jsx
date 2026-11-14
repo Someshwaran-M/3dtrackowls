@@ -22,8 +22,108 @@ const supportOptions = [
   "Others",
 ];
 
+const socialLinks = [
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/trackowls/",
+    icon: "instagram",
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61594204995079",
+    icon: "facebook",
+  },
+  {
+    name: "Threads",
+    href: "https://www.threads.com/@trackowls",
+    icon: "threads",
+  },
+  {
+    name: "X",
+    href: "https://x.com/Track_Owls",
+    icon: "x",
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/channel/UCi_S9-dSwWf0yjaXzPiGdjw",
+    icon: "youtube",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/p-dhanalakshmi-03a60b438/",
+    icon: "linkedin",
+  },
+];
+
 const inputClass =
   "mt-2 w-full rounded-md border border-white/15 bg-[#0E1711]/80 px-4 py-3 text-[14px] text-white outline-none transition placeholder:text-[#89978C] focus:border-[#8BB630] focus:ring-2 focus:ring-[#8BB630]/20";
+
+function SocialIcon({ type }) {
+  const icons = {
+    instagram: (
+      <>
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" />
+      </>
+    ),
+
+    facebook: (
+      <path
+        d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.3-1.5 1.6-1.5h1.6V3.7c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2H7.2V13H10v8h3.5Z"
+        fill="currentColor"
+        stroke="none"
+      />
+    ),
+
+    threads: (
+      <path d="M16.8 8.3c-.7-2.1-2.2-3.3-4.7-3.3-3.7 0-6.1 2.7-6.1 7.1 0 4.5 2.3 7 6.2 7 3.2 0 5.2-1.8 5.2-4.5 0-2.4-1.7-3.8-4.1-3.8-2.1 0-3.5 1.1-3.5 2.8 0 1.4 1 2.3 2.5 2.3 2.7 0 4.1-2.3 4.1-5.3 0-3.9-2.1-6.1-5.4-6.1-4.3 0-7.2 3.1-7.2 7.8" />
+    ),
+
+    x: (
+      <path
+        d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.7 5.6 22H2.4l7.3-8.5L1.9 2h6.5l4.5 6.7L18.9 2Zm-1.1 17.9h1.7L7.4 4H5.6l12.2 15.9Z"
+        fill="currentColor"
+        stroke="none"
+      />
+    ),
+
+    youtube: (
+      <>
+        <rect x="2" y="5" width="20" height="14" rx="4" />
+        <path
+          d="m10 9 5 3-5 3V9Z"
+          fill="currentColor"
+          stroke="none"
+        />
+      </>
+    ),
+
+    linkedin: (
+      <path
+        d="M5.2 3a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4ZM3.3 9h3.8v12H3.3V9Zm6.2 0h3.6v1.6h.1a4 4 0 0 1 3.6-2c3.8 0 4.5 2.5 4.5 5.7V21h-3.8v-5.9c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21H9.5V9Z"
+        fill="currentColor"
+        stroke="none"
+      />
+    ),
+  };
+
+  return (
+    <svg
+      width="19"
+      height="19"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {icons[type]}
+    </svg>
+  );
+}
 
 function ContactRequest() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -192,6 +292,47 @@ function ContactRequest() {
               info@trackowls.com
             </a>
           </div>
+
+          {/* Social Media Section */}
+<div className="mt-2">
+
+  <h3 className="text-[14px] font-bold text-white">
+    Connect with TrackOwls
+  </h3>
+
+  <p className="mt-2 text-[12px] leading-6 text-[#C0CCC1]">
+    Follow us for the latest updates, insights and digital protection news.
+  </p>
+
+  <div className="mt-4 flex flex-wrap items-center gap-3">
+
+    {socialLinks.map((social) => (
+      <a
+        key={social.name}
+        href={social.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`TrackOwls on ${social.name}`}
+        title={social.name}
+        className="
+          group flex h-11 w-11 items-center justify-center
+          rounded-lg border border-white/15
+          bg-[#152019]/80 text-[#C0CCC1]
+          transition-all duration-300
+          hover:-translate-y-1
+          hover:border-[#8BB630]
+          hover:bg-[#8BB630]/15
+          hover:text-[#8BB630]
+          hover:shadow-[0_5px_20px_rgba(139,182,48,0.15)]
+        "
+      >
+        <SocialIcon type={social.icon} />
+      </a>
+    ))}
+
+  </div>
+
+</div>
 
           <div>
             <h3 className="text-[15px] font-bold text-white">
